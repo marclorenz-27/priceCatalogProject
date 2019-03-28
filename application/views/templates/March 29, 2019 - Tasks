@@ -1,0 +1,31 @@
+March 29, 2019
+
+To-Do
+	Use CodeIgniter Functions to Create, Read, Update and Delete Products
+		Make a page that indexes the products from the database and displays it into a table.
+			Include the average appraisal amount using the following query:
+				$query = "SELECT AVG(appraised_amount) FROM products WHERE product_name = 'Galaxy S10+';";
+				Use the LIKE operator to calculate the average appraisal amount of the similar items but saved with different product names.
+			The search function for the products with the use of AJAX. Also inform the user that there is no result from the search.
+			Pagination for the products.
+		Make a page that displays the product individually (for view more details).
+		Make a page that creates new products.
+		Make a page that updates the products.
+		Make a page that deletes a product.
+		Make a section into the dashboard that displays the current appraisals for the month.
+
+	Login System
+
+	Database
+		create records into the database.
+
+	Test
+		Test the accomplishments of the day.
+
+	Other ideas:
+		Provide a suggestion box for every input that would be given on creating products.
+		This is to have a standardized naming of products.
+		One instance could be:
+			iPhone Xs
+			iPhone Xs Max
+			these phones are different and this should have different naming conventions.

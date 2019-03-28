@@ -1,0 +1,33 @@
+Database Schema
+Tables:
+	Products
+		-product_id, INT(11) * PK
+		-product name, VARCHAR(255)
+		-product_status_id, INT(1) *FK
+		-appraised_amount, DOUBLE()
+		-slug, VARCHAR(255)
+		-category_id, INT(1) * FK
+		-brand_id, INT(1) * FK
+		-photo_id, INT(1) * FK
+
+	Categories
+		-category_id, INT(11) * PK
+		-category_name, VARCHAR(255)
+
+	Brands
+		-brand_id, INT(11) * PK
+		-brand_name VARCHAR(255)
+
+	Product_Photo
+		-photo_id, INT(11) * PK
+		-src VARCHAR(255)
+
+	Product_Status
+		-product_status_id, INT(1) * PK
+		-product_status VARCHAR(255)
+
+	Sales
+		-id
+		-product_id
+		-brand_id
+		-price_sold

@@ -1,0 +1,4 @@
+Dashboard
+
+Total number of products pawned.
+Total number of products pawned this month.
