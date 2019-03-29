@@ -46,7 +46,7 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="products">
-          <span>Products</span>
+          <span>Catalog</span>
         </a>
       </li>
       <li class="nav-item">
