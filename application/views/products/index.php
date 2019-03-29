@@ -20,7 +20,8 @@
                     <th class="align-top">Brand</th>
                     <th class="align-top">Product name</th>
                     <th class="align-top">Pawning Price Average</th>
-                    <th class="align-top">Selling Price Average<br></th>
+                    <th class="align-top">Selling Price Average</th>
+                    <th class="align-top">Last Selling Date</th>
                     <th class="align-top">Picture</th>
                   </tr>
                 </thead>
@@ -31,6 +32,7 @@
                     <th>Product name</th>
                     <th>Average Pawning Price</th>
                     <th>Average Price Sold</th>
+                    <th>Last Selling Date</th>
                     <th>Picture</th>
                   </tr>
                 </tfoot>
@@ -43,6 +45,7 @@
                     <td> <?php echo $product['product_name']; ?> <br><br> <center><a href="products/show/<?php echo $product['slug'] ?>" class="btn btn-success">View more info</a></center></td>
                     <td>&#x20b1; <?php echo number_format($product['appraised_amount'], 2);?> <small class="text-info">*average out of 5 prices</small></td>
                     <td>&#x20b1; <?php echo number_format(55000, 2);?> <small class="text-info">*average out of 4 prices</small></td>
+                    <td> December 13, 2018 </td>
                     <td> <center><img src="<?php echo $product['photo_id']; ?>" alt="<?php echo $product['photo_id']; ?>" width="200px" height="200px"></center></td>
                   </tr>
                  <?php endforeach; ?>
