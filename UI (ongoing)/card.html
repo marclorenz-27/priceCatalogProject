@@ -9,7 +9,11 @@
 		}
 
 		body{
-			background-color: #dedede;
+			background-color: #dddddd;
+		}
+
+		.tableBorder{
+			border: 1px solid black;
 		}
 
 		p{
@@ -36,68 +40,41 @@
 	</style>
 </head>
 <body>
-	<div class="container-fluid">
-		
-	</div>
-
 	<div class="container">
 		<br>
 		<div class="row">
-			<h1 class="h-bold">iPhone Xs Max </h1> <hr>
+			<h2 class="h-bold">iPhone Xs Max </h2> <hr>
 		</div>
 		<div class="row">
-				<h2 class="font-weight-bold">Averages</h2>
+				<h3 class="font-weight-bold">Averages</h3>
 		</div> <br>
 		<div class="row">
 			<div class="col-sm-6">
-				<h2><span class="badge badge-success">PawnHero</span> </h2>
+				<h3><span class="badge badge-success">PawnHero</span> </h3>
 			</div>
 			<div class="col-sm-6">
-					<h2><span class="badge badge-dark">MarketPlace</span> </h2>
+					<h3><span class="badge badge-dark">MarketPlace</span> </h3>
 			</div>
-		</div> <br>
-			
+		</div>
+		<br>
 		<div class="row">
 			<div class="col-sm-6">
 				<div class="row">
 					<div class="col-sm-5">
-						<h4>Minimum</h4> 
+						<h5>Minimum</h5> 
 					</div>
 					<div class="col-sm-5">
-							<h4><span class="badge badge-danger" style="text-align: left;">&#8369; 40,000.00</span></h4>
+							<h5><span class="badge badge-danger" style="text-align: left;">&#8369; 40,000.00</span></h5>
 					</div>
 				</div>
 			</div>
 				<div class="col-sm-6">
 					<div class="row">
 						<div class="col-sm-5">
-							<h4>Minimum</h4> 
+							<h5>Minimum</h5> 
 						</div>
 						<div class="col-sm-5">
-							<h4><span class="badge badge-danger" style="text-align: left;">&#8369; 40,000.00</span></h4>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="col-sm-6">
-					<div class="row">
-						<div class="col-sm-5">
-							<h4>Average</h4> 
-						</div>
-						<div class="col-sm-5">
-							<h4><span class="badge badge-primary" style="text-align: left;">&#8369; 40,000.00</span></h4>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="row">
-						<div class="col-sm-5">
-							<h4>Average</h4> 
-						</div>
-						<div class="col-sm-5">
-							<h4><span class="badge badge-primary" style="text-align: left;">&#8369; 40,000.00</span></h4>
+							<h5><span class="badge badge-danger" style="text-align: left;">&#8369; 40,000.00</span></h5>
 						</div>
 					</div>
 				</div>
@@ -107,20 +84,43 @@
 				<div class="col-sm-6">
 					<div class="row">
 						<div class="col-sm-5">
-							<h4>High</h4> 
+							<h5>Average</h5> 
 						</div>
 						<div class="col-sm-5">
-							<h4><span class="badge badge-warning" style="text-align: left;">&#8369; 40,000.00</span></h4>
+							<h5><span class="badge badge-primary" style="text-align: left;">&#8369; 40,000.00</span></h5>
 						</div>
 					</div>
 				</div>
 				<div class="col-sm-6">
 					<div class="row">
 						<div class="col-sm-5">
-							<h4>High</h4> 
+							<h5>Average</h5> 
 						</div>
 						<div class="col-sm-5">
-							<h4><span class="badge badge-warning" style="text-align: left;">&#8369; 40,000.00</span></h4>
+							<h5><span class="badge badge-primary" style="text-align: left;">&#8369; 40,000.00</span></h5>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="row">
+						<div class="col-sm-5">
+							<h5>High</h5> 
+						</div>
+						<div class="col-sm-5">
+							<h5><span class="badge badge-warning" style="text-align: left;">&#8369; 40,000.00</span></h5>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="row">
+						<div class="col-sm-5">
+							<h5>High</h5> 
+						</div>
+						<div class="col-sm-5">
+							<h5><span class="badge badge-warning" style="text-align: left;">&#8369; 40,000.00</span></h5>
 						</div>
 					</div>
 				</div>
@@ -129,21 +129,22 @@
 			<br>
 
 			<div class="row">
-				<h4><span class="font-weight-bold">Total Number of Pawning Prices (from PawnHero): </span> 6
-				</h4>
+				<table class="table table-bordered table-hover tableBorder">
+				    <tbody>
+				        <tr>
+				          <th><h5><span class="font-weight-bold text-left">Total Number of Pawning Prices (from PawnHero): </span>
+					</h5></th>
+				            <td>6</td>
+				        </tr>
+				        <tr>
+				          <th><h5><span class="font-weight-bold text-left">Total Number of Selling Prices (from MarketPlace): </span></h5></th>
+				            <td>2</td>
+				        </tr>
+				    </tbody>
+				</table>
 			</div>
 
-			<div class="row">
-				<h4><span class="font-weight-bold">Total Number of Selling Prices (from MarketPlace): </span> 2</h4>
-			</div>
-
-			<div class="row">
-				
-			</div>
-
-			<br>
-			
-			<br>
+			<br><br>
 			<div class="row">
 				<h3 class="font-weight-bold">All Pawning Prices</h3> <hr>
 			</div>
@@ -153,8 +154,8 @@
 			  <div class="card-body">
 			    <h5 class="card-title">iPhone Xs Max</h5>
 			    <p class="text-secondary" style="font-weight: bold;">Apple</p>
-			    <p class="card-text"><b>Average Pawning Price:</b><br>&#8369; 47,000.00 &nbsp;<small>(out of 6 of total records)</small></p>
-			    <p class="card-text"><b>Average Selling Price:</b><br>&#8369; 55,000.00 &nbsp;<small>(out of 3 of total records)</small></p>
+			    <p class="card-text"><b>Pawning Price:</b><br>&#8369; 47,000.00 &nbsp;<small>(out of 6 of total records)</small></p>
+			    <p class="card-text"><b>Selling Price:</b><br>&#8369; 55,000.00 &nbsp;<small>(out of 3 of total records)</small></p>
 			    <a href="#" class="btn btn-success" style="width: 100%">View More Info</a>
 			  </div>
 			</div>
@@ -163,8 +164,8 @@
 			  <div class="card-body">
 			    <h5 class="card-title">iPhone Xs Max</h5>
 			    <p class="text-secondary" style="font-weight: bold;">Apple</p>
-			    <p class="card-text"><b>Average Pawning Price:</b><br>&#8369; 47,000.00 &nbsp;<small>(out of 6 of total records)</small></p>
-			    <p class="card-text"><b>Average Selling Price:</b><br>&#8369; 55,000.00 &nbsp;<small>(out of 3 of total records)</small></p>
+			    <p class="card-text"><b>Pawning Price:</b><br>&#8369; 47,000.00 &nbsp;<small>(out of 6 of total records)</small></p>
+			    <p class="card-text"><b>Selling Price:</b><br>&#8369; 55,000.00 &nbsp;<small>(out of 3 of total records)</small></p>
 			    <a href="#" class="btn btn-success" style="width: 100%">View More Info</a>
 			  </div>
 			</div>
@@ -173,8 +174,8 @@
 			  <div class="card-body">
 			    <h5 class="card-title">iPhone Xs Max</h5>
 			    <p class="text-secondary" style="font-weight: bold;">Apple</p>
-			    <p class="card-text"><b>Average Pawning Price:</b><br>&#8369; 47,000.00 &nbsp;<small>(out of 6 of total records)</small></p>
-			    <p class="card-text"><b>Average Selling Price:</b><br>&#8369; 55,000.00 &nbsp;<small>(out of 3 of total records)</small></p>
+			    <p class="card-text"><b>Pawning Price:</b><br>&#8369; 47,000.00 &nbsp;<small>(out of 6 of total records)</small></p>
+			    <p class="card-text"><b>Selling Price:</b><br>&#8369; 55,000.00 &nbsp;<small>(out of 3 of total records)</small></p>
 			    <a href="#" class="btn btn-success" style="width: 100%">View More Info</a>
 			  </div>
 			</div>
@@ -188,7 +189,7 @@
 			    <a href="#" class="btn btn-success" style="width: 100%">View More Info</a>
 			  </div>
 			</div>
-			
+
 			<div class="card" style="width: 16rem;">
 			  <img class="card-img-top" src="https://brain-images-ssl.cdn.dixons.com/2/5/10185952/u_10185952.jpg" alt="Image on Card Sample" width="10rem" height="220vh" style=" background-color: #444444; margin-top: 2vh;">
 			  <div class="card-body">
