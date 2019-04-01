@@ -18,8 +18,7 @@
   <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="css/sb-admin.css" rel="stylesheet">
-
+  <link href="<?php echo base_url('css/sb-admin.css'); ?>" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -40,22 +39,22 @@
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="dashboard">
+        <a class="nav-link" href="<?php echo base_url('dashboard');?>">
           <span>Dashboard</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="products">
+        <a class="nav-link" href="<?php echo base_url('products');?>">
           <span>Catalog</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="categories">
+        <a class="nav-link" href="<?php echo base_url('categories');?>">
           <span>Categories</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="brands">
+        <a class="nav-link" href="<?php echo base_url('brands');?>">
           <span>Brands</span>
         </a>
       </li>

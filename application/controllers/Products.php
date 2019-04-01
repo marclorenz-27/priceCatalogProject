@@ -4,7 +4,6 @@
 		public function index(){
 
 			$data['title'] = 'Product Price Catalog';
-
 			$data['products'] = $this->product_model->get_products();
 
 			//$data['mkproducts'] = $this->mkproduct_model->get_products();
