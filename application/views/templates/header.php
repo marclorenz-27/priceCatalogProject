@@ -12,10 +12,10 @@
   <title>Product Price Catalog - PawnHero</title>
 
   <!-- Custom fonts for this template-->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="<?php echo base_url('vendor/fontawesome-free/css/all.min.css'); ?>" rel="stylesheet" type="text/css">
 
   <!-- Page level plugin CSS-->
-  <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <link href="<?php echo base_url('vendor/datatables/dataTables.bootstrap4.css'); ?>" rel="stylesheet">
 
   <!-- Custom styles for this template-->
   <link href="<?php echo base_url('css/sb-admin.css'); ?>" rel="stylesheet">
@@ -25,12 +25,12 @@
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-    <a class="navbar-brand mr-1" href="dashboard"><img src="https://pawnhero.ph/img/PawnHero-logo.svg" width="145px">     Product Price Catalog</a>
+    <a class="navbar-brand mr-1" href="<?php echo base_url('dashboard') ?>"><img src="https://pawnhero.ph/img/PawnHero-logo.svg" width="145px">     Product Price Catalog</a>
 
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
     </button>
-    <button class="btn btn-success">Login</button>
+    <a href="<?php echo base_url('/login') ?>" class="btn btn-success">Login</a>
     
   </nav>
 
@@ -38,11 +38,6 @@
 
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('dashboard');?>">
-          <span>Dashboard</span>
-        </a>
-      </li>
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url('products');?>">
           <span>Catalog</span>
