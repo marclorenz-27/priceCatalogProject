@@ -42,11 +42,11 @@
                   <tr>
                     <td><b><?php echo $product['category_id']; ?></b></td>
                     <td><?php echo $product['product_id']; ?></td>
-                    <td> <?php echo $product['product_name']; ?> <br><br> <center><a href="products/show/<?php echo $product['slug'] ?>" class="btn btn-success">View more info</a></center></td>
+                    <td> <?php echo $product['product_name']; ?> <br><br> <center><a href="<?php echo site_url('/products/'.$product['slug']);?>" class="btn btn-success">View more info</a></center></td>
                     <td>&#x20b1; <?php echo number_format($product['appraised_amount'], 2);?> <small class="text-info">*average out of 5 prices</small></td>
                     <td>&#x20b1; <?php echo number_format(55000, 2);?> <small class="text-info">*average out of 4 prices</small></td>
                     <td> December 13, 2018 </td>
-                    <td> <center><img src="<?php echo $product['photo_id']; ?>" alt="<?php echo $product['photo_id']; ?>" width="200px" height="200px"></center></td>
+                    <td><center><img src="<?php echo $product['photo_id']; ?>" alt="<?php echo $product['photo_id']; ?>" width="200px" height="200px"></center></td>
                   </tr>
                  <?php endforeach; ?>
                  </tbody>

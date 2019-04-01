@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+$route['products/(:any)'] = 'products/view/$1';
 $route['products'] = 'products/index';
 $route['brands'] = 'brands/index';
 $route['categories'] = 'categories/index';
