@@ -47,7 +47,7 @@
 	<br>
 
 	<div class="row">
-		<h3 class="font-weight-bold">Averages</h3>
+		<h3 class="font-weight-bold text-center">Averages</h3>
 	</div> <br>
 
 	<div class="row">
