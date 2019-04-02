@@ -72,7 +72,15 @@
 					<h6 class="font-weight-bold">Average Price:</h6> 
 				</div>
 				<div class="col-sm-5">
-					<h5><span class="badge badge-primary" style="text-align: left;">&#8369; <?php echo number_format($product['appraised_amount'], 2);?></span></h5>
+					<h5><span class="badge badge-primary" style="text-align: left;">&#8369;
+						<?php
+							$avg = $this->product_model->get_average();
+							foreach ($avg->result() as $row) {
+								echo number_format($row->appraised_amount, 2) . "<br>";
+							}
+						?>
+						</span>
+				</h5>
 				</div>
 			</div>
 		</div>
@@ -95,7 +103,14 @@
 					<h6 class="font-weight-bold">Maximum Price:</h6> 
 				</div>
 				<div class="col-sm-5">
-					<h5><span class="badge badge-warning" style="text-align: left;">&#8369; nn,nnn.nn</span></h5>
+					<h5><span class="badge badge-warning" style="text-align: left;">&#8369;
+					<?php 
+						$max = $this->product_model->get_maximum();
+						foreach ($max->result() as $row) {
+							echo number_format($row->appraised_amount, 2) . "<br>";
+						}
+					 ?>
+					</span></h5>
 				</div>
 			</div>
 		</div>
@@ -118,7 +133,14 @@
 					<h6 class="font-weight-bold">Minimum Price:</h6>
 				</div>
 				<div class="col-sm-5">
-					<h5><span class="badge badge-danger" style="text-align: left;">&#8369; nn,nnn.nn</span></h5>
+					<h5><span class="badge badge-danger" style="text-align: left;">&#8369; 
+						<?php 
+							$min = $this->product_model->get_minimum();
+							foreach ($min->result() as $row) {
+								echo number_format($row->appraised_amount, 2) . "<br>";
+							}
+					 	?>
+						</span></h5>
 				</div>
 			</div>
 		</div>	
@@ -217,7 +239,7 @@
 		</div>
 
 		<div>
-			
+
 		</div>
 
 		<!--DISPLAYED AS NONE-->
