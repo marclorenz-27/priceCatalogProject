@@ -53,9 +53,8 @@
 				<img src="https://ke.jumia.is/CIrv8QmspY7ZBTIIAjyj8xdsvKA=/fit-in/500x500/filters:fill(white):sharpen(1,0,false) :quality(100)/product/77/740611/1.jpg?9318" width="80%" height="80%">
 		</div>
 	</div>
-
 	<div class="col-sm-8">
-		<br><br>
+		<h2>Prices</h2>
 	<div class="row">
 		<div class="col-sm-6">
 			<h4><span class="badge badge-success">PawnHero</span> </h4>
@@ -64,6 +63,7 @@
 			<h4><span class="badge badge-dark">MarketPlace</span> </h4>
 		</div>
 	</div> <br>
+
 	
 	<div class="row">
 		<div class="col-sm-6">
