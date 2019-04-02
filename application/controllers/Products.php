@@ -13,6 +13,7 @@
 		public function view($slug = NULL){
 			$data['product'] = $this->product_model->get_single_product($slug);
 			$data['brand'] = $this->product_model->get_single_product($slug);
+			$data['destination'] = $this->product_model->get_single_product($slug);
  
 			if(empty($data['product'])){
 				show_404();

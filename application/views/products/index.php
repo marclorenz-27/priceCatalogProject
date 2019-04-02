@@ -5,7 +5,7 @@
                 <div class="input-group pmb-3" style="width: 45%; float: right; margin: 2vh 2vh 4vh 0vh">
                   <input type="search" class="form-control" placeholder="Search Brand, Category or Product Name" aria-label="Enter Product Name, Brand or Category" aria-describedby="basic-addon2">
                   <div class="input-group-append" required/>
-                    <button class="btn btn-danger" type="button">Search</button>
+                    <button class="btn btn-primary" type="button">Search</button>
                   </div>
                 </div>
               </div>

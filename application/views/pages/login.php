@@ -23,7 +23,8 @@
   <div class="container">
     <div class="card card-login mx-auto mt-5">
       <div class="card-header">
-        <img src="https://pawnhero.ph/img/PawnHero-logo.svg" width="70%">
+        <img src="https://pawnhero.ph/img/PawnHero-logo.svg" width="70%" style="margin-bottom: 6=4px;">
+        <p>Product Price Catalog</p>
       </div>
       <div class="card-body">
         <form>
