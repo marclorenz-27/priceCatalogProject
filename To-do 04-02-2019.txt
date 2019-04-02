@@ -1,0 +1,14 @@
+Get and Display the Averages of the Selling and Pawning Prices and Selling Prices of the products:
+***		Get the Average Appraisal Amount
+**		Get the Minimum Price
+*		Get the Maximum Price
+
+Study the Use of AGGREGATE Functions and JOINING OF TABLES:
+** 		AVG (select_avg)		
+** 		JOINING of TABLES
+
+Displaying all rows of the same product
+-		includes the Pawning Date
+-		includes the Selling Date
+
+Only the sold items will be displayed in the system

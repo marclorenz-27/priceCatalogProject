@@ -47,7 +47,6 @@
 	<br>
 
 	<div class="row">
-		<h3 class="font-weight-bold text-center">Averages</h3>
 	</div> <br>
 
 	<div class="row">
@@ -63,30 +62,7 @@
 		<div class="col-sm-6">
 			<div class="row">
 				<div class="col-sm-5">
-					<h5>Minimum*</h5>
-				</div>
-				<div class="col-sm-5">
-					<h5><span class="badge badge-danger" style="text-align: left;">&#8369; nn,nnn.nn</span></h5>
-				</div>
-			</div>
-		</div>	
-		<div class="col-sm-6">
-			<div class="row">
-				<div class="col-sm-5">
-					<h5>Minimum*</h5> 
-				</div>
-				<div class="col-sm-5">
-					<h5><span class="badge badge-danger" style="text-align: left;">&#8369; nn,nnn.nn</span></h5>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col-sm-6">
-			<div class="row">
-				<div class="col-sm-5">
-					<h5>Average</h5> 
+					<h5>Average Price:</h5> 
 				</div>
 				<div class="col-sm-5">
 					<h5><span class="badge badge-primary" style="text-align: left;">&#8369; <?php echo number_format($product['appraised_amount'], 2);?> </span></h5>
@@ -96,7 +72,7 @@
 		<div class="col-sm-6">
 			<div class="row">
 				<div class="col-sm-5">
-					<h5>Average*</h5> 
+					<h5>Average Price:</h5> 
 				</div>
 				<div class="col-sm-5">
 					<h5><span class="badge badge-primary" style="text-align: left;">&#8369; nn,nnn.nn</span></h5>
@@ -109,7 +85,7 @@
 		<div class="col-sm-6">
 			<div class="row">
 				<div class="col-sm-5">
-					<h5>High*</h5> 
+					<h5>Maximum Price:</h5> 
 				</div>
 				<div class="col-sm-5">
 					<h5><span class="badge badge-warning" style="text-align: left;">&#8369; nn,nnn.nn</span></h5>
@@ -119,7 +95,7 @@
 		<div class="col-sm-6">
 			<div class="row">
 				<div class="col-sm-5">
-					<h5>High*</h5> 
+					<h5>Maximum Price:</h5> 
 				</div>
 				<div class="col-sm-5">
 					<h5><span class="badge badge-warning" style="text-align: left;">&#8369; nn,nnn.nn</span></h5>
@@ -127,6 +103,29 @@
 			</div>
 		</div>
 	</div> 
+
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="row">
+				<div class="col-sm-5">
+					<h5>Minimum Price:</h5>
+				</div>
+				<div class="col-sm-5">
+					<h5><span class="badge badge-danger" style="text-align: left;">&#8369; nn,nnn.nn</span></h5>
+				</div>
+			</div>
+		</div>	
+		<div class="col-sm-6">
+			<div class="row">
+				<div class="col-sm-5">
+					<h5>Minimum Price:</h5> 
+				</div>
+				<div class="col-sm-5">
+					<h5><span class="badge badge-danger" style="text-align: left;">&#8369; nn,nnn.nn</span></h5>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<br>
 
