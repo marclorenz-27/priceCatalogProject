@@ -35,26 +35,33 @@
 	</style>
 </head>
 <body>
+	<h2>Product Overview</h2> <br>
 </center>
 <div class="container-fluid">
 	<div class="row">
 		<h2><?php echo $product['product_name'];?></h2>
-	</div> <br>
-
-	<div class="row">
-			<img src="https://ke.jumia.is/CIrv8QmspY7ZBTIIAjyj8xdsvKA=/fit-in/500x500/filters:fill(white):sharpen(1,0,false) :quality(100)/product/77/740611/1.jpg?9318" width="30%" height="30%">
+		
 	</div>
-	<br>
-
 	<div class="row">
-	</div> <br>
+		<p class="text-secondary" style="font-weight: bold;"><?php echo $brand['brand_name']; ?>
+		</p>
+	</div>
+	<div>
+	<div class="row">
+	<div class="col-sm-4">
+		<div class="row">
+				<img src="https://ke.jumia.is/CIrv8QmspY7ZBTIIAjyj8xdsvKA=/fit-in/500x500/filters:fill(white):sharpen(1,0,false) :quality(100)/product/77/740611/1.jpg?9318" width="80%" height="80%">
+		</div>
+	</div>
 
+	<div class="col-sm-8">
+		<br><br>
 	<div class="row">
 		<div class="col-sm-6">
-			<h3><span class="badge badge-success">PawnHero</span> </h3>
+			<h4><span class="badge badge-success">PawnHero</span> </h4>
 		</div>
 		<div class="col-sm-6">
-			<h3><span class="badge badge-dark">MarketPlace</span> </h3>
+			<h4><span class="badge badge-dark">MarketPlace</span> </h4>
 		</div>
 	</div> <br>
 	
@@ -62,20 +69,20 @@
 		<div class="col-sm-6">
 			<div class="row">
 				<div class="col-sm-5">
-					<h5>Average Price:</h5> 
+					<h6 class="font-weight-bold">Average Price:</h6> 
 				</div>
 				<div class="col-sm-5">
-					<h5><span class="badge badge-primary" style="text-align: left;">&#8369; <?php echo number_format($product['appraised_amount'], 2);?> </span></h5>
+					<h5><span class="badge badge-primary" style="text-align: left;">&#8369; <?php echo number_format($product['appraised_amount'], 2);?></span></h5>
 				</div>
 			</div>
 		</div>
 		<div class="col-sm-6">
 			<div class="row">
 				<div class="col-sm-5">
-					<h5>Average Price:</h5> 
+					<h6 class="font-weight-bold">Average Price:</h6> 
 				</div>
 				<div class="col-sm-5">
-					<h5><span class="badge badge-primary" style="text-align: left;">&#8369; nn,nnn.nn</span></h5>
+					<h5><span class="badge badge-primary" style="text-align: left;">&#8369; <?php echo number_format($product['appraised_amount'], 2);?></span></h5>
 				</div>
 			</div>
 		</div>
@@ -85,7 +92,7 @@
 		<div class="col-sm-6">
 			<div class="row">
 				<div class="col-sm-5">
-					<h5>Maximum Price:</h5> 
+					<h6 class="font-weight-bold">Maximum Price:</h6> 
 				</div>
 				<div class="col-sm-5">
 					<h5><span class="badge badge-warning" style="text-align: left;">&#8369; nn,nnn.nn</span></h5>
@@ -95,7 +102,7 @@
 		<div class="col-sm-6">
 			<div class="row">
 				<div class="col-sm-5">
-					<h5>Maximum Price:</h5> 
+					<h6 class="font-weight-bold">Maximum Price:</h6> 
 				</div>
 				<div class="col-sm-5">
 					<h5><span class="badge badge-warning" style="text-align: left;">&#8369; nn,nnn.nn</span></h5>
@@ -108,7 +115,7 @@
 		<div class="col-sm-6">
 			<div class="row">
 				<div class="col-sm-5">
-					<h5>Minimum Price:</h5>
+					<h6 class="font-weight-bold">Minimum Price:</h6>
 				</div>
 				<div class="col-sm-5">
 					<h5><span class="badge badge-danger" style="text-align: left;">&#8369; nn,nnn.nn</span></h5>
@@ -118,7 +125,7 @@
 		<div class="col-sm-6">
 			<div class="row">
 				<div class="col-sm-5">
-					<h5>Minimum Price:</h5> 
+					<h6 class="font-weight-bold">Minimum Price:</h6> 
 				</div>
 				<div class="col-sm-5">
 					<h5><span class="badge badge-danger" style="text-align: left;">&#8369; nn,nnn.nn</span></h5>
@@ -126,23 +133,35 @@
 			</div>
 		</div>
 	</div>
-
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="row">
+				<div class="col-sm-5">
+					<p class="font-weight-bold">Total number of Pawning Prices:</p>
+				</div>
+				<div class="col-sm-5">
+					<p>4</p>
+				</div>
+			</div>
+		</div>	
+		<div class="col-sm-6">
+			<div class="row">
+				<div class="col-sm-5">
+					<p class="font-weight-bold">Total number of Pawning Prices:</p> 
+				</div>
+				<div class="col-sm-5">
+					<p>4</p>
+				</div>
+			</div>
+		</div>
+	</div>		
+	</div>
+	</div>
+	</div>
 	<br>
 
-	<div class="row">
-		<table class="table table-bordered table-hover tableBorder">
-			<tbody>
-				<tr>
-				    <th><h5>Total Number of Pawning Prices (from PawnHero): </h5></th>
-				     <td>6</td>
-				</tr>
-				<tr>
-				   	<th><h5>Total Number of Selling Prices (from MarketPlace): </h5></th>
-				    <td>2</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+
+	<br>
 	
 </div> <br>
 
@@ -151,7 +170,7 @@
 			<h3 class="font-weight-bold">All Pawning Prices</h3> <hr>
 		</div>
 
-		<div class="row">
+		<div class="row" style="display: none">
 			<div class="card" style="width: 16rem;">
 			  <img class="card-img-top" src="https://ke.jumia.is/CIrv8QmspY7ZBTIIAjyj8xdsvKA=/fit-in/500x500/filters:fill(white):sharpen(1,0,false):quality(100)/product/77/740611/1.jpg?9318" alt="Image on Card Sample" width="10rem" height="220vh" style=" background-color: #444444; margin-top: 2vh;">
 			  <div class="card-body">
@@ -192,10 +211,17 @@
 	</div>
 	<br>
 	<div class="container">
+
 		<div class="row">
 			<h3 class="font-weight-bold">All Selling Prices</h3> <hr>
 		</div>
-		<div class="row">
+
+		<div>
+			
+		</div>
+
+		<!--DISPLAYED AS NONE-->
+		<div class="row" style="display: none">
 			<div class="card" style="width: 16rem;">
 			  <img class="card-img-top" src="https://ke.jumia.is/CIrv8QmspY7ZBTIIAjyj8xdsvKA=/fit-in/500x500/filters:fill(white):sharpen(1,0,false):quality(100)/product/77/740611/1.jpg?9318" alt="Image on Card Sample" width="10rem" height="220vh" style=" background-color: #444444; margin-top: 2vh;">
 			  <div class="card-body">

@@ -4,20 +4,38 @@
 			$this->load->database();
 		}
 
-		public function get_products($slug = FALSE){
+		public function get_products(){
+			$query = $this->db
+							->join('categories', 'categories.category_id = products.category_id')
+							->join('brands', 'brands.brand_id = products.brand_id','left')
+							->join('product_photo', 'product_photo.photo_id = products.photo_id')
+							->group_by('product_name')
+ 							->get('products');
+			return $query->result_array();
+		}
+
+		public function get_single_product($slug = FALSE){
 			if($slug === FALSE){
-				
-				$this->db->GROUP_BY('products.product_name', 'ASC');
-				$this->db->join('categories', 'categories.category_id = products.category_id');
-				$this->db->join('brands', 'brands.brand_id = products.brand_id')	;
-				$this->db->join('product_photo', 'product_photo.photo_id = products.photo_id');
-				$query = $this->db->get('products');
-				
+				$query = $this->db
+								->GROUP_BY('products.product_name', 'ASC')
+								->get('products');							
 				return $query->result_array();
 			}
 
-			$query = $this->db->get_where('products', array('slug' => $slug));
+			$query = $this->db
+							->join('categories', 'categories.category_id = products.category_id')
+							->join('brands', 'brands.brand_id = products.brand_id','left')
+							->join('product_photo', 'product_photo.photo_id = products.photo_id')
+							->from('products')
+							->where('slug', $slug)
+							->get();
 			return $query->row_array();
 		}
 
+		public function get_average()
+		{	
+			$this->db
+				->select_avg('appraised_amount');
+				return $this->db->get_where('products', array('slug'=>'galaxy-s10-plus'));
+		}
 	}

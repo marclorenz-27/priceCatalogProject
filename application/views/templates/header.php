@@ -22,7 +22,6 @@
 </head>
 
 <body id="page-top">
-
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
     <a class="navbar-brand mr-1" href="<?php echo base_url('dashboard') ?>"><img src="https://pawnhero.ph/img/PawnHero-logo.svg" width="145px">     Product Price Catalog</a>

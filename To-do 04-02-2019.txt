@@ -12,3 +12,5 @@ Displaying all rows of the same product
 -		includes the Selling Date
 
 Only the sold items will be displayed in the system
+
+Total pawning and selling price must join the block of average, minimum and maximum prices.
