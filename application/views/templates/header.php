@@ -19,6 +19,8 @@
 
   <!-- Custom styles for this template-->
   <link href="<?php echo base_url('css/sb-admin.css'); ?>" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
   <style type="text/css">
     a{
       color: black;
@@ -29,8 +31,8 @@
 <body id="page-top">
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-    <a class="navbar-brand mr-1" href="<?php echo base_url('dashboard') ?>" title="Home"><img src="https://pawnhero.ph/img/PawnHero-logo.svg" width="145px"> Product Price Catalog</a>
-    <a href="<?php echo base_url('/login') ?>" class="btn btn-success" Title="Login">Login</a>
+    <a class="navbar-brand mr-1" href="<?php echo base_url('dashboard') ?>" title="Dashboard"><img src="https://pawnhero.ph/img/PawnHero-logo.svg" width="145px"> Product Price Catalog</a>
+    <a href="<?php echo base_url('/login') ?>" class="btn btn-success" Title="Login" style="margin-left: 3vh;"><i class='fas fa-sign-in-alt'></i> Login</a>
     
   </nav>
 
@@ -39,18 +41,23 @@
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
       <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url('dashboard');?>" title="Go to Module Dashboard">
+          <i class="fas fa-tachometer-alt" style="margin-right: 10px;"></i><span>Dashboard</span>
+        </a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url('products');?>" title="Go to Catalog of all Products">
-          <span>Catalog</span>
+          <i class="fas fa-book-open" style="margin-right: 10px;"></i><span>Catalog</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url('categories');?>" title="Go to Product Categories">
-          <span>Categories</span>
+          <i class="fas fa-grip-horizontal" style="margin-right: 12px;">  </i><span">Categories</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('brands');?>" title="Go to Product Bransd">
-          <span>Brands</span>
+        <a class="nav-link" href="<?php echo base_url('brands');?>" title="Go to Product Brands">
+          <i class='fas fa-tag' style="margin-right: 11px;"></i><span>Brands</span>
         </a>
       </li>
     </ul>

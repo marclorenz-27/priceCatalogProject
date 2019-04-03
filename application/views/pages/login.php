@@ -23,8 +23,7 @@
   <div class="container">
     <div class="card card-login mx-auto mt-5">
       <div class="card-header">
-        <img src="https://pawnhero.ph/img/PawnHero-logo.svg" width="70%" style="margin-bottom: 6=4px;">
-        <p>Product Price Catalog</p>
+        <img src="https://pawnhero.ph/img/PawnHero-logo.svg" width="75%"><br>
       </div>
       <div class="card-body">
         <form>
@@ -40,15 +39,7 @@
               <label for="inputPassword">Password</label>
             </div>
           </div>
-          <div class="form-group">
-            <div class="checkbox">
-              <label>
-              <input type="checkbox" value="remember-me">
-                Remember Password
-              </label>
-            </div>
-          </div>
-            <a class="btn btn-primary btn-block" href="index.html">Login</a>
+            <a class="btn btn-success btn-block" href="index.html">Login <i class='fas fa-sign-in-alt'></i></a>
           </form>
         </div>
       </div>

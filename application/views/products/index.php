@@ -2,17 +2,17 @@
 </center>
             <form class="form-horizontal">
               <div class="form-group">
-                <div class="input-group pmb-3" style="width: 45%; float: right; margin: 2vh 2vh 4vh 0vh">
+                <div class="input-group pmb-3" style="width: 45%; float: right; margin: 2vh 3vh 4vh 0vh">
                   <input type="search" class="form-control" placeholder="Search Brand, Category or Product Name" aria-label="Enter Product Name, Brand or Category" aria-describedby="basic-addon2">
                   <div class="input-group-append" required/>
-                    <button class="btn btn-primary" type="button" title="Search">Search</button>
+                    <button class="btn btn-primary" type="button" title="Search"><i class='fas fa-search'></i></button>
                   </div>
                 </div>
               </div>
             </form>   
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-bordered table-hover table-responsive" id="dataTable" width="100%" cellspacing="0">
+              <table class="table table-bordered table-hover table-responsive" id="dataTable"  cellspacing="0">
                 <thead class="bg-dark text-light">
                   <tr>
                     <th class="align-top">Category</th>
@@ -54,8 +54,8 @@
                     <td>&#x20b1; <?php echo number_format(55000, 2);?> <br><br><small class="text-info">*average out of n prices</small></td>
                     <td> December 13, 2018 </td>
                     <td> <center><a href="<?php echo site_url('/products/'.$product['slug']);?>" class="btn btn-success" 
-                      Title="<?php echo "View " . $product['product_name'] . " Product Info"?>">View</center></td>
-                    <td><center><img src="<?php echo $product['destination']; ?>" alt="<?php echo $product['slug']; ?>" width="200px" height="200px"></center></td>
+                      Title="<?php echo "View " . $product['product_name'] . " Records"?>">View</center></td>
+                    <td><center><img src="<?php echo $product['destination']; ?>" alt="<?php echo $product['slug']; ?>" width="200px" height="200px" title="<?php echo $product['brand_name'] . " " . $product['product_name']; ?>"></center></td>
                   </tr>
                  <?php endforeach; ?>
                  </tbody>
