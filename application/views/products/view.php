@@ -39,30 +39,38 @@
 </center>
 <div class="container-fluid">
 	<div class="row">
-		<h2><?php echo $product['product_name'];?></h2>
+		<h2><?php echo $products['product_name'];?></h2>
 		
 	</div>
 	<div class="row">
-		<p class="text-secondary" style="font-weight: bold;"><?php echo $brand['brand_name']; ?>
+		<p class="text-secondary" style="font-weight: bold;"><?php echo $products['brand_name']; ?>
 		</p>
 	</div>
 	<div>
 	<div class="row">
 	<div class="col-sm-4">
 		<div class="row">
-				<img src="https://ke.jumia.is/CIrv8QmspY7ZBTIIAjyj8xdsvKA=/fit-in/500x500/filters:fill(white):sharpen(1,0,false) :quality(100)/product/77/740611/1.jpg?9318" width="80%" height="80%">
+				<img src="<?php echo $products['destination']; ?>" width="80%" height="80%">
 		</div>
 	</div>
 	<div class="col-sm-8">
-		<h2>Prices</h2>
 	<div class="row">
 		<div class="col-sm-6">
-			<h4><span class="badge badge-success">PawnHero</span> </h4>
+			<h4><span class="badge badge-success">PawnHero</span></h4>
 		</div>
 		<div class="col-sm-6">
-			<h4><span class="badge badge-dark">MarketPlace</span> </h4>
+			<h4><span class="badge badge-dark">MarketPlace</span></h4>
 		</div>
 	</div> <br>
+	<div class="row">
+		<div class="col-sm-6">
+			<h5>Pawning Prices Summary</h5>
+		</div>
+		<div class="col-sm-6">
+			<h5>Selling Prices Summary</h5>
+		</div>
+	</div>
+	<br>
 
 	
 	<div class="row">
@@ -90,7 +98,7 @@
 					<h6 class="font-weight-bold">Average Price:</h6> 
 				</div>
 				<div class="col-sm-5">
-					<h5><span class="badge badge-primary" style="text-align: left;">&#8369; <?php echo number_format($product['appraised_amount'], 2);?></span></h5>
+					<h5><span class="badge badge-primary" style="text-align: left;">&#8369; <?php echo number_format($products['appraised_amount'], 2);?></span></h5>
 				</div>
 			</div>
 		</div>

@@ -11,15 +11,14 @@
 		}
 
 		public function view($slug = NULL){
-			$data['product'] = $this->product_model->get_single_product($slug);
-			$data['brand'] = $this->product_model->get_single_product($slug);
-			$data['destination'] = $this->product_model->get_single_product($slug);
- 
-			if(empty($data['product'])){
+			$data['products'] = $this->product_model->get_products($slug);
+			$data['brands'] = $this->product_model->get_products($slug);
+
+			if(empty($data['products'])){
 				show_404();
 			}
 
-			$data['product_name'] = $data['product']['product_name'];
+			$data['product_name'] = $data['products']['product_name'];
 			$this->load->view('templates/header');
 			$this->load->view('products/view', $data);
 			$this->load->view('templates/footer');
