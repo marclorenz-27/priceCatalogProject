@@ -82,7 +82,7 @@
 				<div class="col-sm-5">
 					<h5><span class="badge badge-primary" style="text-align: left;">&#8369;
 						<?php
-							$avg = $this->product_model->get_average();
+							
 							foreach ($avg->result() as $row) {
 								echo number_format($row->appraised_amount, 2) . "<br>";
 							}
@@ -113,7 +113,7 @@
 				<div class="col-sm-5">
 					<h5><span class="badge badge-warning" style="text-align: left;">&#8369;
 					<?php 
-						$max = $this->product_model->get_maximum();
+						$max = $this->product_model->get_maximum($slug);
 						foreach ($max->result() as $row) {
 							echo number_format($row->appraised_amount, 2) . "<br>";
 						}
@@ -143,7 +143,7 @@
 				<div class="col-sm-5">
 					<h5><span class="badge badge-danger" style="text-align: left;">&#8369; 
 						<?php 
-							$min = $this->product_model->get_minimum();
+							$min = $this->product_model->get_minimum($slug);
 							foreach ($min->result() as $row) {
 								echo number_format($row->appraised_amount, 2) . "<br>";
 							}

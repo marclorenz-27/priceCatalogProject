@@ -23,31 +23,24 @@
 		public function get_average($slug = FALSE)
 		{	
 			$this->db->select_avg('appraised_amount');
+			$this->db->from('products');
 			$this->db->where('slug', $slug);
-				return $this->db->get_where('products');
+			return $this->db->get();
 		}
 
 		public function get_minimum($slug = FALSE)
 		{	
 			$this->db->select_min('appraised_amount');
+			$this->db->from('products');
 			$this->db->where('slug', $slug);
-				return $this->db->get('products');
+			return $this->db->get();
 		}
 
 		public function get_maximum($slug = FALSE)
-		{	
+		{		
 			$this->db->select_max('appraised_amount');
 			$this->db->where('slug', $slug);
-				return $this->db->get('products');
+			$this->db->from('products');
+			return $this->db->get();
 		}
-
-		// public function get_productsByProductName(){
-		// 	$query = $this->db
-		// 					->join('categories', 'categories.category_id = products.category_id')
-		// 					->join('brands', 'brands.brand_id = products.brand_id','left')
-		// 					->join('product_photo', 'product_photo.photo_id = products.photo_id')
-		// 					->group_by('product_name')
- 		//	 				->get_where('products', array('slug', 'galaxy-s10-plus'));
-		// 	return $query->result_array();
-		// }
 	}

@@ -46,8 +46,7 @@
                     <td><a href="<?php echo site_url('/products/'.$product['slug']);?>"><?php echo $product['product_name']; ?></a></td>
                     <td>
                       <?php
-                        $avg = $this->product_model->get_average();
-                        foreach ($avg->result() as $row) {
+                        foreach ($average->result() as $row) {
                           echo "&#x20b1; " . number_format($row->appraised_amount, 2) . "<br>";
                         }
                       ?>
