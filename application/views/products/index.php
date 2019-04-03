@@ -21,8 +21,8 @@
                     <th class="align-top">Pawning Price Average</th>
                     <th class="align-top">Selling Price Average</th>
                     <th class="align-top">Last Selling Date</th>
+                    <th class="align-top">Action</th>
                     <th class="align-top">Picture</th>
-                    <th>Action</th>
                   </tr>
                 </thead>
                 <tfoot class="bg-dark text-light">
@@ -33,8 +33,8 @@
                     <th>Average Pawning Price</th>
                     <th>Average Price Sold</th>
                     <th>Last Selling Date</th>
-                    <th>Picture</th>
                     <th>Action</th>
+                    <th>Picture</th>
                   </tr>
                 </tfoot>
                 <tbody>
@@ -43,13 +43,20 @@
                   <tr>
                     <td><b><?php echo $product['category_name']; ?></b></td>
                     <td><?php echo $product['brand_name']; ?></td>
-                    <td> <?php echo $product['product_name']; ?></td>
-                    <td>&#x20b1; <?php echo number_format($product['appraised_amount'], 2);?> <br><br><small class="text-info">*average out of n prices</small></td>
+                    <td><a href="<?php echo site_url('/products/'.$product['slug']);?>"><?php echo $product['product_name']; ?></a></td>
+                    <td>
+                      <?php
+                        $avg = $this->product_model->get_average();
+                        foreach ($avg->result() as $row) {
+                          echo "&#x20b1; " . number_format($row->appraised_amount, 2) . "<br>";
+                        }
+                      ?>
+                    <br><br><small class="text-info">*average out of n prices</small></td>
                     <td>&#x20b1; <?php echo number_format(55000, 2);?> <br><br><small class="text-info">*average out of n prices</small></td>
                     <td> December 13, 2018 </td>
-                    <td><center><img src="<?php echo $product['destination']; ?>" alt="<?php echo $product['slug']; ?>" width="200px" height="200px"></center></td>
                     <td> <center><a href="<?php echo site_url('/products/'.$product['slug']);?>" class="btn btn-success" 
                       Title="<?php echo "View " . $product['product_name'] . " Product Info"?>">View</center></td>
+                    <td><center><img src="<?php echo $product['destination']; ?>" alt="<?php echo $product['slug']; ?>" width="200px" height="200px"></center></td>
                   </tr>
                  <?php endforeach; ?>
                  </tbody>

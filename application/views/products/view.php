@@ -177,7 +177,7 @@
 		<div class="col-sm-6">
 			<div class="row">
 				<div class="col-sm-5">
-					<p class="font-weight-bold">Total number of Prices:</p> 
+					<p class="font-weight-bold">Total number of  Prices:</p> 
 				</div>
 				<div class="col-sm-5">
 					<p>4</p>
@@ -204,7 +204,7 @@
 			<div class="card" style="width: 16rem;">
 			  <img class="card-img-top" src="https://ke.jumia.is/CIrv8QmspY7ZBTIIAjyj8xdsvKA=/fit-in/500x500/filters:fill(white):sharpen(1,0,false):quality(100)/product/77/740611/1.jpg?9318" alt="Image on Card Sample" width="10rem" height="220vh" style=" background-color: #444444; margin-top: 2vh;">
 			  <div class="card-body">
-			    <h5 class="card-title"><?php echo $product['product_name']; ?></h5>
+			    <h4 class="card-title"><?php echo $product['product_name']; ?></h5>
 			    <p class="text-secondary" style="font-weight: bold;">Brand</p>
 			    <p class="card-text"><b>Appraisal Amount:</b><br>&#8369; 47,000.00 &nbsp;<small>(out of 6 of total records)</small></p>
 			    <p class="card-text"><b>Pawning Date:</b><br>March 31, 2019</p>

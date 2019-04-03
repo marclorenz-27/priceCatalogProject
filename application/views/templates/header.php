@@ -49,7 +49,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('brands');?>" title="Go to Product Brands">
+        <a class="nav-link" href="<?php echo base_url('brands');?>" title="Go to Product Bransd">
           <span>Brands</span>
         </a>
       </li>

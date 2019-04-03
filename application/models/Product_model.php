@@ -22,23 +22,23 @@
 
 		public function get_average($slug = FALSE)
 		{	
-			$this->db
-				->select_avg('appraised_amount');
-				return $this->db->get_where('products', array('product_name'=>'Galaxy S10 Plus'));
+			$this->db->select_avg('appraised_amount');
+			$this->db->where('slug', $slug);
+				return $this->db->get_where('products');
 		}
 
-		public function get_minimum()
+		public function get_minimum($slug = FALSE)
 		{	
-			$this->db
-				->select_min('appraised_amount');
-				return $this->db->get_where('products', array('slug'=>'galaxy-s10-plus'));
+			$this->db->select_min('appraised_amount');
+			$this->db->where('slug', $slug);
+				return $this->db->get('products');
 		}
 
-		public function get_maximum()
+		public function get_maximum($slug = FALSE)
 		{	
-			$this->db
-				->select_max('appraised_amount');
-				return $this->db->get_where('products', array('slug'=>'galaxy-s10-plus'));
+			$this->db->select_max('appraised_amount');
+			$this->db->where('slug', $slug);
+				return $this->db->get('products');
 		}
 
 		// public function get_productsByProductName(){

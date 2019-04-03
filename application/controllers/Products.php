@@ -19,6 +19,7 @@
 			}
 
 			$data['product_name'] = $data['products']['product_name'];
+			$data['slug'] = $data['products']['slug'];
 			$this->load->view('templates/header');
 			$this->load->view('products/view', $data);
 			$this->load->view('templates/footer');
@@ -27,7 +28,8 @@
 		public function avg($slug = NULL){
 
 			$data['title'] = 'Average';
-			$data['products'] = $this->product_model->get_productsByProductName();
+			$data['products'] = $this->product_model->get_products();
+			$data['slug'] = $data['products']['slug'];
 			//$data['average'] = $this->product_model->get_average($slug);
 			//$this->load->view('templates/header');
 			$this->load->view('products/avg', $data);
