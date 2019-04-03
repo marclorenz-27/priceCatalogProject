@@ -4,7 +4,7 @@
 		public function index(){
 			$data['title'] = 'Product Price Catalog';
 			$data['products'] = $this->product_model->get_products();
-			$data['average'] = $this->product_model->get_average();
+			$data['average_per_group'] = $this->product_model->get_average_per_group();
 			$this->load->view('templates/header');
 			$this->load->view('products/index', $data);
 			$this->load->view('templates/footer');
@@ -26,11 +26,4 @@
 			$this->load->view('products/view', $data);
 			$this->load->view('templates/footer');
 		}
-
-		// public function avg($slug = NULL){
-		// 	$data['title'] = 'Average';
-		// 	$data['products'] = $this->product_model->get_products();
-		// 	$this->load->view('products/avg', $data);
-			
-		// }
 	}

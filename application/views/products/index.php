@@ -12,7 +12,7 @@
             </form>   
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-bordered table-hover table-responsive" id="dataTable"  cellspacing="0">
+              <table class="table table-bordered  table-responsive" id="dataTable"  cellspacing="0">
                 <thead class="bg-dark text-light">
                   <tr>
                     <th class="align-top">Category</th>
@@ -45,17 +45,19 @@
                     <td><?php echo $product['brand_name']; ?></td>
                     <td><a href="<?php echo site_url('/products/'.$product['slug']);?>"><?php echo $product['product_name']; ?></a></td>
                     <td>
-                      <?php
-                        foreach ($average->result() as $row) {
-                          echo "&#x20b1; " . number_format($row->appraised_amount, 2) . "<br>";
-                        }
-                      ?>
+                    <?php echo "&#8369; " . number_format($product['average_per_group'],2); ?>
                     <br><br><small class="text-info">*average out of n prices</small></td>
                     <td>&#x20b1; <?php echo number_format(55000, 2);?> <br><br><small class="text-info">*average out of n prices</small></td>
                     <td> December 13, 2018 </td>
                     <td> <center><a href="<?php echo site_url('/products/'.$product['slug']);?>" class="btn btn-success" 
                       Title="<?php echo "View " . $product['product_name'] . " Records"?>">View</center></td>
-                    <td><center><img src="<?php echo $product['destination']; ?>" alt="<?php echo $product['slug']; ?>" width="200px" height="200px" title="<?php echo $product['brand_name'] . " " . $product['product_name']; ?>"></center></td>
+                    <td> 
+                      <center>
+                        <a href="<?php echo site_url('/products/'.$product['slug']);?>">
+                          <img src="<?php echo $product['destination']; ?>" alt="<?php echo $product['slug']; ?>" width="200px" height="200px" title="<?php echo $product['brand_name'] . " " . $product['product_name']; ?>">
+                        </a>
+                      </center>
+                    </td>
                   </tr>
                  <?php endforeach; ?>
                  </tbody>
