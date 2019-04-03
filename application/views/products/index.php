@@ -21,8 +21,8 @@
                     <th class="align-top">Pawning Price Average</th>
                     <th class="align-top">Selling Price Average</th>
                     <th class="align-top">Last Selling Date</th>
-                    <th class="align-top">Action</th>
-                    <th class="align-top">Picture</th>
+                    <!-- <th class="align-top">Action</th> -->
+                    <th class="align-top">Picture <br> (click photo to view)</th>
                   </tr>
                 </thead>
                 <tfoot class="bg-dark text-light">
@@ -33,7 +33,7 @@
                     <th>Average Pawning Price</th>
                     <th>Average Price Sold</th>
                     <th>Last Selling Date</th>
-                    <th>Action</th>
+                    <!-- <th>Action</th> -->
                     <th>Picture</th>
                   </tr>
                 </tfoot>
@@ -46,11 +46,11 @@
                     <td><a href="<?php echo site_url('/products/'.$product['slug']);?>"><?php echo $product['product_name']; ?></a></td>
                     <td>
                     <?php echo "&#8369; " . number_format($product['average_per_group'],2); ?>
-                    <br><br><small class="text-info">*average out of n prices</small></td>
-                    <td>&#x20b1; <?php echo number_format(55000, 2);?> <br><br><small class="text-info">*average out of n prices</small></td>
+                    <br><br><small class="text-info">*average out of <br> n prices</small></td>
+                    <td>&#x20b1; <?php echo number_format(55000, 2);?> <br><br><small class="text-info">*average out of <br>n prices</small></td>
                     <td> December 13, 2018 </td>
-                    <td> <center><a href="<?php echo site_url('/products/'.$product['slug']);?>" class="btn btn-success" 
-                      Title="<?php echo "View " . $product['product_name'] . " Records"?>">View</center></td>
+                    <!-- <td> <center><a href="<?php echo site_url('/products/'.$product['slug']);?>" class="btn btn-success" 
+                      Title="<?php echo "View " . $product['product_name'] . " Records"?>">View</center></td> -->
                     <td> 
                       <center>
                         <a href="<?php echo site_url('/products/'.$product['slug']);?>">

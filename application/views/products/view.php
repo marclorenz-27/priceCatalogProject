@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<!-- 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<style type="text/css">
 		.card{
 			margin: 1vh;
@@ -32,7 +29,7 @@
 		}
 
 
-	</style>
+	</style> -->
 </head>
 <body>
 	<div class="row">
@@ -85,8 +82,7 @@
 				</div>
 				<div class="col-sm-5">
 					<h5><span class="badge badge-primary" style="text-align: left;">&#8369;
-						<?php
-							
+						<?php		
 							foreach ($avg->result() as $row) {
 								echo number_format($row->appraised_amount, 2) . "<br>";
 							}

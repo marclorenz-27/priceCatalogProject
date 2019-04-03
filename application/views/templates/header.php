@@ -21,10 +21,40 @@
   <link href="<?php echo base_url('css/sb-admin.css'); ?>" rel="stylesheet">
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <style type="text/css">
     a{
       color: black;
     }
+    .card{
+      margin: 1vh;
+    }
+
+    .tableBorder{
+      border: 1px solid black;
+    }
+
+    p{
+      font-size: 14px;
+    }
+
+    .bold{
+      font-weight: : bold;
+    }
+
+    .card-body{
+      margin-top: 2vh;
+    }
+
+    .h3-margin{
+      text-align: center;
+    }
+
+    .h-bold{
+      font-weight: bold;
+    }
+
   </style>
 </head>
 
