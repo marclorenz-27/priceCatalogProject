@@ -167,7 +167,7 @@
 		<div class="col-sm-6">
 			<div class="row">
 				<div class="col-sm-5">
-					<p class="font-weight-bold">Total number of Pawning Prices:</p>
+					<p class="font-weight-bold">Total number of Prices:</p>
 				</div>
 				<div class="col-sm-5">
 					<p>4</p>
@@ -177,7 +177,7 @@
 		<div class="col-sm-6">
 			<div class="row">
 				<div class="col-sm-5">
-					<p class="font-weight-bold">Total number of Pawning Prices:</p> 
+					<p class="font-weight-bold">Total number of Prices:</p> 
 				</div>
 				<div class="col-sm-5">
 					<p>4</p>

@@ -19,17 +19,18 @@
 
   <!-- Custom styles for this template-->
   <link href="<?php echo base_url('css/sb-admin.css'); ?>" rel="stylesheet">
+  <style type="text/css">
+    a{
+      color: black;
+    }
+  </style>
 </head>
 
 <body id="page-top">
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-    <a class="navbar-brand mr-1" href="<?php echo base_url('dashboard') ?>"><img src="https://pawnhero.ph/img/PawnHero-logo.svg" width="145px">     Product Price Catalog</a>
-
-    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
-      <i class="fas fa-bars"></i>
-    </button>
-    <a href="<?php echo base_url('/login') ?>" class="btn btn-success">Login</a>
+    <a class="navbar-brand mr-1" href="<?php echo base_url('dashboard') ?>" title="Home"><img src="https://pawnhero.ph/img/PawnHero-logo.svg" width="145px"> Product Price Catalog</a>
+    <a href="<?php echo base_url('/login') ?>" class="btn btn-success" Title="Login">Login</a>
     
   </nav>
 
@@ -38,17 +39,17 @@
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('products');?>">
+        <a class="nav-link" href="<?php echo base_url('products');?>" title="Go to Catalog of all Products">
           <span>Catalog</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('categories');?>">
+        <a class="nav-link" href="<?php echo base_url('categories');?>" title="Go to Product Categories">
           <span>Categories</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('brands');?>">
+        <a class="nav-link" href="<?php echo base_url('brands');?>" title="Go to Product Brands">
           <span>Brands</span>
         </a>
       </li>

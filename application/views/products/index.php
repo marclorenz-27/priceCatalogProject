@@ -5,12 +5,11 @@
                 <div class="input-group pmb-3" style="width: 45%; float: right; margin: 2vh 2vh 4vh 0vh">
                   <input type="search" class="form-control" placeholder="Search Brand, Category or Product Name" aria-label="Enter Product Name, Brand or Category" aria-describedby="basic-addon2">
                   <div class="input-group-append" required/>
-                    <button class="btn btn-primary" type="button">Search</button>
+                    <button class="btn btn-primary" type="button" title="Search">Search</button>
                   </div>
                 </div>
               </div>
-            </form>
-   
+            </form>   
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered table-hover table-responsive" id="dataTable" width="100%" cellspacing="0">
@@ -23,6 +22,7 @@
                     <th class="align-top">Selling Price Average</th>
                     <th class="align-top">Last Selling Date</th>
                     <th class="align-top">Picture</th>
+                    <th>Action</th>
                   </tr>
                 </thead>
                 <tfoot class="bg-dark text-light">
@@ -34,6 +34,7 @@
                     <th>Average Price Sold</th>
                     <th>Last Selling Date</th>
                     <th>Picture</th>
+                    <th>Action</th>
                   </tr>
                 </tfoot>
                 <tbody>
@@ -42,11 +43,13 @@
                   <tr>
                     <td><b><?php echo $product['category_name']; ?></b></td>
                     <td><?php echo $product['brand_name']; ?></td>
-                    <td> <?php echo $product['product_name']; ?> <br><br> <center><a href="<?php echo site_url('/products/'.$product['slug']);?>" class="btn btn-success">View more info</a></center></td>
-                    <td>&#x20b1; <?php echo number_format($product['appraised_amount'], 2);?> <small class="text-info">*average out of 5 prices</small></td>
-                    <td>&#x20b1; <?php echo number_format(55000, 2);?> <small class="text-info">*average out of 4 prices</small></td>
+                    <td> <?php echo $product['product_name']; ?></td>
+                    <td>&#x20b1; <?php echo number_format($product['appraised_amount'], 2);?> <br><br><small class="text-info">*average out of n prices</small></td>
+                    <td>&#x20b1; <?php echo number_format(55000, 2);?> <br><br><small class="text-info">*average out of n prices</small></td>
                     <td> December 13, 2018 </td>
                     <td><center><img src="<?php echo $product['destination']; ?>" alt="<?php echo $product['slug']; ?>" width="200px" height="200px"></center></td>
+                    <td> <center><a href="<?php echo site_url('/products/'.$product['slug']);?>" class="btn btn-success" 
+                      Title="<?php echo "View " . $product['product_name'] . " Product Info"?>">View</center></td>
                   </tr>
                  <?php endforeach; ?>
                  </tbody>
