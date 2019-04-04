@@ -137,8 +137,9 @@
 							<div class="col-sm-5">
 								<p class="font-weight-bold">Total number of Prices:</p>
 							</div>
+							<br><br>
 							<div class="col-sm-5">
-								<p> </p>
+								<p><?php echo $products_by_product_name_rows; ?></p>
 							</div>
 						</div>
 				</div>	

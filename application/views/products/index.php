@@ -46,7 +46,7 @@
                     <td><a href="<?php echo site_url('/products/'.$product['slug']);?>"><?php echo $product['product_name']; ?></a></td>
                     <td>
                     <?php echo "&#8369; " . number_format($product['average_per_group'],2); ?>
-                    <br><small class="text-info">*average out of <?php echo "n" ?><br> prices</small></td>
+                    <br><small class="text-info">*average out of <?php echo $product_rows; ?> prices</small></td>
                     <td> <?php
                                    //echo number_format(55000, 2);
                                   echo "<del><p> &#x20b1; nn,nnn</p></del>";
