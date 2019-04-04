@@ -12,7 +12,7 @@
             </form>   
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-bordered  table-responsive" id="dataTable"  cellspacing="0">
+              <table class="table table-bordered  table-responsive" style="font-size:14px;" id="dataTable"  cellspacing="0">
                 <thead class="bg-dark text-light">
                   <tr>
                     <th class="align-top">Category</th>
@@ -21,8 +21,8 @@
                     <th class="align-top">Pawning Price Average</th>
                     <th class="align-top">Selling Price Average</th>
                     <th class="align-top">Last Selling Date</th>
-                    <!-- <th class="align-top">Action</th> -->
-                    <th class="align-top">Picture <br> (click photo to view)</th>
+                    <th class="align-top">Picture</th>
+                    <th class="align-top">Action</th>
                   </tr>
                 </thead>
                 <tfoot class="bg-dark text-light">
@@ -33,8 +33,8 @@
                     <th>Average Pawning Price</th>
                     <th>Average Price Sold</th>
                     <th>Last Selling Date</th>
-                    <!-- <th>Action</th> -->
                     <th>Picture</th>
+                    <th>View</th>
                   </tr>
                 </tfoot>
                 <tbody>
@@ -47,17 +47,33 @@
                     <td>
                     <?php echo "&#8369; " . number_format($product['average_per_group'],2); ?>
                     <br><br><small class="text-info">*average out of <br> n prices</small></td>
-                    <td>&#x20b1; <?php echo number_format(55000, 2);?> <br><br><small class="text-info">*average out of <br>n prices</small></td>
+                    <td> <?php
+                                   //echo number_format(55000, 2);
+                                  echo "<del><p> &#x20b1; nn,nnn</p></del>";
+                                ?> 
+                    <small class="text-info">*average out of <br>n prices</small></td>
                     <td> December 13, 2018 </td>
-                    <!-- <td> <center><a href="<?php echo site_url('/products/'.$product['slug']);?>" class="btn btn-success" 
-                      Title="<?php echo "View " . $product['product_name'] . " Records"?>">View</center></td> -->
+                    
                     <td> 
                       <center>
                         <a href="<?php echo site_url('/products/'.$product['slug']);?>">
-                          <img src="<?php echo $product['destination']; ?>" alt="<?php echo $product['slug']; ?>" width="200px" height="200px" title="<?php echo $product['brand_name'] . " " . $product['product_name']; ?>">
+                          <img src="<?php echo $product['destination']; ?>" alt="<?php echo $product['slug']; ?>" class="imageZoom" width="85px" height="85px" title="<?php echo "Click to view " . $product['brand_name'] . " " . $product['product_name']; ?>">
+                          <!--jquery code for image zoom on the left side-->
+                          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                          <script src="<?php echo base_url('js/jquery.bighover.js') ?>"></script>
+                          <script>
+                            $('.imageZoom').bighover({
+                              height : "250",
+                              position : "left",
+
+                            });
+                          </script>
                         </a>
                       </center>
                     </td>
+
+                    <td> <br><center><a href="<?php echo site_url('/products/'.$product['slug']);?>" class="btn btn-success" 
+                      Title="<?php echo "View " . $product['product_name'] . " Records"?>">View</center></td>
                   </tr>
                  <?php endforeach; ?>
                  </tbody>

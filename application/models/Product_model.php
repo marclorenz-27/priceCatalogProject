@@ -8,7 +8,7 @@
 			if($slug === FALSE){
 					
 					$this->db->select_avg('appraised_amount', 'average_per_group');
-					$this->db->select('products.*');
+					$this->db->select('products.*'); //SELECT * FROM products
 					$this->db->select('categories.*');
 					$this->db->select('brands.*');
 					$this->db->select('product_photo.*');
