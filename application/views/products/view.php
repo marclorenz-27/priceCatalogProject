@@ -171,7 +171,7 @@
 							<h4 class="card-title"><?php echo $product['product_name']; ?></h4>
 							<p class="text-secondary" style="font-weight: bold;"><?php echo $product['brand_name']; ?></p>
 							<p class="card-text"><b>Appraisal Amount:</b> <br> <?php echo "&#8369; " . number_format($product['appraised_amount'], 2); ?></p>
-							<p class="card-text"><b>Pawning Date:</b><br></p>
+							<p class="card-text"><b>Pawning Date:</b><br> <?php echo $product['pawning_date']; ?></p>
 						</div>
 					</div>
 				<?php endforeach; ?>
@@ -180,5 +180,21 @@
 				<h3 class="font-weight-bold">All Selling Prices</h3><br><br>
 			</div>
 		</div>
-	</div> <br>
-</div> <br>
+	</div>
+	<div class="row" style="">
+				<?php foreach ($products_by_product_name as $product): ?>
+					<div class="card" style="width: 14rem; ">
+						<img class="card-img-top" src="<?php echo $product['destination']; ?>" alt="Image on Card Sample" style="padding: 2vh">
+						<div class="card-body">
+							<h4 class="card-title"><?php echo $product['product_name']; ?></h4>
+							<p class="text-secondary" style="font-weight: bold;"><?php echo $product['brand_name']; ?></p>
+							<p class="card-text"><b>Appraisal Amount:</b> <br> <?php echo "&#8369; " . number_format($product['appraised_amount'], 2); ?></p>
+							<p class="card-text"><b>Pawning Date:</b><br> <?php echo $product['pawning_date']; ?></p>
+						</div>
+					</div>
+				<?php endforeach; ?>
+			</div> <br>
+	<div class="row">
+				<a href="<?php echo base_url('products'); ?>" class="btn btn-success" style="color: white; float:left"><i class='far fa-arrow-alt-circle-left'></i> Back to Catalog</a>
+	</div> 
+</div>

@@ -45,13 +45,13 @@
                     <td><?php echo $product['brand_name']; ?></td>
                     <td><a href="<?php echo site_url('/products/'.$product['slug']);?>"><?php echo $product['product_name']; ?></a></td>
                     <td>
-                    <?php echo "&#8369; " . number_format($product['average_per_group'],2); ?>
+                    <?php echo "<p>&#8369; " . number_format($product['average_per_group'],2) . "</p>"; ?>
                     <br><small class="text-info">*average out of <?php echo $product_rows; ?> prices</small></td>
                     <td> <?php
                                    //echo number_format(55000, 2);
-                                  echo "<del><p> &#x20b1; nn,nnn</p></del>";
+                                  echo "<del><p class='text-muted'> &#x20b1; nn,nnn</p></del>";
                                 ?> 
-                    <small class="text-info">*average out of <br>n prices</small></td>
+                    <br><small class="text-info">*average out of n prices</small></td>
                     <td> December 13, 2018 </td>
                     
                     <td> 

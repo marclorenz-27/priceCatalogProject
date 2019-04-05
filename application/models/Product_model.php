@@ -18,7 +18,6 @@
  					$query = $this->db->get('products');
 					return $query->result_array();
 			}
-
 			$this->db->join('categories', 'categories.category_id = products.category_id');
 			$this->db->join('brands', 'brands.brand_id = products.brand_id','left');
 			$this->db->join('product_photo', 'product_photo.photo_id = products.photo_id');
