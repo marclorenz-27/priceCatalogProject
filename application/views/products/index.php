@@ -73,7 +73,7 @@
                     </td>
 
                     <td> <br><center><a href="<?php echo site_url('/products/'.$product['slug']);?>" class="btn btn-success" 
-                      Title="<?php echo "View " . $product['product_name'] . " Records"?>">View</center></td>
+                      Title="<?php echo "View " . $product['product_name'] . " Records"?>"> <i class='far fa-eye'></i> View</center></td>
                   </tr>
                  <?php endforeach; ?>
                  </tbody>

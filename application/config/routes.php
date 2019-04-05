@@ -1,7 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+$route['search'] = 'search/index';
 $route['products'] = 'products/index';
+
 $route['products/(:any)'] = 'products/view/$1';
 $route['products/view/avg'] = 'products/avg';
 $route['brands'] = 'brands/index';
