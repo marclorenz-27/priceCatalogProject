@@ -27,23 +27,29 @@
       </div>
       <div class="card-body">
         <form>
-          <div class="form-group">
-            <div class="form-label-group">
-              <input type="email" id="inputEmail" class="form-control" placeholder="Enter Username" required="required" autofocus="autofocus">
-              <label for="inputEmail">Username</label>
-            </div>
+          <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="fas fa-user"> </i>
+                  </span>
+                </div>
+                <input type="text" class="form-control" placeholder="Enter Username" id="usr" name="username">
           </div>
-          <div class="form-group">
-            <div class="form-label-group">
-              <input type="password" id="inputPassword" class="form-control" placeholder="Enter Password" required="required">
-              <label for="inputPassword">Password</label>
-            </div>
+          <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="fas fa-key"> </i>
+                  </span>
+                </div>
+                <input type="text" class="form-control" placeholder="Enter Password" id="usr" name="username">
           </div>
-            <a class="btn btn-success btn-block" href="index.html">Login <i class='fas fa-sign-in-alt'></i></a>
+            <a class="btn btn-success btn-block" href="index.html"><i class='fas fa-sign-in-alt'></i> Login</a> <br>
           </form>
         </div>
       </div>
     </div>
+
+
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>

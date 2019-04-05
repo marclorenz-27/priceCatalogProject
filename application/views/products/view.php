@@ -1,5 +1,5 @@
 </head>
-<i class="fas fa-money-bill" style="color:red"></i>
+
 <body>
 	<div class="row">
 		<a href="<?php echo base_url('products'); ?>" class="btn btn-success" style="color: white; float:left"><i class='far fa-arrow-alt-circle-left'></i> Back to Catalog</a>
