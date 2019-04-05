@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Product Price Catalog - PawnHero</title>
+  <title>Product Pricing Catalog - PawnHero</title>
 
   <!-- Custom fonts for this template-->
   <link href="<?php echo base_url('vendor/fontawesome-free/css/all.min.css'); ?>" rel="stylesheet" type="text/css">
@@ -61,7 +61,7 @@
 <body id="page-top">
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-    <a class="navbar-brand mr-1" href="<?php echo base_url('dashboard') ?>" title="Dashboard"><img src="https://pawnhero.ph/img/PawnHero-logo.svg" width="145px"> Product Price Catalog</a>
+    <a class="navbar-brand mr-1" href="<?php echo base_url('dashboard') ?>" title="Dashboard"><img src="https://pawnhero.ph/img/PawnHero-logo.svg" width="145px"> Product Pricing Catalog</a>
     <a href="<?php echo base_url('/login') ?>" class="btn btn-success" Title="Login" style="margin-left: 3vh;"><i class='fas fa-sign-in-alt'></i> Login</a>
     
   </nav>
