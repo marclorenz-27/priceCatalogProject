@@ -139,7 +139,7 @@
 							</div>
 							<br><br>
 							<div class="col-sm-5">
-								<p><?php echo $products_by_product_name_rows; ?></p>
+								<h5><span class="badge badge-dark" style="text-align: left;"><?php echo $products_by_product_name_rows; ?></span></h5>
 							</div>
 						</div>
 				</div>	
@@ -184,7 +184,7 @@
 	<div class="row" style="">
 				<?php foreach ($products_by_product_name as $product): ?>
 					<div class="card" style="width: 14rem; ">
-						<img class="card-img-top" src="<?php echo $product['destination']; ?>" alt="Image on Card Sample" style="padding: 2vh">
+						<img class="card-img-top" src="<?php echo $product['destination']; ?>" alt="Image on Card Sample" style="padding:1vh">
 						<div class="card-body">
 							<h4 class="card-title"><?php echo $product['product_name']; ?></h4>
 							<p class="text-secondary" style="font-weight: bold;"><?php echo $product['brand_name']; ?></p>

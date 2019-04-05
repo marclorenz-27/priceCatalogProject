@@ -65,7 +65,6 @@
                             $('.imageZoom').bighover({
                               height : "250",
                               position : "left",
-
                             });
                           </script>
                         </a>
