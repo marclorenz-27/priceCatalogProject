@@ -4,8 +4,8 @@
 			$this->load->database();
 		}
 
-		public function get_products($product_name = FALSE){
-			if($product_name === FALSE){
+		public function get_products($slug = FALSE){
+			if($slug === FALSE){
 				$this->db->select_avg('appraised_amount', 'average_per_group');
 				$this->db->select('products.*'); //SELECT * FROM products
 				$this->db->select('categories.*');
@@ -22,7 +22,7 @@
 			$this->db->join('categories', 'categories.category_id = products.category_id');
 			$this->db->join('brands', 'brands.brand_id = products.brand_id','left');
 			$this->db->join('product_photo', 'product_photo.photo_id = products.photo_id');
-			$query = $this->db->get_where('products', array('product_name' => $product_name));
+			$query = $this->db->get_where('products', array('slug' => $slug));
 			return $query->row_array(); // to return 1.
 		}
 

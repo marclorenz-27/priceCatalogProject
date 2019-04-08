@@ -47,7 +47,7 @@
                     <td>
                     <?php echo "<p>&#8369; " . number_format($product['average_per_group'],2) . "</p>"; ?>
                     <br><small class="text-info">*average out of <?php echo "n"; ?> prices</small></td>
-                    <td> <?php //echo number_format(n, 2); 
+                    <td> <?php //echo number_format(n , 2); 
                               echo "<del><p class='text-muted'> &#x20b1; nn,nnn</p></del>"; ?> 
                     <br><small class="text-info">*average out of prices</small></td>
                     <td> December 13, 2018 </td>
@@ -55,7 +55,7 @@
                     <td> 
                       <center>
                         <a href="<?php echo site_url('/products/'.$product['slug']);?>">
-                          <img src="<?php echo $product['destination']; ?>" alt="<?php echo $product['slug']; ?>" class="imageZoom" width="85px" height="85px" title="<?php echo "Click to view " . $product['brand_name'] . " " . $product['product_name']; ?>">
+                          <img src="<?php echo $product['destination']; ?>" alt="<?php echo $product['slug'] . "-photo"; ?>" class="imageZoom" width="85px" height="85px" title="<?php echo "Click to view " . $product['brand_name'] . " " . $product['product_name']; ?>">
                           <!--jquery code for image zoom on the left side-->
                           <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
                           <script src="<?php echo base_url('js/jquery.bighover.js') ?>"></script>
