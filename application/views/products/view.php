@@ -54,7 +54,7 @@
 										foreach ($avg->result() as $row) {
 											echo number_format($row->appraised_amount, 2) . "<br>";
 										}
-										?>
+									?>
 									</span>
 								</h5>
 							</div>

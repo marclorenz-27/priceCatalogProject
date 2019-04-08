@@ -46,8 +46,8 @@
                     <td><a href="<?php echo site_url('/products/'.$product['slug']);?>"><?php echo $product['product_name']; ?></a></td>
                     <td>
                     <?php echo "<p>&#8369; " . number_format($product['average_per_group'],2) . "</p>"; ?>
-                    <br><small class="text-info">*average out of <?php echo $count_per_group; ?> prices</small></td>
-                    <td> <?php //echo number_format(55000, 2); 
+                    <br><small class="text-info">*average out of <?php echo "n"; ?> prices</small></td>
+                    <td> <?php //echo number_format(n, 2); 
                               echo "<del><p class='text-muted'> &#x20b1; nn,nnn</p></del>"; ?> 
                     <br><small class="text-info">*average out of prices</small></td>
                     <td> December 13, 2018 </td>
