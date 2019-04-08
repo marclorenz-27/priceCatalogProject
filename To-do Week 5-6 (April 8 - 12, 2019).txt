@@ -1,0 +1,5 @@
+Week 5 - 6 Back-end Development of Pricing Catalog
+- Study SQL to connect database to PCS
+- Be able to connect the system to both PawnHero and Marketplace
+database
+- Integrate PCS to CMS
