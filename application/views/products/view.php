@@ -20,16 +20,16 @@
 			<div class="row">
 				<div class="col-sm-4">
 					<div class="row">
-						<img src="<?php echo $products['destination']; ?>" width="80%" height="80%">
+						<img src="<?php echo $products['destination']; ?>" width="80%" height="80%" title="<?php echo $product_name; ?>" alt="<?php echo $slug; ?>">
 					</div>
 				</div>
 				<div class="col-sm-8">
 					<div class="row">
 						<div class="col-sm-6">
-							<h4><span class="badge badge-success">PawnHero</span></h4>
+							<h4 title="Prices from the Pawnshop"><span class="badge badge-success">PawnHero</span></h4>
 						</div>
 					<div class="col-sm-6">
-						<h4><span class="badge badge-dark">MarketPlace</span></h4>
+						<h4 title="Prices based on selling prices from MarketPlace"><span class="badge badge-dark">MarketPlace</span></h4>
 					</div>
 					</div> <br>
 

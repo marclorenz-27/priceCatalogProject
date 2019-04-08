@@ -5,7 +5,7 @@
                 <div class="input-group pmb-3" style="width: 45%; float: right; margin: 2vh 3vh 4vh 0vh">
                   <input type="search" class="form-control" placeholder="Search Brand, Category or Product Name" aria-label="Enter Product Name, Brand or Category" aria-describedby="basic-addon2">
                   <div class="input-group-append" required/>
-                    <button class="btn btn-primary" type="button" title="Search"><i class='fas fa-search'></i></button>
+                    <button class="btn btn-primary" type="button" title="Search"><i class='fas fa-search'></i> Search</button>
                   </div>
                 </div>
               </div>
@@ -46,12 +46,10 @@
                     <td><a href="<?php echo site_url('/products/'.$product['slug']);?>"><?php echo $product['product_name']; ?></a></td>
                     <td>
                     <?php echo "<p>&#8369; " . number_format($product['average_per_group'],2) . "</p>"; ?>
-                    <br><small class="text-info">*average out of <?php echo $product_rows; ?> prices</small></td>
-                    <td> <?php
-                                   //echo number_format(55000, 2);
-                                  echo "<del><p class='text-muted'> &#x20b1; nn,nnn</p></del>";
-                                ?> 
-                    <br><small class="text-info">*average out of n prices</small></td>
+                    <br><small class="text-info">*average out of <?php echo $count_per_group; ?> prices</small></td>
+                    <td> <?php //echo number_format(55000, 2); 
+                              echo "<del><p class='text-muted'> &#x20b1; nn,nnn</p></del>"; ?> 
+                    <br><small class="text-info">*average out of prices</small></td>
                     <td> December 13, 2018 </td>
                     
                     <td> 
