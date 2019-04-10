@@ -20,8 +20,8 @@
 			$data['max'] = $this->product_model->get_maximum($data['product_name']);
 			
 
-			$data['products_by_product_name'] = $this->product_model->get_products_by_product_name($slug);
-			$data['products_by_product_name_rows'] = $this->product_model->get_products_by_product_name_rows($slug);
+			$data['products_by_product_name'] = $this->product_model->get_products_by_product_name($data['product_name']);
+			$data['products_by_product_name_rows'] = $this->product_model->get_products_by_product_name_rows($data['product_name']);
 
 			if(empty($data['products'])){
 				show_404();
