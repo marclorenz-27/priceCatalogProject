@@ -27,8 +27,6 @@
 				show_404();
 			}
 
-			
-			
 			$data['slug'] = $data['products']['slug'];
 			$data['appraised_amount'] = $data['products']['appraised_amount'];
 			$data['average_per_group'] = $this->product_model->get_average_per_group($data['product_name']);

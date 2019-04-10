@@ -66,11 +66,11 @@
 			$this->db->join('categories', 'categories.category_id = products.category_id');
 			$this->db->join('brands', 'brands.brand_id = products.brand_id','left');
 			$this->db->join('product_photo', 'product_photo.photo_id = products.photo_id');
+			$this->db->order_by("pawning_date", "DESC");
  			$query = $this->db->get_where('products', array('product_name' => $product_name));
 			return $query->result_array();
 		}
 
-		//works well in view. 
 		public function get_products_by_product_name_rows($product_name = FALSE){
 			$this->db->select('products.*');
 			$this->db->select('categories.*');

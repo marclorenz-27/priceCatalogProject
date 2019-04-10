@@ -24,6 +24,23 @@
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <style type="text/css">
+    * {
+  box-sizing: border-box;
+}
+
+.zoom {
+  /*padding: 50px;*/
+  transition: transform .2s;
+  /*width: 200px;*/
+  /*height: 200px;*/
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.45); 
+}
     .icon-color{
       color: #000000;
     }
