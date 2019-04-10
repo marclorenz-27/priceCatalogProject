@@ -110,7 +110,7 @@
 						<div class="col-sm-5">
 							<h5><span class="badge badge-danger" style="text-align: left;">&#8369; 
 								<?php 
-									$min = $this->product_model->get_minimum($slug);
+									$min = $this->product_model->get_minimum($product_name);
 										foreach ($min->result() as $row) {
 											echo number_format($row->appraised_amount, 2) . "<br>";
 										}

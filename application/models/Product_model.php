@@ -83,37 +83,52 @@
 			return $query->num_rows();
 		}
 
-		public function get_average($slug = FALSE)
+		public function get_average($product_name = FALSE)
 		{				
 			$this->db->select_avg('appraised_amount');
-			$this->db->from('products');
-			$this->db->where('slug', $slug);
-			return $this->db->get();
-		}
+			return $this->db->get_where('products', array('product_name' => $product_name));		}
 
-		public function get_average_per_group($slug = FALSE)
+		public function get_average_per_group($product_name = FALSE)
 		{	
 			$this->db->select_avg('appraised_amount');
-			$this->db->from('products');
-			$this->db->where('slug', $slug);
 			$this->db->group_by('product_name');
-			return $this->db->get();
+			return $this->db->get_where('products', array('product_name' => $product_name));
 		}
 
-		public function get_minimum($slug = FALSE)
+		public function get_minimum($product_name = FALSE)
 		{	
 			$this->db->select_min('appraised_amount');
-			$this->db->from('products');
-			$this->db->where('slug', $slug);
-			return $this->db->get();
+			return $this->db->get_where('products', array('product_name' => $product_name));
 		}
 
-		public function get_maximum($slug = FALSE)
-		{		
+		public function get_maximum($product_name = FALSE)
+		{	
 			$this->db->select_max('appraised_amount');
-			$this->db->from('products');
-			$this->db->where('slug', $slug);
-			
-			return $this->db->get();
+			return $this->db->get_where('products', array('product_name' => $product_name));
 		}
+
+
+		// public function get_maximum($slug = FALSE)
+		// {		
+		// 	$this->db->select_max('appraised_amount');
+		// 	$this->db->from('products');
+		// 	$this->db->where('product_name', $product_name);	
+		// 	return $this->db->get();
+		// }
+
+		// public function get_minimum($slug = FALSE)
+		// {	
+		// 	$this->db->select_min('appraised_amount');
+		// 	$this->db->from('products');
+		// 	$this->db->where('slug', $slug);
+		// 	return $this->db->get();
+		// }
+
+		// public function get_maximum($slug = FALSE)
+		// {		
+		// 	$this->db->select_max('appraised_amount');
+		// 	$this->db->from('products');
+		// 	$this->db->where('slug', $slug);	
+		// 	return $this->db->get();
+		// }
 	}
