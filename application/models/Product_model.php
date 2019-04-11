@@ -86,6 +86,8 @@
 		public function get_average($product_name = FALSE)
 		{				
 			$this->db->select_avg('appraised_amount');
+			// echo $product_name;
+			// exit();
 			return $this->db->get_where('products', array('product_name' => $product_name));		}
 
 		public function get_average_per_group($product_name = FALSE)

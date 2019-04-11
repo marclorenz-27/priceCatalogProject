@@ -1,0 +1,9 @@
+The last requirements for the PCS (Pricing Catalog System)
+	Log In
+		Interface
+		User Access
+
+	Connect to the 2 databases (PawnHero and MarketPlace)
+	Get the records from the 2 databases
+	Search Function
+	Pagination

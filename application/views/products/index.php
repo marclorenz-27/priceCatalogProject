@@ -9,7 +9,10 @@
                   </div>
                 </div>
               </div>
-            </form>   
+            </form> <br> <br> <br>
+            <div class="alert alert-info" role="alert">
+              <i class="fa fa-info-circle"></i> The following data are just test data.
+            </div>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered  table-responsive" style="font-size:14px;" id="dataTable"  cellspacing="0">
@@ -38,6 +41,7 @@
                   </tr>
                 </tfoot>
                 <tbody>
+
                 <!--Query for product-->
                  <?php foreach ($products as $product): ?>
                   <tr>
