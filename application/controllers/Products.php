@@ -6,7 +6,7 @@
 			$data['products'] = $this->product_model->get_products(); 
 			$data['average_per_group'] = $this->product_model->get_average_per_group();
 			$data['count_by_product_name'] = $this->product_model->get_count_by_product_name();
-			// $data['products_by_product_name_rows'] = $this->product_model->get_products_by_product_name_rows($data['product_name']);
+			$data['average_sales'] = $this->product_model->get_average_sales();
 			$this->load->view('templates/header');
 			$this->load->view('products/index', $data);
 			$this->load->view('templates/footer');

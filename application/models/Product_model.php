@@ -1,7 +1,25 @@
 <?php
 	class Product_model extends CI_Model{
+		var $db2;
 		public function __construct(){
-			$this->load->database();
+			$this->db2 = $this->load->database('otherdb', TRUE);
+		}
+
+		public function get_average_sales($product_name = FALSE){
+			$this->db2->select_avg('marketplace_db.sales.price_sold', 'average_sales');
+			$this->db2->select('pawnhero_db.products.product_name AS `Product Name`');
+			$this->db2->select('pawnhero_db.brands.brand_name AS `Brand Name`');
+			$this->db2->join('pawnhero_db.products', 'pawnhero_db.products.product_id = marketplace_db.sales.product_id', 'LEFT');
+			$this->db2->join('pawnhero_db.brands', 'pawnhero_db.brands.brand_id = marketplace_db.sales.brand_id', 'LEFT');
+			$this->db2->group_by('pawnhero_db.products.product_id');
+			$query = $this->db2->get_where('marketplace_db.sales', array('product_name'=>$product_name));
+			// print_r($query->result_array());
+			// exit();
+			$arrayOne = $query->result_array();
+			// print_r($query->result_array());
+			// print_r($arrayOne);
+			// exit();
+			return $arrayOne;
 		}
 
 		public function get_products($slug = FALSE){
@@ -16,7 +34,10 @@
 				$this->db->join('product_photo', 'product_photo.photo_id = products.photo_id');
 				$this->db->group_by('product_name');
  				$query = $this->db->get('products');
-				return $query->result_array(); // to return multiple records / for index
+				$arrayTwo = $query->result_array();
+				// print_r($arrayTwo);
+				// exit();
+				return $arrayTwo;
 			}
 
 			$this->db->join('categories', 'categories.category_id = products.category_id');

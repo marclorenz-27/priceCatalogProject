@@ -1,5 +1,20 @@
 <h2><?= $title ?></h2>
 </center>
+<?php
+// foreach ($average_sales as $average_sale) {
+//    echo $average_sale['average_sales'] . "<br>";
+// }
+ // $arrayMerged = array_merge($average_sales,$products);
+ // echo "<pre>";
+ // print_r($arrayMerged);
+ // echo "</pre>";
+ // exit();
+
+// echo $arrayMerged[0][];
+// print_r($products);
+// print_r($average_sales);
+// exit();
+?>
             <form class="form-horizontal">
               <div class="form-group">
                 <div class="input-group pmb-3" style="width: 45%; float: right; margin: 2vh 3vh 4vh 0vh">
@@ -41,19 +56,20 @@
                   </tr>
                 </tfoot>
                 <tbody>
-
                 <!--Query for product-->
-                 <?php foreach ($products as $product): ?>
-                  <tr>
+                 <?php 
+                  foreach ($products as $product): 
+                  ?>
+                   <tr>
                     <td><b><?php echo $product['category_name']; ?></b></td>
                     <td><?php echo $product['brand_name']; ?></td>
                     <td><a href="<?php echo site_url('/products/'.$product['slug']);?>"><?php echo $product['product_name']; ?></a></td>
                     <td>
-                    <?php echo "<p>&#8369; " . number_format($product['average_per_group'],2) . "</p>"; ?>
-                    <br><small class="text-info">*average out of <?php echo "n"; ?> prices</small></td>
-                    <td> <?php //echo number_format(n , 2); 
-                              echo "<del><p class='text-muted'> &#x20b1; nn,nnn</p></del>"; ?> 
-                    <br><small class="text-info">*average out of prices</small></td>
+                    <?php echo "<p>&#8369; " . number_format($product['average_per_group'], 2) . "</p>"; ?>
+                    <br><small class="text-info">*average out of n prices</small></td>
+                    <td>
+                    <?php echo $average_sale['average_sales']; //BUGGG ?> 
+                    <br><small class="text-info">*average out of n prices</small></td>
                     <td> December 13, 2018 </td>
                     
                     <td> 
@@ -77,5 +93,6 @@
                       Title="<?php echo "View " . $product['product_name'] . " Records"?>"> <i class='far fa-eye'></i> View</center></td>
                   </tr>
                  <?php endforeach; ?>
+
                  </tbody>
              </table>
