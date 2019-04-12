@@ -180,14 +180,15 @@
 
 		<div class="container">
 			<div class="row">
-				<h3 class="font-weight-bold">All Pawning Prices</h3><br><br>
+				<h3 class="font-weight-bold">All Pawning Prices</h3>
 			</div>
+
 			<div class="row" style="">
 				<?php foreach ($products_by_product_name as $product): ?>
 					<div class="card" style="width: 14rem; ">
 						<img class="card-img-top" src="<?php echo $product['destination']; ?>" alt="Image on Card Sample" style="padding: 2vh">	
 						<div class="card-body">
-							<h4 class="card-title"><?php echo $product['product_name']; ?></h4>
+							<h5 class="card-title"><?php echo $product['product_name']; ?></h5>
 							<h6 class="text-secondary" style="font-weight: bold;"> <span class="badge badge-secondary"><?php echo $product['brand_name']; ?></span></h6>
 							<p class="card-text"><b>Appraisal Amount:</b> <br> <?php echo "&#8369; " . number_format($product['appraised_amount'], 2); ?></p>
 							<p class="card-text"><b>Pawning Date:</b><br> <?php echo date("F d, Y", strtotime($product['pawning_date'])); ?></p>
