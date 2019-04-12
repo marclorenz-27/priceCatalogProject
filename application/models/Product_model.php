@@ -2,6 +2,7 @@
 	class Product_model extends CI_Model{
 		// var $db2;
 		public function __construct(){
+			$this->load->database();
 			$this->db2 = $this->load->database('otherdb', TRUE);
 		}
 
@@ -76,6 +77,7 @@
 			$this->db->join('product_photo', 'product_photo.photo_id = products.photo_id');
 			$this->db->order_by("pawning_date", "DESC");
  			$query = $this->db->get_where('products', array('product_name' => $product_name));
+
 			return $query->result_array();
 		}
 
@@ -89,6 +91,7 @@
 			$this->db2->join('pawnhero_db.product_photo', 'pawnhero_db.product_photo.photo_id = pawnhero_db.products.photo_id');
 			$this->db2->order_by("selling_date", "DESC");
 			$query = $this->db2->get_where('marketplace_db.sales', array('product_name' => $product_name));
+
  			return $query->result_array();
 		}
 

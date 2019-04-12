@@ -41,7 +41,7 @@
                     <i class="fas fa-key"> </i>
                   </span>
                 </div>
-                <input type="text" class="form-control" placeholder="Enter Password" id="usr" name="username">
+                <input type="password" class="form-control" placeholder="Enter Password" id="usr" name="username">
           </div>
             <a class="btn btn-success btn-block" href="index.html"><i class='fas fa-sign-in-alt'></i> Login</a> <br>
           </form>
