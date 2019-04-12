@@ -1,4 +1,9 @@
-<h2><?= $title ?></h2>
+</center>
+<div class="alert alert-info" role="alert">
+              <i class="fa fa-info-circle"></i> The following data are just test data used for system demonstration.
+</div>
+<center>
+  <h2><?= $title ?></h2>
 </center>
             <form class="form-horizontal">
               <div class="form-group">
@@ -9,10 +14,7 @@
                   </div>
                 </div>
               </div>
-            </form> <br> <br> <br>
-            <div class="alert alert-info" role="alert">
-              <i class="fa fa-info-circle"></i> The following data are just test data used for system demonstration.
-            </div>
+            </form> <br>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered  table-responsive" style="font-size:14px;" id="dataTable"  cellspacing="0">

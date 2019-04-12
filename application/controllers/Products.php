@@ -24,6 +24,7 @@
 			$data['products_by_product_name'] = $this->product_model->get_products_by_product_name($data['product_name']);
 			$data['products_by_product_name_rows'] = $this->product_model->get_products_by_product_name_rows($data['product_name']); //pawnhero
 			$data['num_of_selling_prices'] = $this->product_model->get_num_of_selling_prices($data['product_name']);
+			$data['product_selling_records'] = $this->product_model->get_product_selling_records($data['product_name']);
 
 			if(empty($data['products'])){
 				show_404();
@@ -33,7 +34,7 @@
 			$data['appraised_amount'] = $data['products']['appraised_amount'];
 			$data['average_per_group'] = $this->product_model->get_average_per_group($data['product_name']);
 			$this->load->view('templates/header');
-			
+
 			$this->load->view('products/view', $data);
 			$this->load->view('templates/footer');
 		}

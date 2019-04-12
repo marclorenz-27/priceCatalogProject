@@ -196,11 +196,27 @@
 					</div>
 				<?php endforeach; ?>
 			</div> <br>
-			<div class="row" style="display: none;">
+			<div class="row">
 				<h3 class="font-weight-bold">All Selling Prices</h3><br><br>
 			</div>
-		</div>
-	</div> <br><br>
+			<div class="row" style="">
+				<?php foreach ($product_selling_records as $record): ?>
+					<div class="card" style="width: 14rem; ">
+						<img class="card-img-top" src="<?php echo $record['destination']; ?>" alt="Image on Card Sample" style="padding: 2vh">	
+						<div class="card-body">
+							<h5 class="card-title"><?php echo $record['product_name']; ?></h5>
+							<h6 class="text-secondary" style="font-weight: bold;"> <span class="badge badge-secondary"><?php echo $record['brand_name']; ?></span></h6>
+							<p class="card-text"><b>Selling Price:</b> <br> <?php echo "&#8369; " . number_format($record['appraised_amount'], 2); ?></p>
+							<p class="card-text"><b>Selling Date:</b><br> <?php echo date("F d, Y", strtotime($record['selling_date'])); ?></p>
+						</div>
+					</div>
+
+
+
+				<?php endforeach; ?>
+			</div> <br>
+		</div> <br><br>
+
 	<div class="row">
 		<a href="<?php echo base_url('products'); ?>" class="btn btn-success" style="color: white; float:left"><i class='far fa-arrow-alt-circle-left'></i> Back to Catalog</a>
 	</div> 
