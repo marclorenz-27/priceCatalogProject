@@ -53,7 +53,7 @@
                     <?php echo "<p>&#8369; " . number_format($product['average_appraised_amount'], 2) . "</p>"; ?>
                     <br><small class="text-info">*average out of n prices</small></td>
                     <td>
-                    <?php echo "<p>&#8369; " . number_format($product['average_selling_price'], 2); ?> 
+                    <?php echo "<p>&#8369; " . number_format($product['average_selling_price'], 2) . "</p>"; ?> 
                     <br><small class="text-info">*average out of n prices</small></td>
                     <td> 
                       <!-- <?php echo date("F d, Y", strtotime($product['pawning_date'])); ?> -->

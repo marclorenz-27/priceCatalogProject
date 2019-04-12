@@ -1,6 +1,6 @@
 <?php
 	class Product_model extends CI_Model{
-		var $db2;
+		// var $db2;
 		public function __construct(){
 			$this->db2 = $this->load->database('otherdb', TRUE);
 		}
@@ -128,9 +128,9 @@
 
 		public function get_num_of_selling_prices($product_name = FALSE){
 			$this->db2->select('marketplace_db.sales.*');
-			$this->db2->select('pawnhero_db.brands.*');
-			$this->db2->join('pawnhero_db.products', 'marketplace_db.products.product_id = pawnhero_db.product.product_id','LEFT');
-			$query = $this->db->get_where('products', array('product_name' => $product_name));
+			$this->db2->join('pawnhero_db.products', 'pawnhero_db.products.product_id = marketplace_db.sales.product_id', 'LEFT');
+			$query = $this->db2->get_where('marketplace_db.sales', array('product_name' => $product_name));
+			
 			return $query->num_rows();
 		}
 
