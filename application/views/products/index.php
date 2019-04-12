@@ -1,20 +1,5 @@
 <h2><?= $title ?></h2>
 </center>
-<?php
-// foreach ($average_sales as $average_sale) {
-//    echo $average_sale['average_sales'] . "<br>";
-// }
- // $arrayMerged = array_merge($average_sales,$products);
- // echo "<pre>";
- // print_r($arrayMerged);
- // echo "</pre>";
- // exit();
-
-// echo $arrayMerged[0][];
-// print_r($products);
-// print_r($average_sales);
-// exit();
-?>
             <form class="form-horizontal">
               <div class="form-group">
                 <div class="input-group pmb-3" style="width: 45%; float: right; margin: 2vh 3vh 4vh 0vh">
@@ -26,7 +11,7 @@
               </div>
             </form> <br> <br> <br>
             <div class="alert alert-info" role="alert">
-              <i class="fa fa-info-circle"></i> The following data are just test data.
+              <i class="fa fa-info-circle"></i> The following data are just test data used for system demonstration.
             </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -65,14 +50,17 @@
                     <td><?php echo $product['brand_name']; ?></td>
                     <td><a href="<?php echo site_url('/products/'.$product['slug']);?>"><?php echo $product['product_name']; ?></a></td>
                     <td>
-                    <?php echo "<p>&#8369; " . number_format($product['average_per_group'], 2) . "</p>"; ?>
+                    <?php echo "<p>&#8369; " . number_format($product['average_appraised_amount'], 2) . "</p>"; ?>
                     <br><small class="text-info">*average out of n prices</small></td>
                     <td>
-                    <?php echo $average_sale['average_sales']; //BUGGG ?> 
+                    <?php echo "<p>&#8369; " . number_format($product['average_selling_price'], 2); ?> 
                     <br><small class="text-info">*average out of n prices</small></td>
-                    <td> December 13, 2018 </td>
-                    
                     <td> 
+                      <!-- <?php echo date("F d, Y", strtotime($product['pawning_date'])); ?> -->
+                      April 1, 2019
+
+                    </td>           
+                    <td>
                       <center>
                         <a href="<?php echo site_url('/products/'.$product['slug']);?>">
                           <img src="<?php echo $product['destination']; ?>" alt="<?php echo $product['slug'] . "-photo"; ?>" class="imageZoom" width="85px" height="85px" title="<?php echo "Click to view " . $product['brand_name'] . " " . $product['product_name']; ?>">
@@ -93,6 +81,5 @@
                       Title="<?php echo "View " . $product['product_name'] . " Records"?>"> <i class='far fa-eye'></i> View</center></td>
                   </tr>
                  <?php endforeach; ?>
-
                  </tbody>
              </table>

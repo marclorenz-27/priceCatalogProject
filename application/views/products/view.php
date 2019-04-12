@@ -29,7 +29,7 @@
 							<h4 title="Prices from the Pawnshop"><span class="badge badge-success">PawnHero</span></h4>
 						</div>
 					<div class="col-sm-6">
-						<h4 title="Prices based on selling prices from MarketPlace"><span class="badge badge-dark">MarketPlace</span></h4>
+						<h4 title="Prices based on selling prices from MarketPlace / Luxe/In"><span class="badge badge-dark">Luxe/In</span></h4>
 					</div>
 					</div> <p></p>
 
@@ -52,7 +52,7 @@
 							<div class="col-sm-5">
 								<h5><span class="badge badge-primary" style="text-align: left;">&#8369;
 									<?php		
-										foreach ($avg->result() as $row) {
+										foreach ($avg_appraised_amount->result() as $row) {
 											echo number_format($row->appraised_amount, 2) . "<br>";
 										}
 									?>
@@ -67,7 +67,13 @@
 								<h6 class="font-weight-bold">Average Price:</h6> 
 							</div>
 						<div class="col-sm-5">
-								<h5><span class="badge badge-primary" style="text-align: left;">&#8369; <?php echo "nn,nnn.nn" ;?></span></h5>
+								<h5><span class="badge badge-primary" style="text-align: left;">&#8369;
+									<?php		
+										foreach ($avg_price_sold->result() as $row) {
+											echo number_format($row->price_sold, 2) . "<br>";
+										}
+									?>
+								</span></h5>
 						</div>
 						</div>
 					</div>
@@ -82,7 +88,7 @@
 							<div class="col-sm-5">
 								<h5><span class="badge badge-warning" style="text-align: left;">&#8369;
 									<?php 
-										foreach ($max->result() as $row) {
+										foreach ($max_appraised_amount->result() as $row) {
 												echo number_format($row->appraised_amount, 2) . "<br>";
 										}
 									?>
@@ -96,7 +102,13 @@
 							<h6 class="font-weight-bold">Maximum Price:</h6> 
 						</div>
 						<div class="col-sm-5">
-							<h5><span class="badge badge-warning" style="text-align: left;">&#8369; nn,nnn.nn</span></h5>
+							<h5><span class="badge badge-warning" style="text-align: left;">&#8369; 
+							<?php		
+								foreach ($min_price_sold->result() as $row) {
+										echo number_format($row->price_sold, 2) . "<br>";
+								}
+							?>
+							</span></h5>
 						</div>
 					</div>
 				</div>
@@ -111,11 +123,10 @@
 						<div class="col-sm-5">
 							<h5><span class="badge badge-danger" style="text-align: left;">&#8369; 
 								<?php 
-									$min = $this->product_model->get_minimum($product_name);
-										foreach ($min->result() as $row) {
+										foreach ($min_appraised_amount->result() as $row) {
 											echo number_format($row->appraised_amount, 2) . "<br>";
 										}
-									?>
+								?>
 								</span></h5>
 							</div>
 						</div>
@@ -126,7 +137,13 @@
 							<h6 class="font-weight-bold">Minimum Price:</h6> 
 						</div>
 						<div class="col-sm-5">
-								<h5><span class="badge badge-danger" style="text-align: left;">&#8369; nn,nnn.nn</span></h5>
+								<h5><span class="badge badge-danger" style="text-align: left;">&#8369; 
+									<?php		
+										foreach ($max_price_sold->result() as $row) {
+											echo number_format($row->price_sold, 2) . "<br>";
+										}
+									?>
+								</span></h5>
 						</div>
 					</div>
 				</div>
@@ -147,10 +164,11 @@
 				<div class="col-sm-6">
 					<div class="row">
 						<div class="col-sm-5">
-							<p class="font-weight-bold">Total number of  Prices:</p> 
+							<p class="font-weight-bold">Total number of  Prices: </p> 
 						</div>
 						<div class="col-sm-5">
-							<p> </p>
+							<h5><span class="badge badge-dark" style="text-align: left;"><?php echo $num_of_selling_prices; ?></span></h5>
+							
 						</div>
 					</div>
 				</div>
