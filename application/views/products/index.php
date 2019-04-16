@@ -5,6 +5,7 @@
 <center>
   <h2><?= $title ?></h2>
 </center>
+
 <!--
   <div class="row">
     <div class="col-3">
@@ -25,6 +26,7 @@
       </form>
     </div>
   </div>
+
   <div class="row">
     <div class="container-fluid" style="margin-left: 2vh;">
       <div id="demo" class="collapse">
@@ -32,30 +34,37 @@
             <div class="row">
               <div class="col-sm">
                 <label><b>Filter by Brand</b></label> <br>
-                <?php foreach ($brands as $brand): ?>
+                <?php /* foreach ($brands as $brand):*/ ?>
                   <div class="col-4" style="display: inline-block;">
-                  <input type="checkbox" class="form-check-input" value="<?php echo $brand['brand_name']; ?>" title="<?php echo $brand['brand_name']; ?>"> <?php echo $brand['brand_name']; ?>
+                  <input type="checkbox" class="form-check-input" value="
+                  <?php /* echo $brand['brand_name']; ?>" title="<?php echo $brand['brand_name']; ?>"> <?php echo $brand['brand_name']; */?>
                   </div>
-                <?php endforeach; ?>
+                <?php /* endforeach; */ ?>
               </div>
               <div class="col-sm">
                  <label><b>Filter by Price Range</b></label> <br>
                   <p> &#8369; 
                     <?php 
+                    /*
                     foreach ($lowest_price->result() as $row) {
                         echo number_format($row->appraised_amount, 2);
                     }
+                    */
                   ?>
-                    <input type="range" class="custom-range" min="0.00" max="5,000,000.00" style="width: 60%; margin: 0 1.5vh 0vh 1.5vh">&#8369;<?php 
+                    <input type="range" class="custom-range" min="0.00" max="5,000,000.00" style="width: 60%; margin: 0 1.5vh 0vh 1.5vh">&#8369;
+                    <?php
+                    /* 
                     foreach ($highest_price->result() as $row) {
                         echo number_format($row->appraised_amount, 2);
                     }
+                    */
                   ?></p>
               </div>
             </div>
           </div>
       </div>
   </div>
+-->
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered  table-responsive" style="font-size:14px;" id="dataTable"  cellspacing="0">
@@ -84,10 +93,8 @@
                   </tr>
                 </tfoot>
                 <tbody>
-                //Query for product
-                 <?php 
-                  foreach ($products as $product): 
-                  ?>
+                <!--Query for product-->
+                 <?php foreach ($products as $product): ?>
                    <tr>
                     <td><b><?php echo $product['category_name']; ?></b></td>
                     <td><?php echo $product['brand_name']; ?></td>
@@ -96,16 +103,16 @@
                     <?php echo "<p>&#8369; " . number_format($product['average_appraised_amount'], 2) . "</p>"; ?>
                     <br><small class="text-info">*average out of n prices</small></td>
                     <td>
-                    <?php echo "<p>&#8369; " . number_format($product['average_selling_price'], 2) . "</p>"; ?> 
+                    <?php /* echo "<p>&#8369; " . number_format($product['average_selling_price'], 2) . "</p>"; */?> 
                     <br><small class="text-info">*average out of n prices</small></td>
                     <td> 
-                      <?php echo date("F d, Y", strtotime($product['pawning_date'])); ?>
+                      <?php /* echo date("F d, Y", strtotime($product['pawning_date'])); */ ?>
                     </td>           
                     <td>
                       <center>
                         <a href="<?php echo site_url('/products/'.$product['slug']);?>">
-                          <img src="<?php echo $product['destination']; ?>" alt="<?php echo $product['slug'] . "-photo"; ?>" class="imageZoom" width="85px" height="85px" title="<?php echo "Click to view " . $product['brand_name'] . " " . $product['product_name']; ?>">
-                          //jquery code for image zoom on the left side
+                          <img src="<?php /* echo $product['destination']; */?>" alt="<?php /* echo $product['slug'] . "-photo"; */ ?>" class="imageZoom" width="85px" height="85px" title="<?php echo "Click to view " . $product['brand_name'] . " " . $product['product_name']; ?>">
+                          <!-- jquery code for image zoom on the left side -->
                           <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
                           <script src="<?php echo base_url('js/jquery.bighover.js') ?>"></script>
                           <script>
@@ -124,4 +131,3 @@
                  <?php endforeach; ?>
                  </tbody>
              </table>
-           -->

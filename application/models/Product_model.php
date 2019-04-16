@@ -19,15 +19,6 @@
 					WHERE appraised_amount > 0
 					GROUP BY ph_product.product_name;
 				*/
-					$this->db->select('category_name AS Category Name');
-					$this->db->select('brand_name AS Brand Name');
-					$this->db->select('product_name AS Product Name');
-					$this->db->select_avg('appraised_amount', 'Average Appraised Amount')
-;					$this->db->join('ph_category_brand', 'ph_category_brand.category_brand_id = ph_product.category_brand_id', 'LEFT');
-					$this->db->join('ph_category', 'ph_category.category_id = ph_category_brand.category_id', 'LEFT');
-					$this->db->join('ph_brand', 'ph_brand.brand_id = ph_category_brand.brand_id', 'LEFT');
-					$this->db->where('appraised_amount >', 0);
-					$this->db->group_by('product_name');
 
 				// $this->db->select_avg('pawnhero_db.products.appraised_amount', 'average_appraised_amount');
 				// $this->db->select_avg('marketplace_db.sales.price_sold', 'average_selling_price');
@@ -42,13 +33,26 @@
 				// $this->db->join('pawnhero_db.product_photo', 'product_photo.photo_id = products.photo_id', 'LEFT');
 				// $this->db->order_by('pawnhero_db.products.pawning_date');
 				// $this->db->group_by('pawnhero_db.products.product_name');
- 				$query = $this->db->get('pawnhero.ph_product');
+
+				// echo "<pre>";
+				// print_r($products);
+				// echo "</pre>";
+				// exit();
+
+				$this->db->select('category_name');
+				$this->db->select('brand_name');
+				$this->db->select('product_name');
+				$this->db->select('pawnhero.ph_product.slug');
+				$this->db->select_avg('appraised_amount', 'average_appraised_amount')
+;				$this->db->join('ph_category_brand', 'ph_category_brand.category_brand_id = ph_product.category_brand_id', 'LEFT');
+				$this->db->join('ph_category', 'ph_category.category_id = ph_category_brand.category_id', 'LEFT');
+				$this->db->join('ph_brand', 'ph_brand.brand_id = ph_category_brand.brand_id', 'LEFT');
+				$this->db->where('appraised_amount >', 0);
+				$this->db->order_by('category_name');
+				$this->db->group_by('product_name');
+ 				$query = $this->db->get('pawnhero.ph_product', 10);
 				$products = $query->result_array();
-				echo "<pre>";
-				print_r($products);
-				echo "</pre>";
-				exit();
-				// return $products;
+				return $products;
 			}
 
 			// $this->db->join('categories', 'categories.category_id = products.category_id');
