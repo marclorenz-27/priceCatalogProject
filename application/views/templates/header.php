@@ -61,7 +61,7 @@
     }
 
     .bold{
-      font-weight: : bold;
+      font-weight: bold;
     }
 
     .card-body{
@@ -93,7 +93,6 @@
   </nav>
 
   <div id="wrapper">
-
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
       <li class="nav-item">
