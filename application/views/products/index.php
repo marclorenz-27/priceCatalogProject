@@ -14,7 +14,27 @@
                   </div>
                 </div>
               </div>
-            </form> <br>
+            </form> <br><br><br>
+            
+          
+        <div class="container">
+          <a href="#demo" class="btn btn-danger" data-toggle="collapse" title="Click to filter results"><i class="fas fa-filter"></i> Filter Results</a>
+          <br><br>
+          
+          <div id="demo" class="collapse">
+            <div class="row">
+              <div class="col-sm">
+                <label><b>Brands</b></label>
+              </div>
+              <div class="col-sm">
+                 <label><b>Set Price Range</b></label> <br>
+                  &#8369; 5,000.00 <input type="range" class="custom-range" min="0.00" max="5,000,000.00" style="width: 60%; margin: 0 1.5vh 0vh 1.5vh">&#8369;5,000,000.00
+              </div>
+            </div>
+          </div>
+        </div>
+
+
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered  table-responsive" style="font-size:14px;" id="dataTable"  cellspacing="0">

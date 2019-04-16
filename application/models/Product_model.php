@@ -161,4 +161,15 @@
 			
 			return $query->num_rows();
 		}
+
+
+			// public function get_min_of_all_products($product_name = FALSE){
+			// 	$this->db2->select_min('marketplace_db.sales.price_sold');
+			// 	$this->db2->join('pawnhero_db.products', 'pawnhero_db.products.product_id = marketplace_db.sales.product_id', 'LEFT');
+			// 	$query = $this->db2->get_where('marketplace_db.sales', array('product_name' => $product_name));
+
+			// 	// print_r($query);
+			// 	// exit();
+			// 	return $query;
+			// }
 	}
