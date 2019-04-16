@@ -103,7 +103,7 @@
                     <?php echo "<p>&#8369; " . number_format($product['average_appraised_amount'], 2) . "</p>"; ?>
                     <br><small class="text-info">*average out of n prices (Actual Average)</small></td>
                     <td>
-                    <?php  echo "<p>&#8369; " . number_format($product['average_appraised_amount'], 2) . "</p>"; ?> 
+                    <?php  echo "<p>&#8369; " . number_format($product['average_appraised_amount'] + 2575, 2) . "</p>"; ?> 
                     <br><small class="text-info">*average out of n prices (Dummy Data)</small></td>
                     <td> 
                       <?php /* echo date("F d, Y", strtotime($product['pawning_date'])); */ echo "<p> April 1, 2019 </p>". '
