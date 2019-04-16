@@ -77,17 +77,16 @@ $query_builder = TRUE;
 //PawnHero Official Database
 $db['default'] = array(
 	'dsn'	=> '',
-	//localhost
+	// localhost
 	// 'hostname' => 'localhost',
 	// 'username' => 'root',
 	// 'password' => '',
 	// 'database' => 'pawnhero_db',
 	//Pawnhero
-	'hostname' => 'pawnhero-staging.czwrpa8es2iq.us-west-2.rds.amazonaws.com',
-	'username' => 'pawnhero',
-	'password' => 'Sanlaan ng Bayani',
+	'hostname' => 'staging-pawnhero.cbl3bfbjvpku.ap-southeast-1.rds.amazonaws.com',
+	'username' => 'dba',
+	'password' => 'watusinibarok',
 	'database' => 'pawnhero',
-
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

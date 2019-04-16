@@ -4,11 +4,15 @@
 		public function index($slug = NULL){
 			$data['title'] = 'Product Price Catalog';
 			$data['products'] = $this->product_model->get_products(); 
-			$data['average_appraised_amount'] = $this->product_model->get_average_per_group();
-			$data['count_by_product_name'] = $this->product_model->get_count_by_product_name();
+			// $data['average_appraised_amount'] = $this->product_model->get_average_per_group();
+			// $data['count_by_product_name'] = $this->product_model->get_count_by_product_name();
+
 			// $data['min_of_all_products'] = $this->product_model->get_min_of_all_products();
 			// print_r($data['min_of_all_products']);
 			// exit();
+			// $data['brands'] = $this->product_model->get_brands();
+			// $data['lowest_price'] = $this->product_model->get_lowest_price();
+			// $data['highest_price'] = $this->product_model->get_highest_price();
 			$this->load->view('templates/header');
 			$this->load->view('products/index', $data);
 			$this->load->view('templates/footer');
@@ -28,8 +32,6 @@
 			$data['num_of_selling_prices'] = $this->product_model->get_num_of_selling_prices($data['product_name']);
 			$data['product_selling_records'] = $this->product_model->get_product_selling_records($data['product_name']);
 			
-
-
 			if(empty($data['products'])){
 				show_404();
 			}
@@ -38,7 +40,6 @@
 			$data['appraised_amount'] = $data['products']['appraised_amount'];
 			$data['average_per_group'] = $this->product_model->get_average_per_group($data['product_name']);
 			$this->load->view('templates/header');
-
 			$this->load->view('products/view', $data);
 			$this->load->view('templates/footer');
 		}
