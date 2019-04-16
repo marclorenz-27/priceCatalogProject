@@ -74,12 +74,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
+//PawnHero Official Database
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'pawnhero_db',
+	//localhost
+	// 'hostname' => 'localhost',
+	// 'username' => 'root',
+	// 'password' => '',
+	// 'database' => 'pawnhero_db',
+	//Pawnhero
+	'hostname' => 'pawnhero-staging.czwrpa8es2iq.us-west-2.rds.amazonaws.com',
+	'username' => 'pawnhero',
+	'password' => 'Sanlaan ng Bayani',
+	'database' => 'pawnhero',
+
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
@@ -96,6 +104,7 @@ $db['default'] = array(
 	'save_queries' => TRUE
 );
 
+//Localhost Marketplace
 $db['otherdb'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
@@ -117,3 +126,5 @@ $db['otherdb'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
+
+//MarketPlacePH Luxe/In Official Database 

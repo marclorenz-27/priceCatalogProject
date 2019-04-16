@@ -6,16 +6,16 @@
   <h2><?= $title ?></h2>
 </center>
   <div class="row">
-    <div class="col-sm">
+    <div class="col-3">
      <div class="container" style="margin-top: 16px;">  
           <a href="#demo" class="btn btn-danger" data-toggle="collapse" title="Click to filter results"><i class="fas fa-filter"></i> Filter Results</a>
       </div> 
     </div>
-    <div class="col-sm">
+    <div class="col-7">
       <form class="form-horizontal">
         <div class="form-group">
-          <div class="input-group pmb-3" style="width: 95%; margin: 2vh 2vh 2vh 0vh">
-                    <input type="search" class="form-control" placeholder="Search Brand, Category or Product Name" aria-label="Enter Product Name, Brand or Category" aria-describedby="basic-addon2">
+          <div class="input-group pmb-3" style="width: 127%; margin: 2vh 2vh 2vh 0vh">
+                    <input type="search" class="form-control" placeholder="Search for Brand, Category or Product Name" aria-label="Enter Product Name, Brand or Category" aria-describedby="basic-addon2">
             <div class="input-group-append" required/>
               <button class="btn btn-primary" type="button" title="Search"><i class='fas fa-search'></i> Search</button>
             </div>
@@ -29,12 +29,12 @@
       <div id="demo" class="collapse">
             <br>
             <div class="row">
-              <div class="col-sm">
+              <div class="col-sm ">
                 <label><b>Filter by Brand</b></label>
               </div>
               <div class="col-sm">
                  <label><b>Filter by Price Range</b></label> <br>
-                  <p> &#8369; 5,000.00 <input type="range" class="custom-range" min="0.00" max="5,000,000.00" style="width: 40%; margin: 0 1.5vh 0vh 1.5vh">&#8369;5,000,000.00 </p>
+                  <p> &#8369; 5,000.00 <input type="range" class="custom-range" min="0.00" max="5,000,000.00" style="width: 60%; margin: 0 1.5vh 0vh 1.5vh">&#8369;5,000,000.00 </p>
               </div>
             </div>
           </div>
