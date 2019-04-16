@@ -4,6 +4,7 @@
 		public function index($slug = NULL){
 			$data['title'] = 'Product Price Catalog';
 			$data['products'] = $this->product_model->get_products(); 
+			$data['products_count'] = $this->product_model->get_products_count();
 			// $data['average_appraised_amount'] = $this->product_model->get_average_per_group();
 			// $data['count_by_product_name'] = $this->product_model->get_count_by_product_name();
 

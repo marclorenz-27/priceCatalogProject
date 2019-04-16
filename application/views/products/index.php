@@ -34,26 +34,26 @@
             <div class="row">
               <div class="col-sm">
                 <label><b>Filter by Brand</b></label> <br>
-                <?php /* foreach ($brands as $brand):*/ ?>
+                <?php /* foreach ($brands as $brand): ?>
                   <div class="col-4" style="display: inline-block;">
                   <input type="checkbox" class="form-check-input" value="
-                  <?php /* echo $brand['brand_name']; ?>" title="<?php echo $brand['brand_name']; ?>"> <?php echo $brand['brand_name']; */?>
+                  <?php  echo $brand['brand_name']; ?>" title="<?php echo $brand['brand_name']; ?>"> <?php echo $brand['brand_name']; ?>
                   </div>
-                <?php /* endforeach; */ ?>
+                <?php endforeach; ?>
               </div>
               <div class="col-sm">
                  <label><b>Filter by Price Range</b></label> <br>
                   <p> &#8369; 
                     <?php 
-                    /*
+                    
                     foreach ($lowest_price->result() as $row) {
                         echo number_format($row->appraised_amount, 2);
                     }
-                    */
+                    
                   ?>
                     <input type="range" class="custom-range" min="0.00" max="5,000,000.00" style="width: 60%; margin: 0 1.5vh 0vh 1.5vh">&#8369;
                     <?php
-                    /* 
+                     
                     foreach ($highest_price->result() as $row) {
                         echo number_format($row->appraised_amount, 2);
                     }
@@ -101,10 +101,10 @@
                     <td><a href="<?php echo site_url('/products/'.$product['slug']);?>"><?php echo $product['product_name']; ?></a></td>
                     <td>
                     <?php echo "<p>&#8369; " . number_format($product['average_appraised_amount'], 2) . "</p>"; ?>
-                    <br><small class="text-info">*average out of n prices (Actual Average)</small></td>
+                    <br><small class="text-info">*average out of n prices <br>(Actual Average)</small></td>
                     <td>
                     <?php  echo "<p>&#8369; " . number_format($product['average_appraised_amount'] + 2575, 2) . "</p>"; ?> 
-                    <br><small class="text-info">*average out of n prices (Dummy Data)</small></td>
+                    <br><small class="text-info">*average out of n prices <br>(Dummy Data)</small></td>
                     <td> 
                       <?php /* echo date("F d, Y", strtotime($product['pawning_date'])); */ echo "<p> April 1, 2019 </p>". '
                       <br><small class="text-info">(Dummy Data)</small>'
@@ -133,3 +133,4 @@
                  <?php endforeach; ?>
                  </tbody>
              </table>
+             <center><p> <?php echo "End of results <br> Showing " . $products_count . " out of 200" ?></p></center>

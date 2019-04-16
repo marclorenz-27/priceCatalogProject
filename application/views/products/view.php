@@ -26,10 +26,15 @@
 				<div class="col-sm-8">
 					<div class="row">
 						<div class="col-sm-6">
-							<h4 title="Prices from the Pawnshop"><span class="badge badge-success">PawnHero</span></h4>
+							
+							<a href="https://pawnhero.ph/" target="_blank">
+								<h4 title="Prices from the Pawnshop"><span class="badge badge-success" target_blank>PawnHero</span></h4>
+							</a>
 						</div>
 					<div class="col-sm-6">
-						<h4 title="Prices based on selling prices from MarketPlace / Luxe/In"><span class="badge badge-dark">Luxe/In</span></h4>
+						<a href="https://luxein.com/" target="_blank">
+							<h4 title="Prices based on selling prices from MarketPlace / Luxe/In"><span class="badge badge-dark">Luxe/In</span></h4>
+						</a>
 					</div>
 					</div> <p></p>
 
@@ -209,10 +214,12 @@
 					</div>
 				<?php endforeach; ?>
 			</div> <br>
-			<div class="row">
+			<!-- Display of Selling Price Heading -->
+			<div class="row" style="display: none">
 				<h3 class="font-weight-bold">All Selling Prices</h3><br><br>
 			</div>
-			<div class="row" style="">
+			<!-- Display of Selling Price Data -->
+			<div class="row" style="display: none">
 				<?php /* foreach ($product_selling_records as $record): */?>
 					<div class="card" style="width: 14rem; ">
 						<img class="card-img-top" src="<?php /* echo $record['destination']; */ ?>" alt="" style="padding: 2vh">	
