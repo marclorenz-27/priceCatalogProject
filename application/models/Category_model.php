@@ -6,11 +6,13 @@
 
 		public function get_categories($slug = FALSE){
 			if($slug === FALSE){
-				$query = $this->db->get('categories');
+				$this->db->where('category_name !=', 'SADaf'); // is this a testing data?
+				$this->db->order_by('category_name');
+				$query = $this->db->get('ph_category');
 				return $query->result_array();
 			}
 
-			$query = $this->db->get_where('categories', array('slug' => $slug));
+			$query = $this->db->get_where('ph_category', array('slug' => $slug));
 			return $query->row_array();
 			
 

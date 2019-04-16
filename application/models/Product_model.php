@@ -8,59 +8,29 @@
 
 		public function get_products($slug = FALSE){
 			if($slug === FALSE){
-				/*
-					SELECT category_name, brand_name, product_name, AVG(appraised_amount) FROM ph_product
-					LEFT JOIN ph_category_brand 
-					ON ph_category_brand.category_brand_id = ph_product.category_brand_id
-					LEFT JOIN ph_category
-					ON ph_category.category_id = ph_category_brand.category_id
-					LEFT JOIN ph_brand
-					ON ph_brand.brand_id = ph_category_brand.brand_id
-					WHERE appraised_amount > 0
-					GROUP BY ph_product.product_name;
-				*/
-
-				// $this->db->select_avg('pawnhero_db.products.appraised_amount', 'average_appraised_amount');
-				// $this->db->select_avg('marketplace_db.sales.price_sold', 'average_selling_price');
-				// $this->db->select('pawnhero_db.products.*'); //SELECT * FROM products
-				// $this->db->select('pawnhero_db.categories.*');
-				// $this->db->select('pawnhero_db.brands.*');
-				// $this->db->select('pawnhero_db.product_photo.*');
-				// $this->db2->select('marketplace_db.sales.*');
-				// $this->db->join('marketplace_db.sales', 'marketplace_db.sales.product_id = pawnhero_db.products.product_id', 'RIGHT');
-				// $this->db->join('pawnhero_db.categories', 'pawnhero_db.categories.category_id = pawnhero_db.products.category_id', 'LEFT');
-				// $this->db->join('pawnhero_db.brands', 'brands.brand_id = products.brand_id','LEFT');
-				// $this->db->join('pawnhero_db.product_photo', 'product_photo.photo_id = products.photo_id', 'LEFT');
-				// $this->db->order_by('pawnhero_db.products.pawning_date');
-				// $this->db->group_by('pawnhero_db.products.product_name');
-
-				// echo "<pre>";
-				// print_r($products);
-				// echo "</pre>";
-				// exit();
-
-				$this->db->select('category_name');
-				$this->db->select('brand_name');
-				$this->db->select('product_name');
+				$this->db->select('pawnhero.ph_category.category_name');
+				$this->db->select('pawnhero.ph_brand.brand_name');
+				$this->db->select('pawnhero.ph_product.product_name');
 				$this->db->select('pawnhero.ph_product.slug');
-				$this->db->select_avg('appraised_amount', 'average_appraised_amount')
-;				$this->db->join('ph_category_brand', 'ph_category_brand.category_brand_id = ph_product.category_brand_id', 'LEFT');
+				$this->db->select_avg('pawnhero.ph_product.appraised_amount', 'average_appraised_amount');
+				$this->db->having('average_appraised_amount > 0'); 
+				$this->db->join('ph_category_brand', 'ph_category_brand.category_brand_id = ph_product.category_brand_id', 'LEFT');
 				$this->db->join('ph_category', 'ph_category.category_id = ph_category_brand.category_id', 'LEFT');
 				$this->db->join('ph_brand', 'ph_brand.brand_id = ph_category_brand.brand_id', 'LEFT');
-				$this->db->where('appraised_amount >', 0);
 				$this->db->order_by('category_name');
 				$this->db->group_by('product_name');
- 				$query = $this->db->get('pawnhero.ph_product', 10);
+ 				$query = $this->db->get('pawnhero.ph_product', 3);
+ 				// $query = $this->db->get_where('pawnhero.ph_product', array('product_name' => 'iPhone 7'));
 				$products = $query->result_array();
+
 				return $products;
 			}
 
-			// $this->db->join('categories', 'categories.category_id = products.category_id');
-			// $this->db->join('brands', 'brands.brand_id = products.brand_id','left');
-			// $this->db->join('product_photo', 'product_photo.photo_id = products.photo_id');
-			// $query = $this->db->get_where('products', array('slug' => $slug));
-			
-			// return $query->row_array();
+			$this->db->join('ph_category_brand', 'ph_category_brand.category_brand_id = ph_product.category_brand_id', 'LEFT');
+			$this->db->join('ph_category', 'ph_category.category_id = ph_category_brand.category_id', 'LEFT');
+			$this->db->join('ph_brand', 'ph_brand.brand_id = ph_category_brand.brand_id', 'LEFT');
+			$query = $this->db->get_where('ph_product', array('ph_product.slug' => $slug));
+			return $query->row_array();
 		}
 
 		public function get_count_by_product_name($product_name = FALSE){
