@@ -204,7 +204,7 @@
 			<div class="row" style="">
 				<?php foreach ($products_by_product_name as $product): ?>
 					<div class="card" style="width: 14rem; ">
-						<img class="card-img-top" src="<?php /* echo $product['destination']; */  ?>" alt="<?php  echo $product['product_name'] . " Image (alt name)"; ?>"	 style="padding: 2vh">	
+						<img class="card-img-top" src="<?php/* echo $product['destination']; */  ?>" alt="<?php  echo $product['product_name'] . " Image (alt name)"; ?>"	 style="padding: 2vh">	
 						<div class="card-body">
 							<h5 class="card-title"><?php echo $product['product_name']; ?></h5>
 							<h6 class="text-secondary" style="font-weight: bold;"> <span class="badge badge-secondary"><?php echo $product['brand_name'];  ?></span></h6>
