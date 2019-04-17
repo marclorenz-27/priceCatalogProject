@@ -6,6 +6,49 @@
 			$this->db2 = $this->load->database('otherdb', TRUE);
 		}
 
+		public function get_info_from_mp(){
+			$query = $this->db2->query("
+
+				SELECT `e`.`sku`, IF(at_name.value_id > 0, at_name.value, at_name_default.value) AS `name`,
+    IF(at_description.value_id > 0, at_description.value, at_description_default.value) AS `description`
+
+FROM 
+   `catalog_product_entity` AS `e` 
+    INNER JOIN 
+         `catalog_product_entity_varchar` AS `at_name_default` 
+               ON (`at_name_default`.`entity_id` = `e`.`entity_id`) AND 
+                  (`at_name_default`.`attribute_id` = (SELECT attribute_id FROM `eav_attribute` ea LEFT JOIN `eav_entity_type` et ON ea.entity_type_id = et.entity_type_id  WHERE `ea`.`attribute_code` = 'name' AND et.entity_type_code = 'catalog_product')) AND 
+                  `at_name_default`.`store_id` = 0 
+    LEFT JOIN 
+          `catalog_product_entity_varchar` AS `at_name` 
+               ON (`at_name`.`entity_id` = `e`.`entity_id`) AND 
+                  (`at_name`.`attribute_id` = (SELECT attribute_id FROM `eav_attribute` ea LEFT JOIN `eav_entity_type` et ON ea.entity_type_id = et.entity_type_id  WHERE `ea`.`attribute_code` = 'name' AND et.entity_type_code = 'catalog_product')) AND 
+                  (`at_name`.`store_id` = 1) 
+    INNER JOIN 
+         `catalog_product_entity_text` AS `at_description_default` 
+               ON (`at_description_default`.`entity_id` = `e`.`entity_id`) AND 
+                  (`at_description_default`.`attribute_id` = (SELECT attribute_id FROM `eav_attribute` ea LEFT JOIN `eav_entity_type` et ON ea.entity_type_id = et.entity_type_id  WHERE `ea`.`attribute_code` = 'description' AND et.entity_type_code = 'catalog_product')) AND 
+                  `at_description_default`.`store_id` = 0 
+    LEFT JOIN 
+          `catalog_product_entity_text` AS `at_description` 
+               ON (`at_description`.`entity_id` = `e`.`entity_id`) AND 
+                  (`at_description`.`attribute_id` = (SELECT attribute_id FROM `eav_attribute` ea LEFT JOIN `eav_entity_type` et ON ea.entity_type_id = et.entity_type_id  WHERE `ea`.`attribute_code` = 'description' AND et.entity_type_code = 'catalog_product')) AND 
+                  (`at_description`.`store_id` = 1) 
+
+                  LIMIT 2;");
+			// $query = $this->db2->get('catalog_category_product', 10);
+			$info_from_mp = $query->result_array();
+			echo "<pre>";
+			print_r($info_from_mp);
+			echo "</pre>";
+			// $fullname = "Marc Lorenz A. Comia";
+			// $name = explode(" ", $fullname);
+			// print_r($name);
+			// echo "<br> 2nd to the first name: " . $name[1];
+			exit();
+			return $info_from_mp;
+		}
+
 		public function get_products($slug = FALSE){
 			if($slug === FALSE){
 				$this->db->select('pawnhero.ph_category.category_name');
@@ -19,7 +62,7 @@
 				$this->db->join('ph_brand', 'ph_brand.brand_id = ph_category_brand.brand_id', 'LEFT');
 				$this->db->order_by('category_name');
 				$this->db->group_by('product_name');
- 				$query = $this->db->get('pawnhero.ph_product', 4);
+ 				$query = $this->db->get('pawnhero.ph_product', 25);
  				// $query = $this->db->get_where('pawnhero.ph_product', array('product_name' => 'iPhone 7'));
 				$products = $query->result_array();
 
@@ -46,7 +89,7 @@
 				$this->db->join('ph_brand', 'ph_brand.brand_id = ph_category_brand.brand_id', 'LEFT');
 				$this->db->order_by('category_name');
 				$this->db->group_by('product_name');
- 				$query = $this->db->get('pawnhero.ph_product', 4);
+ 				$query = $this->db->get('pawnhero.ph_product', 25);
  				// $query = $this->db->get_where('pawnhero.ph_product', array('product_name' => 'iPhone 7'));
 				$products = $query->num_rows();
 				// print_r($products);
@@ -170,19 +213,6 @@
 			$query = $this->db->get_where('ph_product', array('product_name' => $product_name));
 			return $query->num_rows();
 		}
-
-		// public function get_brands($product_name = FALSE){
-		// 	$this->db->select('pawnhero.product.*');
-		// 	$this->db->select('pawnhero.brand.*');
-		// 	$this->db->select('pawnhero.category.*');
-		// 	$this->db->join('category', 'category.category_id = product.category_id');
-		// 	$this->db->join('brand', 'brand.brand_id = product.brand_id','left');
-		// 	// $this->db->join('product_photo', 'product_photo.photo_id = products.photo_id');
-		// 	$this->db->group_by('brand_name');
- 	// 		$query = $this->db->get_where('product', array('product_name' => $product_name));
- 	// 		$result = $query->result_array();
-		// 	return $result;
-		// }
 
 		public function get_lowest_price($category_name = FALSE){
 			$this->db->select_min('pawnhero_db.products.appraised_amount');

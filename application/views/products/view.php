@@ -9,10 +9,11 @@
 </center> 
 <div class="container">
 	<div class="row">
-		<h2><?php echo $products['product_name'];  ?></h2>
+		<h2><?php echo $products['brand_name'] . " " . $products['product_name'];  ?></h2>
 	</div>
+	<br>
 	<div class="row">
-			<h5 class="text-secondary" style="font-weight: bold;"> <span class="badge badge-secondary"> <?php echo $products['brand_name']; ?> </span>
+			<h5 class="text-secondary" style="font-weight: bold; display: none;"> <span class="badge badge-secondary"> <?php echo $products['brand_name']; ?> </span>
 			</h5>
 	</div>
 
@@ -20,7 +21,7 @@
 			<div class="row">
 				<div class="col-sm-4">
 					<div class="row">
-						<img src="<?php /* echo $products['destination']; ?>" width="80%" height="80%" title="<?php echo $product_name; ?>" alt="<?php echo $slug;  */ ?>">
+						<img src="<?php /* echo $products['destination']; */?> https://cdn1.iconfinder.com/data/icons/social-17/48/photos2-512.png" width="300px" height="300px" title="<?php echo $product_name; ?>" alt="<?php /* echo  $slug;  */ ?>" style="background-color: green; padding: 2vh;">
 					</div>
 				</div>
 				<div class="col-sm-8">

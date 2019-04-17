@@ -5,17 +5,7 @@
 			$data['title'] = 'Product Price Catalog';
 			$data['products'] = $this->product_model->get_products(); 
 			$data['products_count'] = $this->product_model->get_products_count();
-			// $data['average_appraised_amount'] = $this->product_model->get_average_per_group();
-			// $data['count_by_product_name'] = $this->product_model->get_count_by_product_name();
-
-			// $data['min_of_all_products'] = $this->product_model->get_min_of_all_products();
-			// print_r($data['min_of_all_products']);
-			// exit();
-			// $data['brands'] = $this->product_model->get_brands();
-			// $data['lowest_price'] = $this->product_model->get_lowest_price();
-			// $data['highest_price'] = $this->product_model->get_highest_price();
-			// print_r($data);
-			// exit();
+			$data['info_from_mp'] = $this->product_model->get_info_from_mp();
 			$this->load->view('templates/header');
 			$this->load->view('products/index', $data);
 			$this->load->view('templates/footer');

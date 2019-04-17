@@ -104,12 +104,35 @@ $db['default'] = array(
 );
 
 //Localhost Marketplace
+
+// $db['otherdb'] = array(
+// 	'dsn'	=> '',
+// 	'hostname' => 'localhost',
+// 	'username' => 'root',
+// 	'password' => '',
+// 	'database' => 'marketplace_db',
+// 	'dbdriver' => 'mysqli',
+// 	'dbprefix' => '',
+// 	'pconnect' => FALSE,
+// 	'db_debug' => (ENVIRONMENT !== 'production'),
+// 	'cache_on' => FALSE,
+// 	'cachedir' => '',
+// 	'char_set' => 'utf8',
+// 	'dbcollat' => 'utf8_general_ci',
+// 	'swap_pre' => '',
+// 	'encrypt' => FALSE,
+// 	'compress' => FALSE,
+// 	'stricton' => FALSE,
+// 	'failover' => array(),
+// 	'save_queries' => TRUE
+// );
+
 $db['otherdb'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'marketplace_db',
+	'hostname' => 'pawnhero-marketplace.cbl3bfbjvpku.ap-southeast-1.rds.amazonaws.com',
+	'username' => 'bi',
+	'password' => 'BI@pawnhero.ph',
+	'database' => 'marketplace',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
@@ -124,6 +147,7 @@ $db['otherdb'] = array(
 	'stricton' => FALSE,
 	'failover' => array(),
 	'save_queries' => TRUE
-);
+	);
+
 
 //MarketPlacePH Luxe/In Official Database 
