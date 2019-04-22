@@ -9,43 +9,38 @@
 		public function get_info_from_mp(){
 			$query = $this->db2->query("
 
-				SELECT `e`.`sku`, IF(at_name.value_id > 0, at_name.value, at_name_default.value) AS `name`,
-    IF(at_description.value_id > 0, at_description.value, at_description_default.value) AS `description`
+				SELECT `e`.`sku`, IF(at_name.value_id > 0, at_name.value, at_name_default.value) AS `name`
+				FROM 
+			   		`catalog_product_entity` AS `e` 
+			    INNER JOIN 
+			         `catalog_product_entity_varchar` AS `at_name_default` 
+			               ON (`at_name_default`.`entity_id` = `e`.`entity_id`) AND 
+			                  (`at_name_default`.`attribute_id` = (SELECT attribute_id FROM `eav_attribute` ea LEFT JOIN `eav_entity_type` et ON ea.entity_type_id = et.entity_type_id  WHERE `ea`.`attribute_code` = 'name' AND et.entity_type_code = 'catalog_product')) AND 
+			                  `at_name_default`.`store_id` = 0 
+			    LEFT JOIN 
+			          `catalog_product_entity_varchar` AS `at_name` 
+			               ON (`at_name`.`entity_id` = `e`.`entity_id`) AND 
+			                  (`at_name`.`attribute_id` = (SELECT attribute_id FROM `eav_attribute` ea LEFT JOIN `eav_entity_type` et ON ea.entity_type_id = et.entity_type_id  WHERE `ea`.`attribute_code` = 'name' AND et.entity_type_code = 'catalog_product')) AND 
+			                  (`at_name`.`store_id` = 1) 
+			    INNER JOIN 
+			         `catalog_product_entity_text` AS `at_description_default` 
+			               ON (`at_description_default`.`entity_id` = `e`.`entity_id`) AND 
+			                  (`at_description_default`.`attribute_id` = (SELECT attribute_id FROM `eav_attribute` ea LEFT JOIN `eav_entity_type` et ON ea.entity_type_id = et.entity_type_id  WHERE `ea`.`attribute_code` = 'description' AND et.entity_type_code = 'catalog_product')) AND 
+			                  `at_description_default`.`store_id` = 0 
+			    LEFT JOIN 
+			          `catalog_product_entity_text` AS `at_description` 
+			               ON (`at_description`.`entity_id` = `e`.`entity_id`) AND 
+			                  (`at_description`.`attribute_id` = (SELECT attribute_id FROM `eav_attribute` ea LEFT JOIN `eav_entity_type` et ON ea.entity_type_id = et.entity_type_id  WHERE `ea`.`attribute_code` = 'description' AND et.entity_type_code = 'catalog_product')) AND 
+			                  (`at_description`.`store_id` = 1) 
 
-FROM 
-   `catalog_product_entity` AS `e` 
-    INNER JOIN 
-         `catalog_product_entity_varchar` AS `at_name_default` 
-               ON (`at_name_default`.`entity_id` = `e`.`entity_id`) AND 
-                  (`at_name_default`.`attribute_id` = (SELECT attribute_id FROM `eav_attribute` ea LEFT JOIN `eav_entity_type` et ON ea.entity_type_id = et.entity_type_id  WHERE `ea`.`attribute_code` = 'name' AND et.entity_type_code = 'catalog_product')) AND 
-                  `at_name_default`.`store_id` = 0 
-    LEFT JOIN 
-          `catalog_product_entity_varchar` AS `at_name` 
-               ON (`at_name`.`entity_id` = `e`.`entity_id`) AND 
-                  (`at_name`.`attribute_id` = (SELECT attribute_id FROM `eav_attribute` ea LEFT JOIN `eav_entity_type` et ON ea.entity_type_id = et.entity_type_id  WHERE `ea`.`attribute_code` = 'name' AND et.entity_type_code = 'catalog_product')) AND 
-                  (`at_name`.`store_id` = 1) 
-    INNER JOIN 
-         `catalog_product_entity_text` AS `at_description_default` 
-               ON (`at_description_default`.`entity_id` = `e`.`entity_id`) AND 
-                  (`at_description_default`.`attribute_id` = (SELECT attribute_id FROM `eav_attribute` ea LEFT JOIN `eav_entity_type` et ON ea.entity_type_id = et.entity_type_id  WHERE `ea`.`attribute_code` = 'description' AND et.entity_type_code = 'catalog_product')) AND 
-                  `at_description_default`.`store_id` = 0 
-    LEFT JOIN 
-          `catalog_product_entity_text` AS `at_description` 
-               ON (`at_description`.`entity_id` = `e`.`entity_id`) AND 
-                  (`at_description`.`attribute_id` = (SELECT attribute_id FROM `eav_attribute` ea LEFT JOIN `eav_entity_type` et ON ea.entity_type_id = et.entity_type_id  WHERE `ea`.`attribute_code` = 'description' AND et.entity_type_code = 'catalog_product')) AND 
-                  (`at_description`.`store_id` = 1) 
+                  LIMIT 50;");
 
-                  LIMIT 2;");
 			// $query = $this->db2->get('catalog_category_product', 10);
 			$info_from_mp = $query->result_array();
-			echo "<pre>";
-			print_r($info_from_mp);
-			echo "</pre>";
-			// $fullname = "Marc Lorenz A. Comia";
-			// $name = explode(" ", $fullname);
-			// print_r($name);
-			// echo "<br> 2nd to the first name: " . $name[1];
-			exit();
+			// echo "<pre>"; 
+			// print_r($info_from_mp);
+			// echo "</pre>";
+			// exit();
 			return $info_from_mp;
 		}
 
