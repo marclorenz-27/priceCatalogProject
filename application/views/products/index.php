@@ -1,3 +1,4 @@
+
 </center>
 <div class="alert alert-info" role="alert" style="display: none;">
               <i class="fa fa-info-circle"></i> The following data are just test data used for system demonstration.
@@ -6,6 +7,14 @@
   <h2><?= $title ?></h2>
 </center>
 
+
+<?php
+/*
+  $this->table->set_heading('Category', 'Brand', 'Product Name', 'Average Appraised Amount');
+  echo $this->table->generate($records);
+  echo '<div id="pagination">' . $this->pagination->create_links(). '</div>';
+*/
+?>
 <!--
   <div class="row">
     <div class="col-3">
@@ -65,6 +74,8 @@
       </div>
   </div>
 -->
+
+
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered  table-responsive" style="font-size:14px;" id="dataTable"  cellspacing="0">
@@ -94,11 +105,12 @@
                 </tfoot>
                 <tbody>
                 <!--Query for product-->
+
                  <?php foreach ($products as $product): ?>
                    <tr>
                     <td><b><?php echo $product['category_name']; ?></b></td>
                     <td><?php echo $product['brand_name']; ?></td>
-                    <td><a href="<?php echo site_url('/products/'.$product['slug']);?>"><?php echo $product['product_name']; ?></a></td>
+                    <td><a href="<?php echo site_url('/products/view/'.$product['slug']);?>"><?php echo $product['product_name']; ?></a></td>
                     <td>
                     <?php echo "<p>&#8369; " . number_format($product['average_appraised_amount'], 2) . "</p>"; ?>
                     <br><small class="text-info">*average out of n prices <br>(Actual Average)</small></td>
@@ -112,9 +124,10 @@
                     </td>           
                     <td>
                       <center>
-                        <a href="<?php echo site_url('/products/'.$product['slug']);?>">
+                        <a href="<?php echo site_url('/products/view/'.$product['slug']);?>">
                           <img alt="<?php /* echo $product['slug'] . "-photo"; */ ?>" class="imageZoom" width="85px" height="85px" title="<?php echo "Click to view " . $product['brand_name'] . " " . $product['product_name']; ?>">
                           <!-- jquery code for image zoom on the left side -->
+
                           <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
                           <script src="<?php echo base_url('js/jquery.bighover.js') ?>"></script>
                           <script>
@@ -127,10 +140,26 @@
                       </center>
                     </td>
 
-                    <td> <br><center><a href="<?php echo site_url('/products/'.$product['slug']);?>" class="btn btn-success" 
+                    <td> <br><center><a href="<?php echo site_url('/products/view/'.$product['slug']);?>" class="btn btn-success" 
                       Title="<?php echo "View " . $product['product_name'] . " Records"?>"> <i class='far fa-eye'></i> View</center></td>
                   </tr>
                  <?php endforeach; ?>
                  </tbody>
              </table>
+             <?php echo $this->pagination->create_links(); ?>
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
              <center><p> <?php echo "End of results <br> Showing " . $products_count . " out of 200" ?></p></center>

@@ -57,7 +57,7 @@
 				$this->db->join('ph_brand', 'ph_brand.brand_id = ph_category_brand.brand_id', 'LEFT');
 				$this->db->order_by('category_name');
 				$this->db->group_by('product_name');
- 				$query = $this->db->get('pawnhero.ph_product', 25);
+ 				$query = $this->db->get('pawnhero.ph_product', 10, $this->uri->segment(3));
  				// $query = $this->db->get_where('pawnhero.ph_product', array('product_name' => 'iPhone 7'));
 				$products = $query->result_array();
 
@@ -84,7 +84,7 @@
 				$this->db->join('ph_brand', 'ph_brand.brand_id = ph_category_brand.brand_id', 'LEFT');
 				$this->db->order_by('category_name');
 				$this->db->group_by('product_name');
- 				$query = $this->db->get('pawnhero.ph_product', 25);
+ 				$query = $this->db->get('pawnhero.ph_product');
  				// $query = $this->db->get_where('pawnhero.ph_product', array('product_name' => 'iPhone 7'));
 				$products = $query->num_rows();
 				// print_r($products);
