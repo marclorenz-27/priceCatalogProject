@@ -65,76 +65,80 @@
       </div>
   </div>
 -->
-          <div class="card-body">
-            <div class="table-responsive" style="margin: 0 4vh;">
-              <table class="table table-bordered  table-responsive" style="font-size:14px;" id="dataTable"  cellspacing="0" width="100%">
-                <thead class="bg-dark text-light">
-                  <tr>
-                    <th class="align-top">Category</th>
-                    <th class="align-top">Brand</th>
-                    <th class="align-top">Product name</th>
-                    <th class="align-top">Pawning Price Average</th>
-                    <th class="align-top">Selling Price Average</th>
-                    <th class="align-top">Last Selling Date</th>
-                    <th class="align-top">Picture</th>
-                    <th class="align-top">Action</th>
-                  </tr>
-                </thead>
-                <tfoot class="bg-dark text-light">
-                  <tr>
-                    <th>Category</th>
-                    <th>Brand</th>
-                    <th>Product name</th>
-                    <th>Average Pawning Price</th>
-                    <th>Average Price Sold</th>
-                    <th>Last Selling Date</th>
-                    <th>Picture</th>
-                    <th>View</th>
-                  </tr>
-                </tfoot>
-                <tbody>
 
-             <!-- Query for product -->
-                 <?php foreach ($products as $product): ?>
-                   <tr>
-                    <td><b><?php echo $product['category_name']; ?></b></td>
-                    <td><?php echo $product['brand_name']; ?></td>
-                    <td><a href="<?php echo site_url('/products/view/'.$product['slug']);?>"><?php echo $product['product_name']; ?></a></td>
-                    <td>
-                    <?php echo "<p>&#8369; " . number_format($product['average_appraised_amount'], 2) . "</p>"; ?>
-                    <br><small class="text-info">*average out of n prices <br>(Actual Average)</small></td>
-                    <td>
-                    <?php  echo "<p>&#8369; " . number_format($product['average_appraised_amount'], 2) . "</p>"; ?> 
-                    <br><small class="text-info">*average out of n prices <br>(Dummy Data)</small></td>
-                    <td> 
-                      <?php /* echo date("F d, Y", strtotime($product['pawning_date'])); */ echo "<p> April 1, 2019 </p>". '
-                      <br><small class="text-info">(Dummy Data)</small>'
-                        ;?>
-                    </td>           
-                    <td>
-                      <center>
-                        <a href="<?php echo site_url('/products/view/'.$product['slug']);?>">
-                          <img alt="<?php /* echo $product['slug'] . "-photo"; */ ?>" class="imageZoom" width="85px" height="85px" title="<?php echo "Click to view " . $product['brand_name'] . " " . $product['product_name']; ?>">
+  <div class="card-body">
+    <div class="table-responsive" style="margin: 0 4vh;">
+      <table class="table table-bordered  table-responsive" style="font-size:14px;" id="dataTable"  cellspacing="0" width="100%">
+        <thead class="bg-dark text-light">
+          <tr>
+            <th class="align-top">Category</th>
+            <th class="align-top">Brand</th>
+            <th class="align-top">Product name</th>
+            <th class="align-top">Pawning Price Average</th>
+            <th class="align-top">Selling Price Average</th>
+            <th class="align-top">Last Selling Date</th>
+            <th class="align-top">Picture</th>
+            <th class="align-top">Action</th>
+          </tr>
+        </thead>
+        <tfoot class="bg-dark text-light">
+          <tr>
+            <th>Category</th>
+            <th>Brand</th>
+            <th>Product name</th>
+            <th>Average Pawning Price</th>
+            <th>Average Price Sold</th>
+            <th>Last Selling Date</th>
+            <th>Picture</th>
+            <th>View</th>
+          </tr>
+        </tfoot>
+        <tbody>
+        <!-- Query for product -->
+          <?php foreach ($products as $product): ?>
+          <tr>
+            <td>
+              <b><?php echo $product['category_name']; ?></b>
+            </td>
+            <td>
+              <?php echo $product['brand_name']; ?>                
+            </td>
+            <td>
+              <a href="<?php echo site_url('/products/view/'.$product['slug']);?>"><?php echo $product['product_name']; ?></a>
+            </td>
+            <td>
+              <?php echo "<p>&#8369; " . number_format($product['average_appraised_amount'], 2) . "</p>"; ?>
+              <br><small class="text-info">*average out of n prices <br>(Actual Average)</small>
+            </td>
+            <td>
+              <?php  echo "<p>&#8369; " . number_format($product['average_appraised_amount'], 2) . "</p>"; ?><br><small class="text-info">*average out of n prices <br>(Dummy Data)</small>
+            </td>
+            <td>
+              <?php echo "<p> April 1, 2019 </p> <br> <small class='text-info'>(Dummy Data)</small>";?>
+            </td>           
+            <td>
+              <center>
+                <a href="<?php echo site_url('/products/view/'.$product['slug']);?>">
+                  <img alt="<?php /* echo $product['slug'] . "-photo"; */ ?>" class="imageZoom" width="85px" height="85px" title="<?php echo "Click to view " . $product['brand_name'] . " " . $product['product_name']; ?>">
 
-                          <!-- jquery code for image zoom on the left side -->
-                          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-                          <script src="<?php echo base_url('js/jquery.bighover.js') ?>"></script>
-                          <script>
-                            $('.imageZoom').bighover({
-                              height : "250",
-                              position : "left",
-                            });
-                          </script>
-                        </a>
-                      </center>
-                    </td>
-
-                    <td> <br><center><a href="<?php echo site_url('/products/view/'.$product['slug']);?>" class="btn btn-success" 
-                      Title="<?php echo "View " . $product['product_name'] . " Records"?>"> <i class='far fa-eye'></i> View</center></td>
-                  </tr>
-                 <?php endforeach; ?>
-                 </tbody>
-             </table>
-             <center>
-               <?php echo $this->pagination->create_links(); ?>
+                  <!-- jquery code for image zoom on the left side -->
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                    <script src="<?php echo base_url('js/jquery.bighover.js') ?>"></script>
+                    <script>
+                      $('.imageZoom').bighover({
+                        height : "250",
+                        position : "left",
+                      });
+                    </script>
+                  </a>
+              </center>
+            </td>
+            <td> <br><center><a href="<?php echo site_url('/products/view/'.$product['slug']);?>" class="btn btn-success" Title="<?php echo "View " . $product['product_name'] . " Records"?>"> 
+            <i class='far fa-eye'></i>View</center></td>
+          </tr>
+      <?php endforeach; ?>
+    </tbody>
+  </table>
+  <center>
+    <?php echo $this->pagination->create_links(); ?>
              </center>

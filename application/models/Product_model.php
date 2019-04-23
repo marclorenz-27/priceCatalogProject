@@ -1,39 +1,40 @@
 <?php
 	class Product_model extends CI_Model{
-		// var $db2;
 		public function __construct(){
 			$this->load->database();
 			$this->db2 = $this->load->database('otherdb', TRUE);
 		}
 
 		public function get_info_from_mp(){
-			$query = $this->db2->query("
-
-				SELECT `e`.`sku`, IF(at_name.value_id > 0, at_name.value, at_name_default.value) AS `name`
-				FROM 
-			   		`catalog_product_entity` AS `e` 
-			    INNER JOIN 
-			         `catalog_product_entity_varchar` AS `at_name_default` 
-			               ON (`at_name_default`.`entity_id` = `e`.`entity_id`) AND 
-			                  (`at_name_default`.`attribute_id` = (SELECT attribute_id FROM `eav_attribute` ea LEFT JOIN `eav_entity_type` et ON ea.entity_type_id = et.entity_type_id  WHERE `ea`.`attribute_code` = 'name' AND et.entity_type_code = 'catalog_product')) AND 
-			                  `at_name_default`.`store_id` = 0 
-			    LEFT JOIN 
-			          `catalog_product_entity_varchar` AS `at_name` 
-			               ON (`at_name`.`entity_id` = `e`.`entity_id`) AND 
-			                  (`at_name`.`attribute_id` = (SELECT attribute_id FROM `eav_attribute` ea LEFT JOIN `eav_entity_type` et ON ea.entity_type_id = et.entity_type_id  WHERE `ea`.`attribute_code` = 'name' AND et.entity_type_code = 'catalog_product')) AND 
-			                  (`at_name`.`store_id` = 1) 
-			    INNER JOIN 
-			         `catalog_product_entity_text` AS `at_description_default` 
-			               ON (`at_description_default`.`entity_id` = `e`.`entity_id`) AND 
-			                  (`at_description_default`.`attribute_id` = (SELECT attribute_id FROM `eav_attribute` ea LEFT JOIN `eav_entity_type` et ON ea.entity_type_id = et.entity_type_id  WHERE `ea`.`attribute_code` = 'description' AND et.entity_type_code = 'catalog_product')) AND 
-			                  `at_description_default`.`store_id` = 0 
-			    LEFT JOIN 
-			          `catalog_product_entity_text` AS `at_description` 
-			               ON (`at_description`.`entity_id` = `e`.`entity_id`) AND 
-			                  (`at_description`.`attribute_id` = (SELECT attribute_id FROM `eav_attribute` ea LEFT JOIN `eav_entity_type` et ON ea.entity_type_id = et.entity_type_id  WHERE `ea`.`attribute_code` = 'description' AND et.entity_type_code = 'catalog_product')) AND 
-			                  (`at_description`.`store_id` = 1) 
-
-                  LIMIT 50;");
+			$query = $this->db2->query("SELECT 
+	-- sfo.`increment_id` order_id,
+	sfoi.`name` item_name,
+	sfoi.`sku` sku,
+	LEFT(sfoi.sku, 6) ticket_no,
+	DATE(sfosh.created_at) payment_received,
+	MIN(sfoi.`price_incl_tax`) average_price_sold
+	-- cped.`value` inventory_value
+	 -- sfo.`customer_id`,
+	 -- sfo.`customer_is_guest`,
+	 -- sfo.`customer_email`,
+	 -- sfoa.`telephone`,
+	 -- sfo.`status`
+FROM marketplace.sales_flat_order  sfo
+JOIN marketplace.sales_flat_order_item  sfoi ON sfoi.order_id = sfo.entity_id 
+	AND sfoi.`qty_refunded` = 0
+	AND sfoi.`sku` NOT LIKE 'CS-%'
+	AND sfoi.`sku` NOT LIKE 'PH201%'
+	AND sfoi.`sku` NOT LIKE 'AUTH-%'
+JOIN marketplace.sales_flat_order_address  sfoa ON sfo.entity_id = sfoa.parent_id
+	AND sfoa.`address_type` = 'shipping'
+JOIN marketplace.catalog_product_entity cpe ON sfoi.`product_id` = cpe.`entity_id`
+JOIN marketplace.sales_flat_order_payment sfop ON sfo.`entity_id` = sfop.`parent_id`
+JOIN marketplace.`sales_flat_order_status_history` sfosh ON sfo.`entity_id` = sfosh.`parent_id`
+	AND ((sfosh.`status` = 'processing' AND sfop.`method` != 'cashondelivery') OR  (sfosh.`status` = 'complete' AND sfop.`method` = 'cashondelivery'))
+LEFT JOIN marketplace.catalog_product_entity_decimal cped ON cpe.`entity_id` = cped.`entity_id`
+	AND cped.`attribute_id` = 229 -- loan value
+WHERE sfoi.name LIKE CONCAT('%', sfoi.name, '%')
+GROUP BY sfoi.`name`");
 
 			// $query = $this->db2->get('catalog_category_product', 10);
 			$info_from_mp = $query->result_array();
