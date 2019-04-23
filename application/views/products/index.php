@@ -1,4 +1,3 @@
-
 </center>
 <div class="alert alert-info" role="alert" style="display: none;">
               <i class="fa fa-info-circle"></i> The following data are just test data used for system demonstration.
@@ -7,14 +6,6 @@
   <h2><?= $title ?></h2>
 </center>
 
-
-<?php
-/*
-  $this->table->set_heading('Category', 'Brand', 'Product Name', 'Average Appraised Amount');
-  echo $this->table->generate($records);
-  echo '<div id="pagination">' . $this->pagination->create_links(). '</div>';
-*/
-?>
 <!--
   <div class="row">
     <div class="col-3">
@@ -74,11 +65,9 @@
       </div>
   </div>
 -->
-
-
           <div class="card-body">
-            <div class="table-responsive">
-              <table class="table table-bordered  table-responsive" style="font-size:14px;" id="dataTable"  cellspacing="0">
+            <div class="table-responsive" style="margin: 0 4vh;">
+              <table class="table table-bordered  table-responsive" style="font-size:14px;" id="dataTable"  cellspacing="0" width="100%">
                 <thead class="bg-dark text-light">
                   <tr>
                     <th class="align-top">Category</th>
@@ -104,8 +93,8 @@
                   </tr>
                 </tfoot>
                 <tbody>
-                <!--Query for product-->
 
+             <!-- Query for product -->
                  <?php foreach ($products as $product): ?>
                    <tr>
                     <td><b><?php echo $product['category_name']; ?></b></td>
@@ -126,8 +115,8 @@
                       <center>
                         <a href="<?php echo site_url('/products/view/'.$product['slug']);?>">
                           <img alt="<?php /* echo $product['slug'] . "-photo"; */ ?>" class="imageZoom" width="85px" height="85px" title="<?php echo "Click to view " . $product['brand_name'] . " " . $product['product_name']; ?>">
-                          <!-- jquery code for image zoom on the left side -->
 
+                          <!-- jquery code for image zoom on the left side -->
                           <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
                           <script src="<?php echo base_url('js/jquery.bighover.js') ?>"></script>
                           <script>
@@ -146,20 +135,6 @@
                  <?php endforeach; ?>
                  </tbody>
              </table>
-             <?php echo $this->pagination->create_links(); ?>
-  <ul class="pagination">
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
-             <center><p> <?php echo "End of results <br> Showing " . $products_count . " out of 200" ?></p></center>
+             <center>
+               <?php echo $this->pagination->create_links(); ?>
+             </center>
