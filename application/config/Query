@@ -1,0 +1,27 @@
+SELECT sfo.`increment_id` order_id,
+	sfoi.`name` item_name,
+	sfoi.`sku` sku,
+	LEFT(sfoi.sku, 6) ticket_no,
+	DATE(sfosh.created_at) payment_received,
+	sfoi.`price_incl_tax` price_sold,
+	cped.`value` inventory_value,
+	sfo.`customer_id`,
+	sfo.`customer_is_guest`,
+	sfo.`customer_email`,
+	sfoa.`telephone`,
+	sfo.`status`
+FROM marketplace.sales_flat_order  sfo
+JOIN marketplace.sales_flat_order_item  sfoi ON sfoi.order_id = sfo.entity_id 
+	AND sfoi.`qty_refunded` = 0
+	AND sfoi.`sku` NOT LIKE 'CS-%'
+	AND sfoi.`sku` NOT LIKE 'PH201%'
+	AND sfoi.`sku` NOT LIKE 'AUTH-%'
+JOIN marketplace.sales_flat_order_address  sfoa ON sfo.entity_id = sfoa.parent_id
+	AND sfoa.`address_type` = 'shipping'
+JOIN marketplace.catalog_product_entity cpe ON sfoi.`product_id` = cpe.`entity_id`
+JOIN marketplace.sales_flat_order_payment sfop ON sfo.`entity_id` = sfop.`parent_id`
+JOIN marketplace.`sales_flat_order_status_history` sfosh ON sfo.`entity_id` = sfosh.`parent_id`
+	AND ((sfosh.`status` = 'processing' AND sfop.`method` != 'cashondelivery') OR  (sfosh.`status` = 'complete' AND sfop.`method` = 'cashondelivery'))
+LEFT JOIN marketplace.catalog_product_entity_decimal cped ON cpe.`entity_id` = cped.`entity_id`
+	AND cped.`attribute_id` = 229 -- loan value
+GROUP BY sfoi.`item_name`

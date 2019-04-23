@@ -3,10 +3,17 @@
 		
 		public function index($slug = NULL){
 			$data['title'] = 'Product Price Catalog';
-			
+
+			// $data['category_data'] = $this->product_model->fetch_filter_type('category_name');
+
+			// $data['brand_data'] = $this->product_model->fetch_filter_type('brand_name');
+
+			// $data['product_data'] = $this->product_model->fetch_filter_type('product_name');
+
+			 // with pagination
 			$data['products'] = $this->product_model->get_products(); 
 			$data['products_count'] = $this->product_model->get_products_count();
-			$data['info_from_mp'] = $this->product_model->get_info_from_mp();
+			// $data['info_from_mp'] = $this->product_model->get_info_from_mp();
 
 			$config['base_url'] = base_url() . '/products/index/';
 			$config['total_rows'] = $data['products_count'];
@@ -36,7 +43,7 @@
 			
 
 			$this->pagination->initialize($config);
-
+			
 
 			/*
 			$data['title'] = 'Product Price Catalog';

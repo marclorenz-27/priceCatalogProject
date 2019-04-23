@@ -21,7 +21,7 @@
 			<div class="row">
 				<div class="col-sm-4">
 					<div class="row">
-						<img src="<?php /* echo $products['destination']; */?> https://cdn1.iconfinder.com/data/icons/social-17/48/photos2-512.png" width="300px" height="300px" title="<?php echo $product_name; ?>" alt="<?php /* echo  $slug;  */ ?>" style="background-color: green; padding: 2vh;">
+						<img src="<?php /* echo $products['destination']; */?> https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png" width="300px" height="300px" title="<?php echo $product_name; ?>" alt="<?php /* echo  $slug;  */ ?>" style="padding: 2vh;">
 					</div>
 				</div>
 				<div class="col-sm-8">

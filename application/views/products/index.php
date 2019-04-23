@@ -134,11 +134,12 @@
               </center>
             </td>
             <td> <br><center><a href="<?php echo site_url('/products/view/'.$product['slug']);?>" class="btn btn-success" Title="<?php echo "View " . $product['product_name'] . " Records"?>"> 
-            <i class='far fa-eye'></i>View</center></td>
+            <i class='far fa-eye'></i>&nbsp; View</center></td>
           </tr>
       <?php endforeach; ?>
     </tbody>
   </table>
   <center>
     <?php echo $this->pagination->create_links(); ?>
-             </center>
+  </center>
+  <!-- Inclusion of jQuery, Popper JS, and Bootstrap JS plugins  -->

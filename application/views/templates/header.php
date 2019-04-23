@@ -11,8 +11,7 @@
 
   <title>Product Pricing Catalog - PawnHero</title>
 
-  <!-- Custom fonts for this template-->
-
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   <link href="<?php echo base_url('vendor/fontawesome-free/css/all.min.css'); ?>" rel="stylesheet" type="text/css">
   
@@ -22,18 +21,10 @@
   <!-- Custom styles for this template-->
   <link href="<?php echo base_url('css/sb-admin.css'); ?>" rel="stylesheet">
 
-
+  <!-- Font Awesome 5 Icons -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
-  <!--
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  -->
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   <style type="text/css">
     * {
@@ -89,7 +80,7 @@
     }
 
     body{
-      background-color: white;
+     /* background-color: #efefef;*/
     }
 
   </style>
@@ -99,8 +90,8 @@
 <body id="page-top">
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-    <a class="navbar-brand mr-1" href="<?php echo base_url('dashboard') ?>" title="Dashboard"><img src="https://pawnhero.ph/img/PawnHero-logo.svg" width="145px"> Product Pricing Catalog</a>
-    <a href="<?php echo base_url('/login') ?>" class="btn btn-success" Title="Login" style="margin-left: 3vh;"><i class='fas fa-sign-in-alt'></i> Login</a>
+    <a class="navbar-brand mr-1" href="<?php echo base_url('products') ?>" title="Dashboard"><img src="https://pawnhero.ph/img/PawnHero-logo.svg" width="145px"> Product Pricing Catalog</a>
+    <a href="<?php echo base_url('/login') ?>" class="btn btn-success" Title="Login" style=" display:none; margin-left: 3vh;"><i class='fas fa-sign-in-alt'></i> Login</a>
     
   </nav>
 
@@ -108,7 +99,7 @@
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('dashboard');?>" title="Go to Module Dashboard">
+        <a class="nav-link" href="<?php echo base_url('dashboard');?>" title="Go to Module Dashboard"  style="display: none;">
           <i class="fas fa-tachometer-alt" style="margin-right: 10px;"></i><span>Dashboard</span>
         </a>
       </li>
@@ -117,13 +108,14 @@
           <i class="fas fa-book-open" style="margin-right: 10px;"></i><span>Catalog</span>
         </a>
       </li>
+      <!-- Displayed as hidden -->
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('categories');?>" title="Go to Product Categories">
+        <a class="nav-link" href="<?php echo base_url('categories');?>" title="Go to Product Categories" style="display: none;">
           <i class="fas fa-grip-horizontal" style="margin-right: 12px;">  </i><span">Categories</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('brands');?>" title="Go to Product Brands">
+        <a class="nav-link" href="<?php echo base_url('brands');?>" title="Go to Product Brands" style="display: none;">
           <i class='fas fa-tag' style="margin-right: 11px;"></i><span>Brands</span>
         </a>
       </li>
