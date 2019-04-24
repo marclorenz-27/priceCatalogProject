@@ -7,6 +7,29 @@
             $this->db2 = $this->load->database('otherdb', TRUE);
         }
 
+        function fetch_data($query)
+        {
+            $this->db->select("*");
+            $this->db->from("ph_product");
+            $this->db->where("appraised_amount > 0");
+
+            if($query != ''){
+                $this->db->like('product_id', $query);
+                $this->db->or_like('category_brand_id', $query);
+                 $this->db->or_like('product_name', $query);
+                 $this->db->or_like('slug', $query);
+                 $this->db->or_like('product_mp_category', $query);
+                 $this->db->or_like('appraised_amount', $query);
+                 $this->db->or_like('is_bulky', $query);
+                 $this->db->or_like('created_by_user_id', $query);
+                 $this->db->or_like('modified_by_user_id', $query);
+                 $this->db->or_like('date_created', $query);
+                 $this->db->or_like('date_updated', $query);
+            }
+            $this->db->order_by('product_id', 'ASC');
+            return $this->db->get();
+        }
+
         public function get_products($slug = FALSE)
         {
             if($slug === FALSE) {
@@ -22,8 +45,7 @@
                 $this->db->join('ph_brand', 'ph_brand.brand_id = ph_category_brand.brand_id', 'LEFT');
                 $this->db->order_by('category_name, brand_name, product_name');
                 $this->db->group_by('product_name');
-                 $query = $this->db->get('pawnhero.ph_product', 5, $this->uri->segment(5));
-                 // $query = $this->db->get_where('pawnhero.ph_product', array('product_name' => 'iPhone 7'));
+                $query = $this->db->get('pawnhero.ph_product', 5, $this->uri->segment(5));
                 $products = $query->result_array();
                 return $products;
             }
