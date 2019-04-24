@@ -168,7 +168,7 @@
 				<div class="col-sm-6">
 						<div class="row">
 							<div class="col-sm-5">
-								<p class="font-weight-bold">Total number of Prices:</p>
+								<p class="font-weight-bold">Total number of Price Records:</p>
 							</div>
 							<br><br>
 							<div class="col-sm-5">
@@ -210,7 +210,7 @@
 							<h5 class="card-title"><?php echo $product['product_name']; ?></h5>
 							<h6 class="text-secondary" style="font-weight: bold;"> <span class="badge badge-secondary"><?php echo $product['brand_name'];  ?></span></h6>
 							<p class="card-text"><b>Appraisal Amount:</b> <br> <?php echo "&#8369; " . number_format($product['appraised_amount'], 2); ?></p>
-							<p class="card-text"><b>Pawning Date:</b><br> <?php /* echo date("F d, Y", strtotime($product['pawning_date'])); */ ?></p>
+							<p class="card-text"><b>Pawning Date:</b><br> <?php  echo date("F d, Y", strtotime($product['date_created'])); ?></p>
 						</div>
 					</div>
 				<?php endforeach; ?>

@@ -76,7 +76,7 @@
             <th class="align-top">Product name</th>
             <th class="align-top">Pawning Price Average</th>
             <th class="align-top">Selling Price Average</th>
-            <th class="align-top">Last Selling Date</th>
+            <th class="align-top">Last Pawning Date</th>
             <th class="align-top">Picture</th>
             <th class="align-top">Action</th>
           </tr>
@@ -114,7 +114,8 @@
               <?php  echo "<p>&#8369; " . number_format($product['average_appraised_amount'], 2) . "</p>"; ?><br><small class="text-info">*average out of n prices <br>(Dummy Data)</small>
             </td>
             <td>
-              <?php echo "<p> April 1, 2019 </p> <br> <small class='text-info'>(Dummy Data)</small>";?>
+              <?php echo date("F d, Y", strtotime($product['date_created']));
+              /*"<p> April 1, 2019 </p> <br> <small class='text-info'> (Dummy Data)</small>";*/?>
             </td>           
             <td>
               <center>
