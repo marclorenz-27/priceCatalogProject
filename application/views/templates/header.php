@@ -112,7 +112,7 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url('products');?>" title="Go to Catalog of all Products">
-          <i class="fas fa-book-open"></i><span>Catalog</span>
+          <i class="fas fa-book-open"></i><span> Catalog</span>
         </a>
       </li>
       <!-- Displayed as hidden -->

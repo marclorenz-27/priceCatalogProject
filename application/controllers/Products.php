@@ -54,7 +54,7 @@
             $data = $this->Product_model->fetch_data($query);
             $output .= '
             <div class="container">
-            <div class="table-responsive shadow p-3 mb-5 bg-white rounded">
+            <div class="table-responsive shadow sm p-3 mb-5 bg-white rounded">
                 <table class="table table-bordered" id="dataTable"  cellspacing="0" style="margin-left: 0vh">
                 <thead class="bg-dark text-light">
                 <tr>
