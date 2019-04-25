@@ -27,6 +27,8 @@
                  $this->db->or_like('date_updated', $query);
             }
             $this->db->order_by('product_id', 'ASC');
+            $this->db->group_by('product_name');
+            $this->db->limit(10);
             return $this->db->get();
         }
 

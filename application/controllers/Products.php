@@ -36,6 +36,7 @@
                     <th>Product Name</th>
                     <th>Appraised Amount</th>
                     <th>Pawning Date</th>
+                    <th>Action</th>
                 </tr>
                 </thead>
             ';
@@ -47,10 +48,11 @@
                     $output .='
                             <tr>
                                 <td>'.$row->product_id.'</td>
-                                <td>'.$row->category_brand_id.'</td>
-                                <td>'.$row->product_name.'</td>
+                                <td>'.$row->category_brand_id.'</a></td>
+                                <td>'.'<a href="'.base_url().'products/view/'.$row->slug.'">'.$row->product_name.'</a></td>
                                 <td>'.$row->appraised_amount.'</td>
                                 <td>'.$row->date_created.'</td>
+                                <td>'.'<a href="'.base_url().'products/view/'.$row->slug.'" class="btn btn-success">View'.'</a>
                             </tr>
                     ';
                 }
