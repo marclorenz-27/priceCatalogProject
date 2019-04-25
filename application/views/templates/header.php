@@ -30,22 +30,24 @@
 
   <style type="text/css">
     * {
-  box-sizing: border-box;
-}
+        box-sizing: border-box;
+    }
 
-.zoom {
-  /*padding: 50px;*/
-  transition: transform .2s;
-  /*width: 200px;*/
-  /*height: 200px;*/
-  margin: 0 auto;
-}
+    .zoom {
+        transition: transform .2s;
+        margin: 0 auto;
+    }
 
-.zoom:hover {
-  -ms-transform: scale(1.5); /* IE 9 */
-  -webkit-transform: scale(1.5); /* Safari 3-8 */
-  transform: scale(1.45); 
-}
+    .zoom:hover {
+        -ms-transform: scale(1.5);
+        -webkit-transform: scale(1.5);
+        transform: scale(1.45); 
+    }
+
+    i{
+      margin-right: 0.5vh;
+    }
+
     .icon-color{
       color: #000000;
     }
@@ -53,6 +55,7 @@
     a{
       color: black;
     }
+
     .card{
       margin: 1vh;
     }
@@ -81,18 +84,13 @@
       font-weight: bold;
     }
 
-    body{
-     /* background-color: #efefef;*/
-    }
   </style>
 </head>
 
 <body id="page-top">
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
-
     <a class="navbar-brand mr-1" href="<?php echo base_url('products') ?>" title="Dashboard"><img src="https://pawnhero.ph/img/PawnHero-logo.svg" width="145px"> Product Pricing Catalog</a>
     <a href="<?php echo base_url('/login') ?>" class="btn btn-success" Title="Login" style=" display:none; margin-left: 3vh;"><i class='fas fa-sign-in-alt'></i> Login</a>
-    
   </nav>
 
   <div id="wrapper">
@@ -100,23 +98,23 @@
     <ul class="sidebar navbar-nav">
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url('dashboard');?>" title="Go to Module Dashboard"  style="display: none;">
-          <i class="fas fa-tachometer-alt" style="margin-right: 10px;"></i><span>Dashboard</span>
+          <i class="fas fa-tachometer-alt"></i><span>Dashboard</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url('products');?>" title="Go to Catalog of all Products">
-          <i class="fas fa-book-open" style="margin-right: 10px;"></i><span>Catalog</span>
+          <i class="fas fa-book-open"></i><span>Catalog</span>
         </a>
       </li>
       <!-- Displayed as hidden -->
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url('categories');?>" title="Go to Product Categories" style="display: none;">
-          <i class="fas fa-grip-horizontal" style="margin-right: 12px;">  </i><span">Categories</span>
+          <i class="fas fa-grip-horizontal">  </i><span">Categories</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url('brands');?>" title="Go to Product Brands" style="display: none;">
-          <i class='fas fa-tag' style="margin-right: 11px;"></i><span>Brands</span>
+          <i class='fas fa-tag'></i><span>Brands</span>
         </a>
       </li>
     </ul>

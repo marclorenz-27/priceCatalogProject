@@ -9,27 +9,39 @@
 
         function fetch_data($query)
         {
-            $this->db->select("*");
-            $this->db->from("ph_product");
-            $this->db->where("appraised_amount > 0");
-
-            if($query != ''){
-                $this->db->like('product_id', $query);
-                $this->db->or_like('category_brand_id', $query);
-                 $this->db->or_like('product_name', $query);
-                 $this->db->or_like('slug', $query);
-                 $this->db->or_like('product_mp_category', $query);
-                 $this->db->or_like('appraised_amount', $query);
-                 $this->db->or_like('is_bulky', $query);
-                 $this->db->or_like('created_by_user_id', $query);
-                 $this->db->or_like('modified_by_user_id', $query);
-                 $this->db->or_like('date_created', $query);
-                 $this->db->or_like('date_updated', $query);
+             $this->db->select('pawnhero.ph_category.category_name');
+                $this->db->select('pawnhero.ph_brand.brand_name');
+                $this->db->select('pawnhero.ph_product.product_name');
+                $this->db->select('pawnhero.ph_product.slug');
+                $this->db->select_max('pawnhero.ph_product.date_created');
+                $this->db->select_avg('pawnhero.ph_product.appraised_amount', 'average_appraised_amount');
+               
+                
+            if($query != '') 
+            {
+                $this->db->like('brand_name', $query);
+                $this->db->or_like('category_name', $query);
+                $this->db->or_like('product_name', $query);
+                $this->db->or_like('appraised_amount', $query);
+               
             }
-            $this->db->order_by('product_id', 'ASC');
+
+            $this->db->having('average_appraised_amount > 0'); 
+            $this->db->join('ph_category_brand', 'ph_category_brand.category_brand_id = ph_product.category_brand_id', 'LEFT');
+            $this->db->join('ph_category', 'ph_category.category_id = ph_category_brand.category_id', 'LEFT');
+            $this->db->join('ph_brand', 'ph_brand.brand_id = ph_category_brand.brand_id', 'LEFT');
+            $this->db->order_by('category_name, brand_name, product_name');
             $this->db->group_by('product_name');
-            $this->db->limit(10);
-            return $this->db->get();
+
+            // exit();
+            // return $this->db->get('pawnhero.ph_product', 15, $this->uri->segment(0));
+            return $query = $this->db->get('pawnhero.ph_product', 35, $this->uri->segment(0));     
+            $products = $query->result_array();
+            // echo "<pre>";
+            // // print_r($products);
+            // print_r(json_encode($products));
+            // echo "</pre>";
+            // exit();
         }
 
         public function get_products($slug = FALSE)
@@ -204,7 +216,6 @@
             $this->db->join('categories', 'categories.category_id = products.category_id');
             $this->db->join('brands', 'brands.brand_id = products.brand_id','left');
             return $query = $this->db->get_where('products', array('category_name' => $category_name));
-            // $result = $query->result_array();
         }
 
         public function get_highest_price($category_name = FALSE)
@@ -214,68 +225,4 @@
             $this->db->join('brands', 'brands.brand_id = products.brand_id','left');
             return $query = $this->db->get_where('products', array('category_name' => $category_name));
         }
-
- 				/* public function fetch_filter_type($type){
-			$this->db->select('pawnhero.ph_category.category_name');
-				$this->db->select('pawnhero.ph_brand.brand_name');
-				$this->db->select('pawnhero.ph_product.product_name');
-				$this->db->select('pawnhero.ph_product.slug');
-				$this->db->select_avg('pawnhero.ph_product.appraised_amount', 'average_appraised_amount');
-				$this->db->having('average_appraised_amount > 0'); 
-				$this->db->join('ph_category_brand', 'ph_category_brand.category_brand_id = ph_product.category_brand_id', 'LEFT');
-				$this->db->join('ph_category', 'ph_category.category_id = ph_category_brand.category_id', 'LEFT');
-				$this->db->join('ph_brand', 'ph_brand.brand_id = ph_category_brand.brand_id', 'LEFT');
-				$this->db->order_by('category_name');
-				$this->db->group_by('product_name');
- 				$query = $this->db->get('pawnhero.ph_product');
-				$products = $query->result_array();
-				return $products;
-				// echo "<pre>";
-				// print_r($result);
-				// echo "</pre>";
-				// exit();
-				
-		}*/
-		/*
-		public function get_info_from_mp(){
-			$query = $this->db2->query("SELECT 
-			-- sfo.`increment_id` order_id,
-			sfoi.`name` item_name,
-			sfoi.`sku` sku,
-			LEFT(sfoi.sku, 6) ticket_no,
-			DATE(sfosh.created_at) payment_received,
-			MIN(sfoi.`price_incl_tax`) average_price_sold
-			-- cped.`value` inventory_value
-			 -- sfo.`customer_id`,
-			 -- sfo.`customer_is_guest`,
-			 -- sfo.`customer_email`,
-			 -- sfoa.`telephone`,
-			 -- sfo.`status`
-			FROM marketplace.sales_flat_order  sfo
-			JOIN marketplace.sales_flat_order_item  sfoi ON sfoi.order_id = sfo.entity_id 
-				AND sfoi.`qty_refunded` = 0
-				AND sfoi.`sku` NOT LIKE 'CS-%'
-				AND sfoi.`sku` NOT LIKE 'PH201%'
-				AND sfoi.`sku` NOT LIKE 'AUTH-%'
-			JOIN marketplace.sales_flat_order_address  sfoa ON sfo.entity_id = sfoa.parent_id
-				AND sfoa.`address_type` = 'shipping'
-			JOIN marketplace.catalog_product_entity cpe ON sfoi.`product_id` = cpe.`entity_id`
-			JOIN marketplace.sales_flat_order_payment sfop ON sfo.`entity_id` = sfop.`parent_id`
-			JOIN marketplace.`sales_flat_order_status_history` sfosh ON sfo.`entity_id` = sfosh.`parent_id`
-				AND ((sfosh.`status` = 'processing' AND sfop.`method` != 'cashondelivery') OR  (sfosh.`status` = 'complete' AND sfop.`method` = 'cashondelivery'))
-			LEFT JOIN marketplace.catalog_product_entity_decimal cped ON cpe.`entity_id` = cped.`entity_id`
-				AND cped.`attribute_id` = 229 -- loan value
-			WHERE sfoi.name LIKE CONCAT('%', sfoi.name, '%')
-			GROUP BY sfoi.`name`");
-
-			// $query = $this->db2->get('catalog_category_product', 10);
-			$info_from_mp = $query->result_array();
-			// echo "<pre>"; 
-			// print_r($info_from_mp);
-			// echo "</pre>";
-			// exit();
-			return $info_from_mp;
-		}
-		*/
-	
 }

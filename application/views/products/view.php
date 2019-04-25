@@ -20,7 +20,7 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="row">
-                        <img src="<?php /* echo $products['destination']; */?> https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png" width="300px" height="300px" title="<?php echo $product_name; ?>" alt="<?php /* echo  $slug;  */ ?>" style="padding: 2vh;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png" width="300px" height="300px" title="<?php echo $product_name; ?>" style="padding: 2vh;">
                     </div>
                 </div>
                 <div class="col-sm-8">
@@ -103,7 +103,15 @@
                     </div>
                 </div>
                 <div class="col-sm-6">
-    
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <h6 class="font-weight-bold">Maximum Price:</h6> 
+                        </div>
+                        <div class="col-sm-5">
+                            <h5><span class="badge badge-warning" style="text-align: left;">&#8369;
+                            </span></h5>
+                        </div>
+                    </div>
                 </div>
             </div> 
 
@@ -163,8 +171,8 @@
                             <p class="font-weight-bold">Total number of  Prices: </p> 
                         </div>
                         <div class="col-sm-5">
-                            <h5><span class="badge badge-dark" style="text-align: left;">\
-                            <?php /* echo $num_of_selling_prices; */ ?>
+                            <h5><span class="badge badge-dark" style="text-align: left;">
+                            n
                             </span></h5>
                         </div>
                     </div>
@@ -213,6 +221,6 @@
         </div><br><br>
 
     <div class="row">
-        <a href="<?php /* echo base_url('products');*/ ?>" class="btn btn-success" style="color: white; float:left"><i class='far fa-arrow-alt-circle-left'></i> Back to Catalog</a>
+        <a href="<?php  echo base_url('products');?>" class="btn btn-success" style="color: white; float:left"><i class='far fa-arrow-alt-circle-left'></i> Back to Catalog</a>
     </div> 
 </div>
