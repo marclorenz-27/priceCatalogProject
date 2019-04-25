@@ -2,7 +2,7 @@
   </div>
   <br>
 
-  <footer class="sticky-footer">
+  <footer class="sticky-footer bg-dark text-light">
     <div class="container my-auto">
       <div class="copyright text-center my-auto">
         <i class='far fa-copyright'></i><span> PawnHero 2019</span>

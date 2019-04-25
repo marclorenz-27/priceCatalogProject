@@ -29,6 +29,11 @@
 
 
   <style type="text/css">
+
+    body{
+        background-color: #efefef;
+    }
+
     * {
         box-sizing: border-box;
     }
@@ -42,6 +47,10 @@
         -ms-transform: scale(1.5);
         -webkit-transform: scale(1.5);
         transform: scale(1.45); 
+    }
+
+    .border-black{
+      border: 1px solid black;
     }
 
     i{

@@ -5,10 +5,10 @@
         <a href="<?php echo base_url('products'); ?>" class="btn btn-success" style="color: white; float:left"><i class='far fa-arrow-alt-circle-left'></i> Back to Catalog</a>
     </div>
 
-    <h2>Product Overview</h2>
+    <h2>Product Overview</h2> <br>
 </center> 
-<div class="container">
-    <div class="row">
+<div class="container shadow p-3 mb-5 bg-white rounded">
+    <div class="row" style="margin: .5vh; padding: .5vh">
         <h2><?php echo $products['brand_name'] . " " . $products['product_name']; ?></h2>
     </div> <br>
     <div class="row">
