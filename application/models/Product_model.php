@@ -31,6 +31,7 @@
             $this->db->join('ph_category', 'ph_category.category_id = ph_category_brand.category_id', 'LEFT');
             $this->db->join('ph_brand', 'ph_brand.brand_id = ph_category_brand.brand_id', 'LEFT');
             $this->db->order_by('category_name, brand_name, product_name');
+            $this->db->order_by('date_created', 'DESC');
             $this->db->group_by('product_name');
 
             // exit();
