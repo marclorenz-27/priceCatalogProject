@@ -26,14 +26,14 @@
                 <div class="col-sm-8">
                     <div class="row">
                         <div class="col-sm-6">
-                            <a href="https://pawnhero.ph/" target="_blank">
+                            <!-- <a href="https://pawnhero.ph/" target="_blank"> -->
                                 <h4 title="Prices from the Pawnshop"><span class="badge badge-success shadow" target_blank>PawnHero</span></h4>
-                            </a>
+                            <!-- </a> -->
                         </div>
                     <div class="col-sm-6">
-                        <a href="https://luxein.com/" target="_blank">
+                        <!-- <a href="https://luxein.com/" target="_blank"> -->
                             <h4 title="Prices based on selling prices from MarketPlace / Luxe/In"><span class="badge badge-dark shadow">MarketPlace</span></h4>
-                        </a>
+                        <!-- </a> -->
                     </div>
                	</div> <p> </p>
 

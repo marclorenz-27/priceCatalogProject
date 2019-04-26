@@ -4,7 +4,7 @@
         public function __construct()
         {
             $this->load->database();
-            $this->db2 = $this->load->database('otherdb', TRUE);
+            $this->db2 = $this->load->database('otherdb', true);
         }
 
         function fetch_data($query)

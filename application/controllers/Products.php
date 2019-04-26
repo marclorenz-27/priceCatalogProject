@@ -10,7 +10,6 @@
             $config['base_url'] = base_url() . '/products/index/';
             $config['total_rows'] = $data['products_count'];
             $config['per_page'] = 5;
-
             $config['full_tag_open'] = '<ul class="pagination">';
             $config['full_tag_close'] = '</ul> &nbsp;';
 
@@ -90,7 +89,7 @@
                                 <td> &#x20b1; '.number_format($row->average_appraised_amount,2,".",",").'
                                 </td>
                                 <td>'.date("F d, Y", strtotime($row->date_created)). '</td>
-                                <td>'.'<center> <a href="'.base_url().'products/view/'.$row->slug.'" class="btn btn-success shadow">View '.'<i class="far fa-arrow-alt-circle-right"></i></a><center>
+                                <td>'.'<center> <a href="'.base_url().'products/view/'.$row->slug.'" class="btn btn-success shadow">View '.'<i class="far fa-arrow-alt-circle-right";"></i></a><center>
                             </tr>
                     ';
                 }
