@@ -2,7 +2,7 @@
 
 <body>
     <div class="row">
-        <a href="<?php echo base_url('products'); ?>" class="btn btn-success" style="color: white; float:left"><i class='far fa-arrow-alt-circle-left'></i> Back to Catalog</a>
+        <a href="<?php echo base_url('products'); ?>" class="btn btn-success shadow" style="color: white; float:left"><i class='far fa-arrow-alt-circle-left'></i> Back to Catalog</a>
     </div>
 
     <h2>Product Overview</h2> <br>
@@ -27,12 +27,12 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <a href="https://pawnhero.ph/" target="_blank">
-                                <h4 title="Prices from the Pawnshop"><span class="badge badge-success" target_blank>PawnHero</span></h4>
+                                <h4 title="Prices from the Pawnshop"><span class="badge badge-success shadow" target_blank>PawnHero</span></h4>
                             </a>
                         </div>
                     <div class="col-sm-6">
                         <a href="https://luxein.com/" target="_blank">
-                            <h4 title="Prices based on selling prices from MarketPlace / Luxe/In"><span class="badge badge-dark">MarketPlace</span></h4>
+                            <h4 title="Prices based on selling prices from MarketPlace / Luxe/In"><span class="badge badge-dark shadow">MarketPlace</span></h4>
                         </a>
                     </div>
                	</div> <p> </p>
@@ -187,9 +187,9 @@
             <div class="row">
                 <h3 class="font-weight-bold">All Pawning Prices</h3>
             </div>
-            <div class="row" style="">
+            <div class="row">
                 <?php foreach ($products_by_product_name as $product): ?>
-                    <div class="card" style="width: 14rem; ">
+                    <div class="card shadow p-3 mb-5 bg-white rounded" style="width: 14rem; ">
                         <img class="card-img-top" src="<?php/* echo $product['destination']; */  ?>" alt="<?php  echo $product['product_name'] . " Image (alt name)"; ?>"	 style="padding: 2vh">	
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $product['product_name']; ?></h5>
@@ -221,6 +221,6 @@
         </div><br><br>
 
     <div class="row">
-        <a href="<?php  echo base_url('products');?>" class="btn btn-success" style="color: white; float:left"><i class='far fa-arrow-alt-circle-left'></i> Back to Catalog</a>
+        <a href="<?php  echo base_url('products');?>" class="btn btn-success shadow" style="color: white; float:left"><i class='far fa-arrow-alt-circle-left'></i> Back to Catalog</a>
     </div> 
 </div>

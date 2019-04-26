@@ -68,12 +68,12 @@
                 </thead>
                 <tfoot class="bg-dark text-light">
                 <tr>
-                    <th class="w-20">Category Name</th>
-                    <th class="w-20">Brand Name</th>
-                    <th class="w-25">Product Name</th>
-                    <th class="w-15">Appraised Amount</th>
-                    <th class="w-15">Pawning Date</th>
-                    <th class="w-15">Action</th>
+                    <th>Category Name</th>
+                    <th>Brand Name</th>
+                    <th>Product Name</th>
+                    <th>Average Appraised Amount</th>
+                    <th>Pawning Date</th>
+                    <th>Action</th>
                 </tr>
                 </tfoot>
             ';
@@ -90,7 +90,7 @@
                                 <td> &#x20b1; '.number_format($row->average_appraised_amount,2,".",",").'
                                 </td>
                                 <td>'.date("F d, Y", strtotime($row->date_created)). '</td>
-                                <td>'.'<a href="'.base_url().'products/view/'.$row->slug.'" class="btn btn-success"><i class="fas fa-clipboard-list"></i> View'.'</a>
+                                <td>'.'<center> <a href="'.base_url().'products/view/'.$row->slug.'" class="btn btn-success shadow"><i class="fas fa-clipboard-list"></i> View'.'</a><center>
                             </tr>
                     ';
                 }

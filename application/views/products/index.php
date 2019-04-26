@@ -1,7 +1,7 @@
 </center>
   <h2 align="center"><?= $title ?></h2><br>
   <div class="row">
-  <div class="input-group mb-3 shadow sm p-2 mb-2 bg-white rounded">
+  <div class="input-group mb-3 shadow p-2 mb-2 bg-white rounded">
     <div class="input-group-prepend" >
       <span class="input-group-text bg-secondary text-light" id="basic-addon1"  style="border: 1px solid black"><i class='fas fa-search'></i> &nbsp;Search</span>
     </div>
