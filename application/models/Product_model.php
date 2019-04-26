@@ -9,12 +9,12 @@
 
         function fetch_data($query)
         {
-             $this->db->select('pawnhero.ph_category.category_name');
-                $this->db->select('pawnhero.ph_brand.brand_name');
-                $this->db->select('pawnhero.ph_product.product_name');
-                $this->db->select('pawnhero.ph_product.slug');
-                $this->db->select_max('pawnhero.ph_product.date_created');
-                $this->db->select_avg('pawnhero.ph_product.appraised_amount', 'average_appraised_amount');
+            $this->db->select('pawnhero.ph_category.category_name');
+            $this->db->select('pawnhero.ph_brand.brand_name');
+            $this->db->select('pawnhero.ph_product.product_name');
+            $this->db->select('pawnhero.ph_product.slug');
+            $this->db->select_max('pawnhero.ph_product.date_created');
+            $this->db->select_avg('pawnhero.ph_product.appraised_amount', 'average_appraised_amount');
                
                 
             if($query != '') 
@@ -45,9 +45,9 @@
             // exit();
         }
 
-        public function get_products($slug = FALSE)
+        public function get_products($slug = false)
         {
-            if($slug === FALSE) {
+            if($slug === false) {
                 $this->db->select('pawnhero.ph_category.category_name');
                 $this->db->select('pawnhero.ph_brand.brand_name');
                 $this->db->select('pawnhero.ph_product.product_name');
@@ -73,9 +73,9 @@
             return $query->row_array();
         }
 
-        public function get_products_count($slug = FALSE)
+        public function get_products_count($slug = false)
         {
-            if($slug === FALSE){
+            if($slug === false){
                 $this->db->select('pawnhero.ph_category.category_name');
                 $this->db->select('pawnhero.ph_brand.brand_name');
                 $this->db->select('pawnhero.ph_product.product_name');
@@ -93,9 +93,9 @@
             }
         }
 
-        public function get_count_by_product_name($product_name = FALSE)
+        public function get_count_by_product_name($product_name = false)
         {
-            if($product_name === FALSE){
+            if($product_name === false){
                 $this->db->select_avg('appraised_amount', 'average_per_group');
                 $this->db->select('products.*'); //SELECT * FROM products
                 $this->db->select('categories.*');
@@ -110,9 +110,9 @@
             }
         }
 
-        public function get_product_rows($slug = FALSE)
+        public function get_product_rows($slug = false)
         {
-            if($slug === FALSE){
+            if($slug === false){
                 $this->db->select('products.*');
                 $this->db->select('categories.*');
                 $this->db->select('brands.*');
@@ -125,7 +125,7 @@
             }
         }
 
-        public function get_products_by_product_name($product_name, $brand_name = FALSE)
+        public function get_products_by_product_name($product_name, $brand_name = false)
         {
             $this->db->join('ph_category_brand', 'ph_category_brand.category_brand_id = ph_product.category_brand_id', 'LEFT');
             $this->db->join('ph_category', 'ph_category.category_id = ph_category_brand.category_id', 'LEFT');
@@ -134,7 +134,7 @@
             return $query->result_array();
         }
 
-        public function get_product_selling_records($product_name = FALSE)
+        public function get_product_selling_records($product_name = false)
         {
             $this->db2->select('marketplace_db.sales.*');
             $this->db2->select('pawnhero_db.products.*');
@@ -148,7 +148,7 @@
             return $query->result_array();
         }
 
-        public function get_average_appraised_amount($product_name = FALSE, $brand_name = FALSE, $category_name = FALSE)
+        public function get_average_appraised_amount($product_name = false, $brand_name = false, $category_name = false)
         {
             $this->db->select_avg('appraised_amount');
             $this->db->join('ph_category_brand', 'ph_category_brand.category_brand_id = ph_product.category_brand_id', 'LEFT');
@@ -159,14 +159,14 @@
             return $this->db->get_where('ph_product', array('product_name' => $product_name, 'brand_name' => $brand_name));		
         }
 
-        public function get_average_per_group($product_name = FALSE)
+        public function get_average_per_group($product_name = false)
         {
             $this->db->select_avg('appraised_amount');
             $this->db->group_by('product_name');
             return $this->db->get_where('products', array('product_name' => $product_name));
         }
 
-        public function get_minimum_appraised_amount($product_name = FALSE, $brand_name = FALSE, $category_name = FALSE)
+        public function get_minimum_appraised_amount($product_name = false, $brand_name = false, $category_name = false)
         {    
             $this->db->select_min('appraised_amount');
            $this->db->join('ph_category_brand', 'ph_category_brand.category_brand_id = ph_product.category_brand_id', 'LEFT');
@@ -177,7 +177,7 @@
             return $this->db->get_where('ph_product', array('product_name' => $product_name, 'brand_name' => $brand_name));     
         }
 
-        public function get_maximum_appraised_amount($product_name = FALSE, $brand_name = FALSE, $category_name = FALSE)
+        public function get_maximum_appraised_amount($product_name = false, $brand_name = false, $category_name = false)
         {
             $this->db->select_max('appraised_amount');
             $this->db->join('ph_category_brand', 'ph_category_brand.category_brand_id = ph_product.category_brand_id', 'LEFT');
@@ -188,28 +188,28 @@
             return $this->db->get_where('ph_product', array('product_name' => $product_name, 'brand_name' => $brand_name));     
         }
 
-        public function get_average_price_sold($product_name = FALSE)
+        public function get_average_price_sold($product_name = false)
         {				
             $this->db2->select_avg('marketplace_db.sales.price_sold');
             $this->db2->join('pawnhero_db.products', 'pawnhero_db.products.product_id = marketplace_db.sales.product_id', 'LEFT');
             return $query = $this->db2->get_where('marketplace_db.sales', array('product_name' => $product_name));
         }
 
-        public function get_minimum_price_sold($product_name = FALSE)
+        public function get_minimum_price_sold($product_name = false)
         {
             $this->db2->select_min('marketplace_db.sales.price_sold');
             $this->db2->join('pawnhero_db.products', 'pawnhero_db.products.product_id = marketplace_db.sales.product_id', 'LEFT');
             return $query = $this->db2->get_where('marketplace_db.sales', array('product_name' => $product_name));
         }
 
-        public function get_maximum_price_sold($product_name = FALSE)
+        public function get_maximum_price_sold($product_name = false)
         {
             $this->db2->select_max('marketplace_db.sales.price_sold');
             $this->db2->join('pawnhero_db.products', 'pawnhero_db.products.product_id = marketplace_db.sales.product_id', 'LEFT');
             return $query = $this->db2->get_where('marketplace_db.sales', array('product_name' => $product_name));
         }
 
-        public function get_num_of_selling_prices($product_name = FALSE)
+        public function get_num_of_selling_prices($product_name = false)
         {
             $this->db2->select('marketplace_db.sales.*');
             $this->db2->join('pawnhero_db.products', 'pawnhero_db.products.product_id = marketplace_db.sales.product_id', 'LEFT');
@@ -217,7 +217,7 @@
             return $query->num_rows();
         }
 
-        public function get_products_by_product_name_rows($product_name = FALSE, $brand_name = FALSE, $category_name = FALSE )
+        public function get_products_by_product_name_rows($product_name = false, $brand_name = false, $category_name = false )
         {
             $this->db->join('ph_category_brand', 'ph_category_brand.category_brand_id = ph_product.category_brand_id', 'LEFT');
             $this->db->join('ph_category', 'ph_category.category_id = ph_category_brand.category_id', 'LEFT');
@@ -232,7 +232,7 @@
             return $query->num_rows();
         }
 
-        public function get_lowest_price($category_name = FALSE)
+        public function get_lowest_price($category_name = false)
         {
             $this->db->select_min('pawnhero_db.products.appraised_amount');
             $this->db->join('categories', 'categories.category_id = products.category_id');
@@ -240,7 +240,7 @@
             return $query = $this->db->get_where('products', array('category_name' => $category_name));
         }
 
-        public function get_highest_price($category_name = FALSE)
+        public function get_highest_price($category_name = false)
         {
             $this->db->select_max('pawnhero_db.products.appraised_amount');
             $this->db->join('categories', 'categories.category_id = products.category_id');
