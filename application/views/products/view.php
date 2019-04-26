@@ -186,7 +186,7 @@
         <div class="container">
             <div class="row">
                 <h3 class="font-weight-bold">All Pawning Prices</h3>
-            </div>
+            </div> <br>
             <div class="row">
                 <?php foreach ($products_by_product_name as $product): ?>
                     <div class="card shadow p-3 mb-5 bg-white rounded" style="width: 14rem; ">

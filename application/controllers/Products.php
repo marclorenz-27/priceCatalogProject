@@ -90,7 +90,7 @@
                                 <td> &#x20b1; '.number_format($row->average_appraised_amount,2,".",",").'
                                 </td>
                                 <td>'.date("F d, Y", strtotime($row->date_created)). '</td>
-                                <td>'.'<center> <a href="'.base_url().'products/view/'.$row->slug.'" class="btn btn-success shadow"><i class="fas fa-clipboard-list"></i> View'.'</a><center>
+                                <td>'.'<center> <a href="'.base_url().'products/view/'.$row->slug.'" class="btn btn-success shadow">View '.'<i class="far fa-arrow-alt-circle-right"></i></a><center>
                             </tr>
                     ';
                 }
@@ -111,11 +111,14 @@
         {
             $data['products'] = $this->product_model->get_products($slug);
             $data['product_name'] = $data['products']['product_name'];
-            $data['avg_appraised_amount'] = $this->product_model->get_average_appraised_amount($data['product_name']);
-            $data['min_appraised_amount'] = $this->product_model->get_minimum_appraised_amount($data['product_name']);
-            $data['max_appraised_amount'] = $this->product_model->get_maximum_appraised_amount($data['product_name']);
-            $data['products_by_product_name'] = $this->product_model->get_products_by_product_name($data['product_name']);
-            $data['products_by_product_name_rows'] = $this->product_model->get_products_by_product_name_rows($data['product_name']); 
+            $data['brand_name'] = $data['products']['brand_name'];
+            $data['category_name'] = $data['products']['category_name'];
+
+            $data['avg_appraised_amount'] = $this->product_model->get_average_appraised_amount($data['product_name'], $data['brand_name'], $data['category_name']);
+            $data['min_appraised_amount'] = $this->product_model->get_minimum_appraised_amount($data['product_name'], $data['brand_name'], $data['category_name']);
+            $data['max_appraised_amount'] = $this->product_model->get_maximum_appraised_amount($data['product_name'], $data['brand_name'], $data['category_name']);
+            $data['products_by_product_name'] = $this->product_model->get_products_by_product_name($data['product_name'], $data['brand_name']);
+            $data['products_by_product_name_rows'] = $this->product_model->get_products_by_product_name_rows($data['product_name'], $data['brand_name'], $data['category_name']); 
             $this->load->view('templates/header');
             $this->load->view('products/view', $data);
             $this->load->view('templates/footer');

@@ -32,7 +32,7 @@
             $this->db->join('ph_brand', 'ph_brand.brand_id = ph_category_brand.brand_id', 'LEFT');
             $this->db->order_by('category_name, brand_name, product_name');
             $this->db->order_by('date_created', 'DESC');
-            $this->db->group_by('product_name');
+            $this->db->group_by('product_name, brand_name', 'category_name');
 
             // exit();
             // return $this->db->get('pawnhero.ph_product', 15, $this->uri->segment(0));
@@ -59,7 +59,7 @@
                 $this->db->join('ph_category', 'ph_category.category_id = ph_category_brand.category_id', 'LEFT');
                 $this->db->join('ph_brand', 'ph_brand.brand_id = ph_category_brand.brand_id', 'LEFT');
                 $this->db->order_by('category_name, brand_name, product_name');
-                $this->db->group_by('product_name');
+                $this->db->group_by('product_name, brand_name');
                 $query = $this->db->get('pawnhero.ph_product', 5, $this->uri->segment(5));
                 $products = $query->result_array();
                 return $products;
@@ -68,6 +68,7 @@
             $this->db->join('ph_category_brand', 'ph_category_brand.category_brand_id = ph_product.category_brand_id', 'LEFT');
             $this->db->join('ph_category', 'ph_category.category_id = ph_category_brand.category_id', 'LEFT');
             $this->db->join('ph_brand', 'ph_brand.brand_id = ph_category_brand.brand_id', 'LEFT');
+            $this->db->group_by('product_name, brand_name');
             $query = $this->db->get_where('ph_product', array('ph_product.slug' => $slug));
             return $query->row_array();
         }
@@ -124,12 +125,12 @@
             }
         }
 
-        public function get_products_by_product_name($product_name = FALSE)
+        public function get_products_by_product_name($product_name, $brand_name = FALSE)
         {
             $this->db->join('ph_category_brand', 'ph_category_brand.category_brand_id = ph_product.category_brand_id', 'LEFT');
             $this->db->join('ph_category', 'ph_category.category_id = ph_category_brand.category_id', 'LEFT');
             $this->db->join('ph_brand', 'ph_brand.brand_id = ph_category_brand.brand_id', 'LEFT');
-            $query = $this->db->get_where('ph_product', array('product_name' => $product_name));
+            $query = $this->db->get_where('ph_product', array('product_name' => $product_name, 'brand_name' => $brand_name));
             return $query->result_array();
         }
 
@@ -147,10 +148,15 @@
             return $query->result_array();
         }
 
-        public function get_average_appraised_amount($product_name = FALSE)
+        public function get_average_appraised_amount($product_name = FALSE, $brand_name = FALSE, $category_name = FALSE)
         {
             $this->db->select_avg('appraised_amount');
-            return $this->db->get_where('ph_product', array('product_name' => $product_name));		
+            $this->db->join('ph_category_brand', 'ph_category_brand.category_brand_id = ph_product.category_brand_id', 'LEFT');
+            $this->db->join('ph_category', 'ph_category.category_id = ph_category_brand.category_id', 'LEFT');
+            $this->db->join('ph_brand', 'ph_brand.brand_id = ph_category_brand.brand_id', 'LEFT');
+            $this->db->order_by('category_name, brand_name, product_name');
+            $this->db->group_by('product_name, brand_name', 'category_name');
+            return $this->db->get_where('ph_product', array('product_name' => $product_name, 'brand_name' => $brand_name));		
         }
 
         public function get_average_per_group($product_name = FALSE)
@@ -160,17 +166,26 @@
             return $this->db->get_where('products', array('product_name' => $product_name));
         }
 
-        public function get_minimum_appraised_amount($product_name = FALSE)
+        public function get_minimum_appraised_amount($product_name = FALSE, $brand_name = FALSE, $category_name = FALSE)
         {    
             $this->db->select_min('appraised_amount');
-            
-            return $this->db->get_where('ph_product', array('product_name' => $product_name));
+           $this->db->join('ph_category_brand', 'ph_category_brand.category_brand_id = ph_product.category_brand_id', 'LEFT');
+            $this->db->join('ph_category', 'ph_category.category_id = ph_category_brand.category_id', 'LEFT');
+            $this->db->join('ph_brand', 'ph_brand.brand_id = ph_category_brand.brand_id', 'LEFT');
+            $this->db->order_by('category_name, brand_name, product_name');
+            $this->db->group_by('product_name, brand_name', 'category_name');
+            return $this->db->get_where('ph_product', array('product_name' => $product_name, 'brand_name' => $brand_name));     
         }
 
-        public function get_maximum_appraised_amount($product_name = FALSE)
+        public function get_maximum_appraised_amount($product_name = FALSE, $brand_name = FALSE, $category_name = FALSE)
         {
             $this->db->select_max('appraised_amount');
-            return $this->db->get_where('ph_product', array('product_name' => $product_name));
+            $this->db->join('ph_category_brand', 'ph_category_brand.category_brand_id = ph_product.category_brand_id', 'LEFT');
+            $this->db->join('ph_category', 'ph_category.category_id = ph_category_brand.category_id', 'LEFT');
+            $this->db->join('ph_brand', 'ph_brand.brand_id = ph_category_brand.brand_id', 'LEFT');
+            $this->db->order_by('category_name, brand_name, product_name');
+            $this->db->group_by('product_name, brand_name', 'category_name');
+            return $this->db->get_where('ph_product', array('product_name' => $product_name, 'brand_name' => $brand_name));     
         }
 
         public function get_average_price_sold($product_name = FALSE)
@@ -202,12 +217,18 @@
             return $query->num_rows();
         }
 
-        public function get_products_by_product_name_rows($product_name = FALSE)
+        public function get_products_by_product_name_rows($product_name = FALSE, $brand_name = FALSE, $category_name = FALSE )
         {
             $this->db->join('ph_category_brand', 'ph_category_brand.category_brand_id = ph_product.category_brand_id', 'LEFT');
             $this->db->join('ph_category', 'ph_category.category_id = ph_category_brand.category_id', 'LEFT');
             $this->db->join('ph_brand', 'ph_brand.brand_id = ph_category_brand.brand_id', 'LEFT');
             $query = $this->db->get_where('ph_product', array('product_name' => $product_name));
+            $this->db->join('ph_category_brand', 'ph_category_brand.category_brand_id = ph_product.category_brand_id', 'LEFT');
+            $this->db->join('ph_category', 'ph_category.category_id = ph_category_brand.category_id', 'LEFT');
+            $this->db->join('ph_brand', 'ph_brand.brand_id = ph_category_brand.brand_id', 'LEFT');
+            $this->db->order_by('category_name, brand_name, product_name');
+            $this->db->group_by('product_name, brand_name', 'category_name');
+            $this->db->get_where('ph_product', array('product_name' => $product_name, 'brand_name' => $brand_name));
             return $query->num_rows();
         }
 
