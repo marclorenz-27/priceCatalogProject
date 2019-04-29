@@ -15,7 +15,6 @@
             $this->db->select('pawnhero.ph_product.slug');
             $this->db->select_max('pawnhero.ph_product.date_created');
             $this->db->select_avg('pawnhero.ph_product.appraised_amount', 'average_appraised_amount');
-               
                 
             if($query != '') 
             {
@@ -33,16 +32,8 @@
             $this->db->order_by('category_name, brand_name, product_name');
             $this->db->order_by('date_created', 'DESC');
             $this->db->group_by('product_name, brand_name', 'category_name');
-
-            // exit();
-            // return $this->db->get('pawnhero.ph_product', 15, $this->uri->segment(0));
             return $query = $this->db->get('pawnhero.ph_product', 35, $this->uri->segment(0));     
             $products = $query->result_array();
-            // echo "<pre>";
-            // // print_r($products);
-            // print_r(json_encode($products));
-            // echo "</pre>";
-            // exit();
         }
 
         public function get_products($slug = false)
@@ -96,6 +87,7 @@
         public function get_count_by_product_name($product_name = false)
         {
             if($product_name === false){
+                // $this->db->distinct();
                 $this->db->select_avg('appraised_amount', 'average_per_group');
                 $this->db->select('products.*'); //SELECT * FROM products
                 $this->db->select('categories.*');
