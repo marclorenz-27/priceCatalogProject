@@ -61,7 +61,7 @@
                     <th class="w-15" valign="top">Brand Name</th>
                     <th class="w-20" valign="top">Product Name</th>
                     <th class="w-20" valign="top">Average Appraised Amount</th>
-                    <th class="w-20" valign="top">Pawning Date</th>
+                    <th class="w-20" valign="top">Latest Pawning Date</th>
                     <th class="w-20" valign="top">Action</th>
                 </tr>
                 </thead>
@@ -71,7 +71,7 @@
                     <th>Brand Name</th>
                     <th>Product Name</th>
                     <th>Average Appraised Amount</th>
-                    <th>Pawning Date</th>
+                    <th>Latest Pawning Date</th>
                     <th>Action</th>
                 </tr>
                 </tfoot>
