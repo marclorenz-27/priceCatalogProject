@@ -85,11 +85,11 @@
                             <tr>
                                 <td><b>'.$row->category_name.'</b></td>
                                 <td>'.$row->brand_name.'</a></td>
-                                <td>'.'<a href="'.base_url().'products/view/'.$row->slug.'">'.$row->product_name.'</a></td>
+                                <td>'.'<a href="'.base_url().'products/view/'.$row->slug.'" target="_blank">'.$row->product_name.'</a></td>
                                 <td> &#x20b1; '.number_format($row->average_appraised_amount,2,".",",").'
                                 </td>
                                 <td>'.date("F d, Y", strtotime($row->date_created)). '</td>
-                                <td>'.'<center> <a href="'.base_url().'products/view/'.$row->slug.'" target=_blank class="btn btn-success shadow">View '.'<i class="far fa-arrow-alt-circle-right";"></i></a><center>
+                                <td>'.'<center> <a href="'.base_url().'products/view/'.$row->slug.'" target=_blank" class="btn btn-success shadow">View '.'<i class="far fa-arrow-alt-circle-right";"></i></a><center>
                             </tr>
                     ';
                 }
