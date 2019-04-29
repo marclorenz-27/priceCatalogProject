@@ -26,14 +26,10 @@
                 <div class="col-sm-8">
                     <div class="row">
                         <div class="col-sm-6">
-                            <!-- <a href="https://pawnhero.ph/" target="_blank"> -->
-                                <h4 title="Prices from the Pawnshop"><span class="badge badge-success shadow" target_blank>PawnHero</span></h4>
-                            <!-- </a> -->
+                                <h4 title="Prices from the Pawnshop"><span class="badge badge-success shadow">PawnHero</span></h4>
                         </div>
                     <div class="col-sm-6">
-                        <!-- <a href="https://luxein.com/" target="_blank"> -->
-                            <h4 title="Prices based on selling prices from MarketPlace / Luxe/In"><span class="badge badge-dark shadow">MarketPlace</span></h4>
-                        <!-- </a> -->
+                            <h4 title="Prices based on selling prices from MarketPlace"><span class="badge badge-dark shadow">MarketPlace</span></h4>
                     </div>
                	</div> <p> </p>
 
@@ -48,7 +44,7 @@
 
             <div class="row">
                 <div class="col-sm-6">
-                    <div class="row">
+                    <div class="row" title="Average Pawning Price">
                         <div class="col-sm-5">
                             <h6 class="font-weight-bold">Average Price:</h6> 
                         </div>
@@ -64,7 +60,7 @@
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    <div class="row">
+                    <div class="row" title="Average Selling Price">
                         <div class="col-sm-5">
                             <h6 class="font-weight-bold">Average Price:</h6> 
                         </div>
@@ -86,7 +82,7 @@
 
             <div class="row">
                 <div class="col-sm-6">
-                    <div class="row">
+                    <div class="row" title="Maximum Pawning Price">
                         <div class="col-sm-5">
                             <h6 class="font-weight-bold">Maximum Price:</h6> 
                         </div>
@@ -103,7 +99,7 @@
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    <div class="row">
+                    <div class="row" title="Maximum Selling Price">
                         <div class="col-sm-5">
                             <h6 class="font-weight-bold">Maximum Price:</h6> 
                         </div>
@@ -117,7 +113,7 @@
 
             <div class="row">
                 <div class="col-sm-6">
-                    <div class="row">
+                    <div class="row" title="Minimum Pawning Price">
                         <div class="col-sm-5">
                             <h6 class="font-weight-bold">Minimum Price:</h6>
                         </div>
@@ -136,7 +132,7 @@
                 <div class="col-sm-6">
                     <div class="row">
                         <div class="col-sm-5">
-                            <h6 class="font-weight-bold">Minimum Price:</h6> 
+                            <h6 class="font-weight-bold" title="Minimum Price">Minimum Price:</h6> 
                         </div>
                         <div class="col-sm-5">
                             <h5><span class="badge badge-danger" style="text-align: left;">&#8369; 

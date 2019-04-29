@@ -85,7 +85,7 @@
                             <tr>
                                 <td><b>'.$row->category_name.'</b></td>
                                 <td>'.$row->brand_name.'</a></td>
-                                <td>'.'<a href="'.base_url().'products/view/'.$row->slug.'" target="_blank">'.$row->product_name.'</a></td>
+                                <td>'.'<a href="'.base_url().'products/view/'.$row->slug.'">'.$row->product_name.'</a></td>
                                 <td> &#x20b1; '.number_format($row->average_appraised_amount,2,".",",").'
                                 </td>
                                 <td>'.date("F d, Y", strtotime($row->date_created)). '</td>
@@ -116,7 +116,7 @@
             $data['avg_appraised_amount'] = $this->product_model->get_average_appraised_amount($data['product_name'], $data['brand_name'], $data['category_name']);
             $data['min_appraised_amount'] = $this->product_model->get_minimum_appraised_amount($data['product_name'], $data['brand_name'], $data['category_name']);
             $data['max_appraised_amount'] = $this->product_model->get_maximum_appraised_amount($data['product_name'], $data['brand_name'], $data['category_name']);
-            $data['products_by_product_name'] = $this->product_model->get_products_by_product_name($data['product_name'], $data['brand_name']);
+            $data['products_by_product_name'] = $this->product_model->get_products_by_product_name($data['product_name'], $data['brand_name'], $data['category_name']);
             $data['products_by_product_name_rows'] = $this->product_model->get_products_by_product_name_rows($data['product_name'], $data['brand_name'], $data['category_name']); 
             $this->load->view('templates/header');
             $this->load->view('products/view', $data);
