@@ -6,8 +6,10 @@
         {
             $data['title'] = 'Product Price Catalog';
             //$data['products_count'] = $this->product_model->get_products_count(); removed/set as comment           
+
+            //the following loads view templates header content and footer.
             $this->load->view('templates/header');
-            $this->load->view('products/index', $data);
+            $this->load->view('products/index', $data); //data passed on the index page
             $this->load->view('templates/footer');
         }
 
@@ -79,6 +81,7 @@
 
         public function view($slug = NULL)
         {
+            //Assigning of the data returned from the methods in the Product Model into data variables.
             $data['products'] = $this->product_model->get_products($slug);
             $data['product_name'] = $data['products']['product_name'];
             $data['brand_name'] = $data['products']['brand_name'];
@@ -88,15 +91,17 @@
             $data['max_appraised_amount'] = $this->product_model->get_maximum_appraised_amount($data['product_name'], $data['brand_name'], $data['category_name']);
             $data['products_by_product_name'] = $this->product_model->get_products_by_product_name($data['product_name'], $data['brand_name'], $data['category_name']);
             $data['products_by_product_name_rows'] = $this->product_model->get_products_by_product_name_rows($data['product_name'], $data['brand_name'], $data['category_name']); 
+
             $this->load->view('templates/header');
-            $this->load->view('products/view', $data);
+            $this->load->view('products/view', $data); //data passed on the view page
             $this->load->view('templates/footer');
         }
     }
 
     /*
-        pagination configuration
-        you may include this on the index method
+            pagination configuration
+            you may include this in the index method
+
             $config['base_url'] = base_url() . '/products/index/';
             $config['total_rows'] = $data['products_count'];
             $config['per_page'] = 5;
