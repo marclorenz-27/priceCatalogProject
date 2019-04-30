@@ -195,7 +195,7 @@
                                     echo "&#8369; " . number_format($product['appraised_amount'],2,".",","); 
                                 ?>
                             </p>
-                            <p class="card-text"><b>Pawning Date:</b><br> <?php  echo date("F d, Y", strtotime($product['date_created'])); ?></p>
+                            <p class="card-text"><b>Pawning Date:</b><br> <?php  echo date("F d, Y",strtotime($product['max_date'])); ?></p>
                         </div>
                     </div>
                 <?php endforeach; ?>

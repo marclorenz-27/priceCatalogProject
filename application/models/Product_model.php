@@ -30,10 +30,9 @@
             $this->db->join('ph_category', 'ph_category.category_id = ph_category_brand.category_id', 'LEFT');
             $this->db->join('ph_brand', 'ph_brand.brand_id = ph_category_brand.brand_id', 'LEFT');
             $this->db->order_by('category_name, brand_name, product_name');
-            $this->db->order_by('date_created', 'DESC');
             $this->db->group_by('product_name, brand_name', 'category_name');
-            return $query = $this->db->get('pawnhero.ph_product', 35, $this->uri->segment(0));     
-            $products = $query->result_array();
+
+            return $query = $this->db->get('pawnhero.ph_product', 35, $this->uri->segment(0));               
         }
 
         public function get_products($slug = false)
@@ -119,9 +118,14 @@
 
         public function get_products_by_product_name($product_name, $brand_name = false, $category_name = false)
         {
+            $this->db->select('ph_product.*');
+            $this->db->select('ph_brand.brand_name');
+            $this->db->select_max('ph_product.date_created', 'max_date');
             $this->db->join('ph_category_brand', 'ph_category_brand.category_brand_id = ph_product.category_brand_id', 'LEFT');
             $this->db->join('ph_category', 'ph_category.category_id = ph_category_brand.category_id', 'LEFT');
             $this->db->join('ph_brand', 'ph_brand.brand_id = ph_category_brand.brand_id', 'LEFT');
+            $this->db->order_by('category_name, brand_name, product_name');
+            $this->db->group_by('product_name', 'brand_name', 'category_name');
             $query = $this->db->get_where('ph_product', array('product_name' => $product_name, 'brand_name' => $brand_name, 'category_name' => $category_name));
             return $query->result_array();
         }
@@ -219,7 +223,7 @@
             $this->db->join('ph_category', 'ph_category.category_id = ph_category_brand.category_id', 'LEFT');
             $this->db->join('ph_brand', 'ph_brand.brand_id = ph_category_brand.brand_id', 'LEFT');
             $this->db->order_by('category_name, brand_name, product_name');
-            $this->db->group_by('product_name, brand_name', 'category_name');
+            $this->db->group_by('product_name', 'brand_name', 'category_name');
             $this->db->get_where('ph_product', array('product_name' => $product_name, 'brand_name' => $brand_name));
             return $query->num_rows();
         }
