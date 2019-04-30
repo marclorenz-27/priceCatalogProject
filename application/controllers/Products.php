@@ -5,34 +5,7 @@
         public function index($slug = NULL)
         {
             $data['title'] = 'Product Price Catalog';
-            $data['products_count'] = $this->product_model->get_products_count();
-
-            $config['base_url'] = base_url() . '/products/index/';
-            $config['total_rows'] = $data['products_count'];
-            $config['per_page'] = 5;
-            $config['full_tag_open'] = '<ul class="pagination">';
-            $config['full_tag_close'] = '</ul> &nbsp;';
-
-            $config['first_tag_open'] = '<li>';
-            $config['last_tag_open'] = '<li>';
-
-            $config['next_tag_open'] = '<li>';
-            $config['prev_tag_open'] = '<li>';
-
-            $config['num_tag_open'] = '<li>';
-            $config['num_tag_close'] = '</li>&nbsp;';
-
-            $config['first_tag_close'] = '</li>&nbsp;';
-            $config['last_tag_close'] = '</li>&nbsp;';
-
-            $config['next_tag_close'] = '</li>&nbsp;';
-            $config['prev_tag_close'] = '</li>&nbsp;';
-
-            $config['cur_tag_open'] = "<li class=\"active\"><span><b>";
-            $config['cur_tag_close'] = "</b></span></li>&nbsp;";
-
-            $this->pagination->initialize($config);
-            
+            //$data['products_count'] = $this->product_model->get_products_count(); removed/set as comment           
             $this->load->view('templates/header');
             $this->load->view('products/index', $data);
             $this->load->view('templates/footer');
@@ -77,8 +50,7 @@
                 </tfoot>
             ';
 
-            if($data->num_rows() > 0)
-            {
+            if($data->num_rows() > 0) {
                 foreach ($data->result() as $row) 
                 {
                     $output .='
@@ -94,8 +66,7 @@
                     ';
                 }
             }
-            else
-            {
+            else {
                 $output .='<tr>
                             <td colspan="6" style="text-align:center;" class="bg-dark text-light">
                                    <i class="fab fa-dropbox data-icon" style="font-size: 30px; color:#2681C1"></i> &nbsp;&nbsp; No Record Found &nbsp;&nbsp; <i class="fas fa-cat data-icon" style="font-size: 24px; color:#69C058;"></i>
@@ -112,7 +83,6 @@
             $data['product_name'] = $data['products']['product_name'];
             $data['brand_name'] = $data['products']['brand_name'];
             $data['category_name'] = $data['products']['category_name'];
-
             $data['avg_appraised_amount'] = $this->product_model->get_average_appraised_amount($data['product_name'], $data['brand_name'], $data['category_name']);
             $data['min_appraised_amount'] = $this->product_model->get_minimum_appraised_amount($data['product_name'], $data['brand_name'], $data['category_name']);
             $data['max_appraised_amount'] = $this->product_model->get_maximum_appraised_amount($data['product_name'], $data['brand_name'], $data['category_name']);
@@ -123,3 +93,33 @@
             $this->load->view('templates/footer');
         }
     }
+
+    /*
+        pagination configuration
+        you may include this on the index method
+            $config['base_url'] = base_url() . '/products/index/';
+            $config['total_rows'] = $data['products_count'];
+            $config['per_page'] = 5;
+            $config['full_tag_open'] = '<ul class="pagination">';
+            $config['full_tag_close'] = '</ul> &nbsp;';
+
+            $config['first_tag_open'] = '<li>';
+            $config['last_tag_open'] = '<li>';
+
+            $config['next_tag_open'] = '<li>';
+            $config['prev_tag_open'] = '<li>';
+
+            $config['num_tag_open'] = '<li>';
+            $config['num_tag_close'] = '</li>&nbsp;';
+
+            $config['first_tag_close'] = '</li>&nbsp;';
+            $config['last_tag_close'] = '</li>&nbsp;';
+
+            $config['next_tag_close'] = '</li>&nbsp;';
+            $config['prev_tag_close'] = '</li>&nbsp;';
+
+            $config['cur_tag_open'] = "<li class=\"active\"><span><b>";
+            $config['cur_tag_close'] = "</b></span></li>&nbsp;";
+
+            $this->pagination->initialize($config);
+    */

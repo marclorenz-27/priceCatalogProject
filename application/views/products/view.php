@@ -1,5 +1,4 @@
 </head>
-
 <body>
     <div class="row">
         <a href="<?php echo base_url('products'); ?>" class="btn btn-success shadow" style="color: white; float:left"><i class='far fa-arrow-alt-circle-left'></i> Back to Catalog</a>
@@ -67,12 +66,7 @@
                         <div class="col-sm-5">
                             <h5><span class="badge badge-primary" style="text-align: left;">&#8369;
                                 <?php		
-                                    /*
-                                    foreach ($avg_price_sold->result() as $row) 
-                                    {
-                                        echo number_format($row->price_sold, 2) . "<br>";
-                                    }
-                                    */
+                                    echo "nn,nnn.nn";
                                 ?>
                             </span></h5>
                         </div>
@@ -104,7 +98,7 @@
                             <h6 class="font-weight-bold">Maximum Price:</h6> 
                         </div>
                         <div class="col-sm-5">
-                            <h5><span class="badge badge-warning" style="text-align: left;">&#8369;
+                            <h5><span class="badge badge-warning" style="text-align: left;">&#8369; nn,nnn.nn
                             </span></h5>
                         </div>
                     </div>
@@ -137,10 +131,7 @@
                         <div class="col-sm-5">
                             <h5><span class="badge badge-danger" style="text-align: left;">&#8369; 
                                 <?php
-                                    /*foreach ($max_price_sold->result() as $row)
-                                    {
-                                        echo number_format($row->price_sold, 2) . "<br>";
-                                    }*/
+                                    echo "nn,nnn.nn";
                                 ?>
                             </span></h5>
                         </div>
@@ -186,7 +177,7 @@
             <div class="row">
                 <?php foreach ($products_by_product_name as $product): ?>
                     <div class="card shadow p-3 mb-5 bg-white rounded" style="width: 14rem; ">
-                        <img class="card-img-top" src="<?php/* echo $product['destination']; */  ?>" alt="<?php  echo $product['product_name'] . " Image (alt name)"; ?>"	 style="padding: 2vh">	
+                        <img class="card-img-top" src="" alt="<?php  echo $product['product_name']." - image"; ?>"	 style="padding: 2vh">	
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $product['product_name']; ?></h5>
                             <h6 class="text-secondary" style="font-weight: bold;"> <span class="badge badge-secondary"><?php echo $product['brand_name'];  ?></span></h6>
@@ -200,20 +191,17 @@
                     </div>
                 <?php endforeach; ?>
             </div> <br>
-            <!-- Display of Selling Price Heading -->
-            <div class="row" style="display: none">
+            <div class="row">
                 <h3 class="font-weight-bold">All Selling Prices</h3><br><br>
             </div>
-            <!-- Display of Selling Price Data -->
-            <div class="row" style="display: none">
-                <?php /* foreach ($product_selling_records as $record): */?>
+            <div class="row">
                     <div class="card" style="width: 14rem; ">
-                        <img class="card-img-top" src="<?php /* echo $record['destination']; */ ?>" alt="" style="padding: 2vh">	
+                        <img class="card-img-top" src="" alt="product-image" style="padding: 2vh">	
                         <div class="card-body">
-                            <h5 class="card-title"><?php /* echo $record['product_name']; */ ?></h5>
-                            <h6 class="text-secondary" style="font-weight: bold;"> <span class="badge badge-secondary"><?php /* echo $record['brand_name']; */?></span></h6>
-                            <p class="card-text"><b>Selling Price:</b> <br> <?php /* echo "&#8369; " . number_format($record['appraised_amount'], 2); */?></p>
-                            <p class="card-text"><b>Selling Date:</b><br> <?php /* echo date("F d, Y", strtotime($record['selling_date'])); */ ?></p>
+                            <h5 class="card-title"><?php echo "Product Name"; ?></h5>
+                            <h6 class="text-secondary" style="font-weight: bold;"> <span class="badge badge-secondary"><?php echo "Brand Name";?></span></h6>
+                            <p class="card-text"><b>Selling Price:</b> <br> <?php echo "Price"; ?></p>
+                            <p class="card-text"><b>Selling Date:</b><br> <?php echo "Date"; ?></p>
                         </div>
                     </div>
                 <?php /* endforeach; */ ?>

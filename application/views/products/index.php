@@ -10,12 +10,8 @@
   </div>
 
   <div id="result" style="margin-top: 2vh">
-
+    <!-- The result here is given by the Products.php (Product Controller - fetch method) -->
   </div>
-      <center>
-     <?php 
-     // echo $this->pagination->create_links(); ?>
-    </center>
   <div style="clear:both"></div>
 
   <script>
