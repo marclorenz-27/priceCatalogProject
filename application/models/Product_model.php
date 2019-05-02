@@ -9,6 +9,7 @@
             $this->load->database();
             $this->db2 = $this->load->database('otherdb', true);
         }
+        
             /*
                 Function Name: fetch_data()
                 Description:
@@ -24,6 +25,7 @@
                     The results are only limited for just 35 records. just for performance.
                     LIKE method is being used to provide results, please use fulltext search to make it faster.
             */
+
 
         function fetch_data($query)
         {
@@ -41,7 +43,6 @@
                 $this->db->or_like('category_name', $query);
                 $this->db->or_like('product_name', $query);
                 $this->db->or_like('appraised_amount', $query);
-               
             }
 
             $this->db->having('average_appraised_amount > 0'); 

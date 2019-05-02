@@ -8,6 +8,7 @@
             //$data['products_count'] = $this->product_model->get_products_count(); removed/set as comment           
 
             //the following loads view templates header content and footer.
+            
             $this->load->view('templates/header');
             $this->load->view('products/index', $data); //data passed on the index page
             $this->load->view('templates/footer');
