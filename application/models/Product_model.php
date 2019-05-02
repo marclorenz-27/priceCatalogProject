@@ -4,14 +4,17 @@
         public function __construct()
         {
             /*
-                This function is used to load the databases initially as the application starts.
+                This method is used to initially load the two databases as the application starts.
             */
             $this->load->database();
             $this->db2 = $this->load->database('otherdb', true);
         }
-        
+
+        public function fetch_data($query)
+        {
             /*
                 Function Name: fetch_data()
+                
                 Description:
                     This method returns the products based on the query given. This works with the search functionality of the application. 
 
@@ -27,9 +30,8 @@
             */
 
 
-        function fetch_data($query)
-        {
             //Queries for the data being displayed on the index page.
+            
             $this->db->select('pawnhero.ph_category.category_name');
             $this->db->select('pawnhero.ph_brand.brand_name');
             $this->db->select('pawnhero.ph_product.product_name');
@@ -51,7 +53,6 @@
             $this->db->join('ph_brand', 'ph_brand.brand_id = ph_category_brand.brand_id', 'LEFT');
             $this->db->order_by('category_name, brand_name, product_name');
             $this->db->group_by('product_name, brand_name', 'category_name');
-
             return $query = $this->db->get('pawnhero.ph_product', 35, $this->uri->segment(0));               
         }
 
